@@ -1,11 +1,11 @@
 # ASD1: Algorithmes et structures de données 1 
-Semestre de printemps 2019
+Semestre de printemps 2019 <BR>
 Olivier Cuisenaire
 
 
 ## Jupyter Notebooks sans installation locale
 
-Vous pouvez visualiser et exeécuter les notebooks sur le cloud en clickant [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ocuisenaire/ASD1-notebooks/master)
+Vous pouvez visualiser et exécuter les notebooks sur le cloud en clickant [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ocuisenaire/ASD1-notebooks/master)
 
 ## Installation locale
 
