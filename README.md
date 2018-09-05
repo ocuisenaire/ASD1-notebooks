@@ -3,16 +3,20 @@ Semestre de printemps 2019 <BR>
 Olivier Cuisenaire
 
 
-## Jupyter Notebooks sans installation locale
+## Jupyter Notebooks sans interaction
 
-Vous pouvez visualiser et exécuter les notebooks sur le cloud en clickant [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ocuisenaire/ASD1-notebooks/master)
+Vous pouvez visualiser les notebooks directement sur ce repository github, qui les affiche en utilisant [nbviewer](https://nbviewer.jupyter.org)
+
+## Jupyter Notebooks interactifs sans installation locale
+
+Vous pouvez visualiser et exécuter les notebooks sur le cloud avec [Binder](https://mybinder.org/v2/gh/ocuisenaire/ASD1-notebooks/master)
 
 ## Installation locale
 
-Installer git
+Installer [git](https://git-scm.com/downloads)
 
 Cloner ce repository via la commande `git clone https://github.com/ocuisenaire/ASD1-notebooks` 
 
-Installer jupyter notebook
+Installer [jupyter notebook](http://jupyter.org/install.html)
 
-Dans un terminal, aller dans le répertoire du repository et lancer la commande `jupyter notebook`. Cela lance un serveur local et y accède via votre navigateur. Pour arrêter le serveur, retourner dans le terminal et tapez `CTRL-D`. 
+Dans un terminal, aller dans le répertoire du repository et lancer la commande `jupyter notebook`. Cela lance un serveur local et y accède via votre navigateur. Pour arrêter le serveur, retourner dans le terminal et tapez `CTRL-C`. 
