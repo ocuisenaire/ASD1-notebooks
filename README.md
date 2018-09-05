@@ -2,6 +2,7 @@
 Semestre de printemps 2019 <BR>
 Olivier Cuisenaire
 
+Ce repository contient les Jupyter Notebooks servant de support à mon cours d'ASD1. Si vous n'êtes pas familiers avec ces notebooks, prenez quelques minutes pour lire les [Notebook Basics](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
 
 ## Jupyter Notebooks sans interaction
 
