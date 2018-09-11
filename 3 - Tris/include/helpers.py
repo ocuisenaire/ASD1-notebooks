@@ -24,6 +24,28 @@ def visualisation_tri_par_selection():
         it += 1
         afficheIteration(T,it)
         
+def visualisation_tri_par_insertion():
+
+    T = np.random.randint(0,100,50)
+    N = len(T)
+    it = 0
+
+    afficheIteration(T,it)
+
+    for k in range(1,N):
+        tmp = T[k]
+        
+        i = k
+        while i > 0 and tmp < T[i-1]:
+            T[i] = T[i-1]
+            i -= 1
+        T[i] = tmp
+        
+        it += 1
+        if it % 7 == 0: 
+            afficheIteration(T,it)
+
+        
 def affiche_complexite(X,C1,C2,titre):
     
     X2 = [ x*x for x in X ]
@@ -31,7 +53,7 @@ def affiche_complexite(X,C1,C2,titre):
 
     plt.title("Complexité du {}".format(titre))
     plt.loglog(X,C1,label='comparaisons')
-    plt.loglog(X,C2,label='echanges')
+    plt.loglog(X,C2,label='écritures ou échanges')
     plt.loglog(X,X2,label='quadratique',linestyle='dotted')
     plt.loglog(X,XlogX,label='linéarithmique',linestyle='dotted')
     plt.loglog(X,X,label='linéaire',linestyle='dotted')
