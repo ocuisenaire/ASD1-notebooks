@@ -45,6 +45,7 @@ def visualisation_tri_par_insertion():
         if it % 7 == 0: 
             afficheIteration(T,it)
 
+####### Test complexités       
         
 def affiche_complexite(X,C1,C2,titre):
     
@@ -89,6 +90,8 @@ def tableau_trie(n):
 def tableau_trie_inverse(n):
     return list(range(n,0,-1))
     
+####### Test stabilité en toutes lettres    
+    
 def tableau_de_noms():
     TAB = []
     TAB.append( ("Aubert","Beatrice") )
@@ -115,5 +118,31 @@ def compare_prenoms(a,b):
 def compare_noms(a,b):
     return a[0] < b[0]
 
+####### Test stabilité visuel
 
+def comp_int(a,b):
+    return int(a) < int(b)
 
+def comp_frac(a,b):
+    return (a-int(a)) < (b - int(b))
+
+def comp(a,b):
+    return a<b
+
+def test_stabilite(algorithme):
+    T = np.random.uniform(0,7,50)
+    T2 = T.copy()
+    N = len(T)
+    
+    algorithme(T,comp_frac)
+    algorithme(T,comp_int)
+
+    algorithme(T2,comp)
+    
+    if (T == T2).all():
+        print("\nLe tri est stable")
+    else:
+        print("\nLe tri n'est pas stable")
+        
+    plt.stem(T,markerfmt=',',linefmt='black',basefmt='black')
+    plt.show()
