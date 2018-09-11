@@ -90,11 +90,11 @@ def affiche_complexite(X,C1,C2,titre):
         if i % int(len(X)/7) == 0:
             print("{:>5} |{:>10} |{:>10}".format(x,c1,c2))
             
-def evalue_complexite(algorithme, genere_tab, nom):
+def evalue_complexite(algorithme, genere_tab, nom, logmax = 3):
     
     C1 = []
     C2 = []
-    X = [ int(x) for x in np.logspace(1,3,50) ]
+    X = [ int(x) for x in np.logspace(1,logmax,50) ]
     
     for n in X:
         T = genere_tab(n)
