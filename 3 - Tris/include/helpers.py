@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-def afficheIteration(T,it):
+def afficheIteration(T,titre):
     plt.stem(T,markerfmt=',',linefmt='black',basefmt='black')
-    plt.title('Iteration {0}'.format(it))
+    plt.title(titre)
     plt.show()
     
 def visualisation_tri_par_selection():
@@ -13,7 +13,7 @@ def visualisation_tri_par_selection():
     N = len(T)
     it = 0
 
-    afficheIteration(T,it)
+    afficheIteration(T,'Tableau original')
 
     for i in range(0,N-1):
         jMin = i
@@ -22,7 +22,7 @@ def visualisation_tri_par_selection():
                 jMin = j
         T[jMin],T[i] = T[i],T[jMin]       
         it += 1
-        afficheIteration(T,it)
+        afficheIteration(T,'Iteration {0}'.format(it))
         
 def visualisation_tri_par_insertion():
 
@@ -30,7 +30,7 @@ def visualisation_tri_par_insertion():
     N = len(T)
     it = 0
 
-    afficheIteration(T,it)
+    afficheIteration(T,'Tableau original')
 
     for k in range(1,N):
         tmp = T[k]
@@ -43,8 +43,31 @@ def visualisation_tri_par_insertion():
         
         it += 1
         if it % 7 == 0: 
-            afficheIteration(T,it)
+            afficheIteration(T,'Iteration {0}'.format(it))
 
+def visualisation_tri_de_shell():
+
+    T = np.random.randint(0,100,50)
+    N = len(T)
+    it = 0
+
+    afficheIteration(T,'Tableau original')
+
+    N = len(T)
+    h = 1
+    while h*3 < N:
+        h = 3*h+1       
+    while h >= 1:      
+        for j in range(1,N):
+            tmp = T[j]
+            i = j
+            while i > h-1 and tmp < T[i-h]:
+                T[i] = T[i-h]
+                i -= h
+            T[i] = tmp
+        afficheIteration(T,'Après le {0}-tri'.format(h))
+        h = h//3               
+            
 ####### Test complexités       
         
 def affiche_complexite(X,C1,C2,titre):
