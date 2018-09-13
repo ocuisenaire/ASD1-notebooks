@@ -67,7 +67,49 @@ def visualisation_tri_de_shell():
             T[i] = tmp
         afficheIteration(T,'Après le {0}-tri'.format(h))
         h = h//3               
-            
+                    
+def fusion_visu(T,premier,limite,dernier): 
+    nb_comparaisons = nb_ecritures = 0
+    
+    T1 = T[premier:limite].copy()
+    T2 = T[limite:dernier].copy()
+    
+    i = premier; i1 = i2 = 0
+    
+    while i1 < len(T1) and i2 < len(T2):
+        nb_comparaisons += 1
+        if T2[i2] < T1[i1]:
+            T[i] = T2[i2]; i2 += 1; nb_ecritures += 1
+        else:
+            T[i] = T1[i1]; i1 += 1; nb_ecritures += 1
+        i += 1
+
+    for j in range(i1,len(T1)):
+        T[i] = T1[j]; i += 1; nb_ecritures += 1
+
+    for j in range(i2,len(T2)):
+        T[i] = T2[j]; i += 1; nb_ecritures += 1
+        
+    return nb_comparaisons, nb_ecritures
+        
+def tri_fusion_recursif_visu(T,premier,dernier):      
+    N = dernier - premier
+    if N >= 2:          
+        milieu = premier + int(N/2)
+        tri_fusion_recursif_visu(T,premier,milieu)
+        tri_fusion_recursif_visu(T,milieu,dernier)
+        fusion_visu(T,premier,milieu,dernier)
+        if N > 9:
+            afficheIteration(T,"Après Fusion({0},{1},{2}) ".format(
+                premier, milieu, dernier))
+
+def visualisation_tri_fusion():
+    T = np.random.randint(0,100,64)
+    N = len(T)
+    it = 0
+    afficheIteration(T,'Tableau original')         
+    tri_fusion_recursif_visu(T,0,len(T))
+    
 ####### Test complexités       
         
 def affiche_complexite(X,C1,C2,titre):
@@ -169,3 +211,17 @@ def test_stabilite(algorithme):
         
     plt.stem(T,markerfmt=',',linefmt='black',basefmt='black')
     plt.show()
+    
+def tab(N):
+    return "".rjust(4-2*int(np.log2(N))) 
+
+def affiche_entree_fusion(T,premier, limite, dernier):
+    N = dernier - premier
+    print(T,tab(N),"M({0},{1},{2}) ".format(premier, limite, dernier))
+    
+def affiche_sortie_fusion(T1,T2,T):
+    print("  {0} + {1} => {2}".format(T1,T2,T))
+    
+def affiche_entree_tri_fusion(T,premier, dernier):
+    N = dernier - premier
+    print(T,tab(N),"S({0},{1})".format(premier,dernier))
