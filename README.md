@@ -4,7 +4,7 @@ Olivier Cuisenaire
 
 Ce repository contient les Jupyter Notebooks servant de support à mon cours d'ASD1. Si vous n'êtes pas familiers avec ces notebooks, prenez quelques minutes pour lire les [Notebook Basics](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
 
-Certains notebooks sont utilisés pour générer des présentations pour le cours. Vous les retrouverez sur [https://ocuisenaire.github.io/ASD1-notebooks/]
+Certains notebooks sont utilisés pour générer des présentations pour le cours. Vous les retrouverez sur https://ocuisenaire.github.io/ASD1-notebooks/
 
 ## Jupyter Notebooks sans interaction
 
