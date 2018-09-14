@@ -1,8 +1,8 @@
 
 Ce site regroupe les présentations pour le cours d'algorithmes et structures de données 1 (ASD1) du département des Technologies de l'Information et de la Communication (TIC) de la [
-HEIG-VD](http://www.heig-vd.ch). 
+HEIG-VD](http://www.heig-vd.ch).
 
-Ces présentations sont basées sur les jupyter notebooks que vous trouverez dans le repository github associé à ces pages. 
+Ces présentations sont basées sur les jupyter notebooks que vous trouverez dans le repository github associé à ces pages.
 
 ## Introduction
 
@@ -10,7 +10,9 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 
 ## Récursivité
 
-## Tris 
+## Tris
+
+* [Tri à bulles](3.1.a - Tri à Bulles.slides.html)
 
 ## Stuctures linéaires
 
