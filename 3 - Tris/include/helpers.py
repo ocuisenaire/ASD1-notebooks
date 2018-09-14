@@ -15,6 +15,11 @@ def echanger(T,i,j):
     echange_cnt += 1
     T[i],T[j] = T[j],T[i]
     
+def assigner(a):
+    global echange_cnt
+    echange_cnt += 1
+    return a
+ 
 def plus_petit(a,b):
     global compare_cnt
     compare_cnt += 1
