@@ -2,6 +2,29 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
+
+
+verbose = True
+graphic = False
+echange_cnt = 0
+compare_cnt = 0
+
+
+def echanger(T,i,j):
+    global echange_cnt
+    echange_cnt += 1
+    T[i],T[j] = T[j],T[i]
+    
+def plus_petit(a,b):
+    global compare_cnt
+    compare_cnt += 1
+    return a < b
+    
+def plus_petit_ou_egal(a,b):
+    global compare_cnt
+    compare_cnt += 1
+    return a <= b
+
 def afficheIteration(T,titre):
     plt.stem(T,markerfmt=',',linefmt='black',basefmt='black')
     plt.title(titre)
@@ -110,6 +133,26 @@ def visualisation_tri_fusion():
     afficheIteration(T,'Tableau original')         
     tri_fusion_recursif_visu(T,0,len(T))
     
+def affiche_partition(T,start,end,p):
+    X = list(range(0,len(T)))
+    plt.stem(X,T,markerfmt=',',linefmt='grey',basefmt='black')
+    PG = [ t if i >= start and i < end and t > T[p] else 0 for i,t in enumerate(T) ]
+    plt.stem(X,PG,markerfmt=',',linefmt='red',basefmt='black')
+    PP = [ t if i >= start and i < end and t <= T[p] and i != p else 0 for i,t in enumerate(T) ]
+    plt.stem(X,PP,markerfmt=',',linefmt='black',basefmt='black')
+    PIV = [0]*len(T); PIV[p] = T[p]
+    plt.stem(X,PIV,markerfmt=',',linefmt='yellow',basefmt='black')
+    plt.show()
+    
+def affichage_debut_partition(T,premier,dernier):
+    if verbose: print(T[premier:dernier-1],T[dernier-1],end=" => ")
+
+def affichage_fin_partition(T,premier,dernier,i):
+    if verbose: print(T[premier:i],T[i],T[i+1:dernier])    
+    if graphic: affiche_partition(T,premier,dernier,i)
+        
+
+        
 ####### Test complexités       
         
 def affiche_complexite(X,C1,C2,titre):
@@ -133,16 +176,21 @@ def affiche_complexite(X,C1,C2,titre):
             print("{:>5} |{:>10} |{:>10}".format(x,c1,c2))
             
 def evalue_complexite(algorithme, genere_tab, nom, logmax = 3):
+    global compare_cnt, echange_cnt, verbose
+    verbose = False
     
     C1 = []
     C2 = []
     X = [ int(x) for x in np.logspace(1,logmax,50) ]
     
     for n in X:
+        compare_cnt = echange_cnt = 0
+        
         T = genere_tab(n)
-        comp, ech = algorithme(T)
-        C1.append(comp)
-        C2.append(ech)
+        algorithme(T)
+        
+        C1.append(compare_cnt)
+        C2.append(echange_cnt)
     
     affiche_complexite(X,C1,C2,nom)
     
