@@ -14,6 +14,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 
 * [Tri à bulles](3.1.a - Tri à Bulles.slides.html)
   * [Stabilité](3.1.b - Stabilité.slides.html)
+  * [Complexité](3.1.c - Complexité.slides.html)
 
 ## Stuctures linéaires
 
