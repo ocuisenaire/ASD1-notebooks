@@ -161,7 +161,10 @@ def affichage_fin_partition(T,premier,dernier,i):
 ####### Test complexités       
         
 def affiche_complexite(X,C1,C2,titre):
-    
+        
+    fig, ax = plt.subplots()
+
+
     X2 = [ x*x for x in X ]
     XlogX = [ x*np.log2(x) for x in X ]
 
@@ -172,13 +175,21 @@ def affiche_complexite(X,C1,C2,titre):
     plt.loglog(X,XlogX,label='linéarithmique',linestyle='dotted')
     plt.loglog(X,X,label='linéaire',linestyle='dotted')
     plt.legend()
-    plt.show() 
-        
-    print("{:>5} |{:>10} |{:>10}".format("N","Comp.","Ech."))
-    print("-------------------------------")
+    
+    text = "{:>5} |{:>10} |{:>10}\n".format("N","Comp.","Ecr.")
+    text += "-------------------------------\n"
     for i,(x,c1,c2) in enumerate(zip(X,C1,C2)):
         if i % int(len(X)/7) == 0:
-            print("{:>5} |{:>10} |{:>10}".format(x,c1,c2))
+            text += "{:>5} |{:>10} |{:>10}\n".format(x,c1,c2)
+    
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    font = matplotlib.font_manager.FontProperties(); 
+    font.set_family('monospace'); font.set_size(14)
+    ax.text(1.05, 0.95, text, transform=ax.transAxes, fontproperties=font,
+        verticalalignment='top', bbox=props)
+    
+    plt.show() 
+ 
             
 def evalue_complexite(algorithme, genere_tab, nom, logmax = 3):
     global compare_cnt, echange_cnt, verbose
