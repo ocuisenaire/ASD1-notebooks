@@ -17,6 +17,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
   * [Complexité](3.1.c - Complexité.slides.html)
 * [Tri par sélection](3.2 - Tri Par Sélection.slides.html)
 * [Tri par insertion](3.3 - Tri Par Insertion.slides.html)
+* [Tri de Shell](3.4 - Tri de Shell.slides.html)
 
 ## Stuctures linéaires
 
