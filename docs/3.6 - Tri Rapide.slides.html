@@ -12453,7 +12453,7 @@ a.anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_rapide_rec</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">premier</span><span class="p">,</span><span class="n">dernier</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">premier</span> <span class="o">&lt;</span> <span class="n">dernier</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>           <span class="c1"># au moins deux éléments</span>
         <span class="n">pivot</span> <span class="o">=</span> <span class="n">dernier</span> <span class="o">-</span> <span class="mi">1</span>                             <span class="c1"># choix du pivot</span>
-        <span class="n">T</span><span class="p">[</span><span class="n">pivot</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">dernier</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">dernier</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">pivot</span><span class="p">]</span>   <span class="c1"># déplacement du pivot en fin</span>
+        <span class="n">T</span><span class="p">[</span><span class="n">pivot</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">dernier</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">dernier</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">pivot</span><span class="p">]</span>   <span class="c1"># pivot en fin</span>
         
         <span class="n">pivot</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">premier</span><span class="p">,</span><span class="n">dernier</span><span class="p">)</span>
         
@@ -12586,7 +12586,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Complexit&#233;">Complexit&#233;<a class="anchor-link" href="#Complexit&#233;">&#182;</a></h1><p>Evaluons la complexité avec une entrée composée de valeurs aléatoire</p>
+<h1 id="Complexit&#233;">Complexit&#233;<a class="anchor-link" href="#Complexit&#233;">&#182;</a></h1><p>Evaluons la complexité avec une entrée composée de valeurs aléatoires</p>
 
 </div>
 </div>
