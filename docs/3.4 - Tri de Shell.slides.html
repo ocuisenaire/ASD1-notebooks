@@ -11905,7 +11905,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tri-de-Shell">Tri de Shell<a class="anchor-link" href="#Tri-de-Shell">&#182;</a></h1><p style='text-align: right;'> *Shell, D. L. (1959). "A High-Speed Sorting Procedure". Communications of the ACM. 2 (7): 30–32* </p>
+<h1 id="Tri-de-Shell">Tri de Shell<a class="anchor-link" href="#Tri-de-Shell">&#182;</a></h1><p><em>Shell, D. L. (1959). "A High-Speed Sorting Procedure". Communications of the ACM. 2 (7): 30–32</em></p>
+
 </div>
 </div>
 </div></section></section><section><section>
@@ -12094,8 +12095,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Boucle-externe">Boucle externe<a class="anchor-link" href="#Boucle-externe">&#182;</a></h2><p>La boucle externe consiste à appeler le $h$-tri pour des valeurs de $h$ décroissantes.</p>
-<p>On utilise ici la suite des valeurs $h(k) = \frac{3^k-1}{2}$ en commençant par la plus grande valeurs de $k$ telle que $h(k) &lt; \left \lceil{\frac{N}{3}}\right \rceil$, proposée par Pratt (1971).</p>
+<h2 id="Boucle-externe">Boucle externe<a class="anchor-link" href="#Boucle-externe">&#182;</a></h2><p>La boucle externe consiste à appeler le $h$-tri pour des valeurs de $h$ décroissantes. On utilise ici une suite  proposée par Pratt (1971): $h(k) = \frac{3^k-1}{2}$.</p>
 <p>Cette suite est simple à générer en notant que</p>
 <ul>
 <li>$h(0) = 1$</li>
@@ -12133,10 +12133,8 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="En-r&#233;sum&#233;">En r&#233;sum&#233;<a class="anchor-link" href="#En-r&#233;sum&#233;">&#182;</a></h2><p>Le tri de Shell comporte trois boucles imbriquées.</p>
 <ul>
-<li><p>Les deux boucles internes mettent en oeuvre le $h$-tri, un algorithme proche du tri par insertion mais sautant de l'indice i à l'indice i-h plutôt que i-1</p>
-</li>
-<li><p>La boucle externe fait varier la valeur de $h$ selon une progression biem choisie.</p>
-</li>
+<li>Les deux boucles internes mettent en oeuvre le $h$-tri</li>
+<li>La boucle externe fait varier $h$ selon une suite bien choisie. </li>
 </ul>
 
 </div>
@@ -12155,12 +12153,10 @@ a.anchor-link {
     <span class="k">while</span> <span class="n">h</span><span class="o">*</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
         <span class="n">h</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">+</span><span class="mi">1</span>
         
-    <span class="k">while</span> <span class="n">h</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-        
+    <span class="k">while</span> <span class="n">h</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>        
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
             <span class="n">tmp</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">j</span>
-
             <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">h</span><span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">comparer</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">h</span><span class="p">]):</span>
                 <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">asd1</span><span class="o">.</span><span class="n">assigner</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">h</span><span class="p">])</span>
                 <span class="n">i</span> <span class="o">-=</span> <span class="n">h</span>
@@ -12178,7 +12174,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Complexit&#233;">Complexit&#233;<a class="anchor-link" href="#Complexit&#233;">&#182;</a></h1><p>Pour évaluer la complexité de cet algorithme, évaluons d'abord la complexité du tri d'un tableau au contenu généré aléatoirement.</p>
+<h1 id="Complexit&#233;">Complexit&#233;<a class="anchor-link" href="#Complexit&#233;">&#182;</a></h1><p>Evaluons d'abord la complexité du tri d'un tableau au contenu généré aléatoirement.</p>
 
 </div>
 </div>
@@ -12188,8 +12184,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_aleatoire</span><span class="p">,</span> 
-                       <span class="s2">&quot;tri de Shell, tableau aléatoire&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_aleatoire</span><span class="p">,</span> <span class="s2">&quot;tri de Shell, tableau aléatoire&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12225,8 +12220,8 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>le nombre de comparaisons et d'écritures est quasiment égal </li>
-<li>leur complexité est proche mais légèrement plus grande que $\Theta(n.log(n))$ pour trier $n$ éléments. </li>
-<li>mais le nombre exact de comparaisons varie, sans doute en fonction du contenu du tableau</li>
+<li>leur complexité est proche mais légèrement plus grande que $\Theta(n.log(n))$. </li>
+<li>le nombre exact de comparaisons varie, sans doute en fonction du contenu du tableau</li>
 </ul>
 
 </div>
@@ -12246,8 +12241,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie</span><span class="p">,</span> 
-                      <span class="s2">&quot;tri par insertion, tableau trié&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie</span><span class="p">,</span> <span class="s2">&quot;tri par insertion, tableau trié&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12281,8 +12275,9 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cette fois la complexité est linéarithimique. En effet, chacun des $h$-tris effectue $h$ tris par insertion sur des tableaux de $\frac{n}{h}$ éléments triés, ce qui est de complexité $h \Theta(\frac{n}{h}) = \Theta(n)$.</p>
-<p>Par ailleurs, la suite des $h$ choisie implique que $log_3(n)$ $h$-tris sont effectués. On a donc une complexité totale de l'ordre de $\Theta(n.log_3(n))$ .</p>
+<p>La complexité est linéarithimique. Chacun des $h$-tris effectue $h$ tris par insertion sur des tableaux de $\frac{n}{h}$ éléments triés, ce qui donne une complexité linéraire $\Theta(n)$.</p>
+<p>Par ailleurs, la suite des $h$ choisie implique que $log_3(n)$ $h$-tris sont effectués.</p>
+<p>On a donc une complexité totale de l'ordre de $\Theta(n.log_3(n))$ .</p>
 
 </div>
 </div>
@@ -12301,8 +12296,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie_inverse</span><span class="p">,</span> 
-                       <span class="s2">&quot;tri par insertion, tableau trié inverse&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_de_shell</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie_inverse</span><span class="p">,</span> <span class="s2">&quot;tri par insertion, tableau inverse&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12336,7 +12330,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nous avons de nouveau une complexité linéarithmique. Notons que ce n'est pas le pire cas. Les $h$ parties sont ici bien équilibrées, ce qui est favorable.</p>
+<p>Nous avons de nouveau une complexité linéarithmique.</p>
+<p>Notons que ce n'est pas le pire cas. Les $h$ parties sont ici bien équilibrées, ce qui est favorable.</p>
 
 </div>
 </div>
@@ -12345,10 +12340,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Déterminer le pire des cas est sensiblement plus complexe (et hors sujet pour ce cours), mais il est possible de prouver que la complexité est alors de l'ordre de $\Theta(n^{1.5})$ pour la suite $h(k) = 3 \times h(k-1)+1$.</p>
-<p>On ne connait pas la suite $h(k)$ optimale, ni la complexité que celle-ci permettrait d'atteindre. Il semble que les meilleures suites aient un facteur de progression proche de $2.2$ plutôt que de $3$. La meilleure suite actuellement connue est 1, 4, 10, 23, 57, 132, 301, 701, 1750. (<em>Marcin Ciura, 2001</em>)</p>
+<p>Déterminer le pire des cas est sensiblement plus complexe, mais il est possible de prouver que la complexité est alors de l'ordre de $\Theta(n^{1.5})$ pour la suite $h(k) = 3 \times h(k-1)+1$.</p>
+<p>On ne connait pas la suite $h(k)$ optimale, ni la complexité qu'elle permettrait d'atteindre. Il semble que les meilleures suites aient un facteur de progression proche de $2.2$ plutôt que de $3$. La meilleure suite actuellement connue est 1, 4, 10, 23, 57, 132, 301, 701, 1750. (<em>Marcin Ciura, 2001</em>)</p>
 <p>En pratique, le tri de Shell est cependant assez proche de l'efficacité des meilleurs tris (rapide et fusion) tout en étant relativement plus simple à mettre en oeuvre.</p>
-<p>Pour cette raison, certaines implantations de qsort (C) visant les systèmes embarqués le mettent en oeuvre avec un tri de Shell plutôt qu'un tri rapide. Il est par exemple utilisé par <a href="https://fr.wikipedia.org/wiki/UClibc">uClibc</a>.</p>
+<p>Certaines implantations de qsort (C) visant les systèmes embarqués le mettent en oeuvre avec un tri de Shell plutôt qu'un tri rapide. Il est par exemple utilisé par <a href="https://fr.wikipedia.org/wiki/UClibc">uClibc</a>.</p>
 
 </div>
 </div>
@@ -12359,7 +12354,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Stabilit&#233;">Stabilit&#233;<a class="anchor-link" href="#Stabilit&#233;">&#182;</a></h2><p>Le tri de Shell n'est <strong>pas stable</strong>.</p>
 <p>Le $h$-tri avec $h&gt;1$ fait bouger les éléments sans tenir compte des $h-1$ éléments entre deux éléments d'indice égaux modulo $h$. Il est donc possible qu'il modifie l'ordre d'éléments égaux.</p>
-<p>Vérifions le avec notre test graphique triant par parties fractionnaires puis par parties entières.</p>
+<p>Vérifions le en triant par parties fractionnaires puis par parties entières.</p>
 
 </div>
 </div>
