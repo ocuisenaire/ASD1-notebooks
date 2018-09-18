@@ -11928,8 +11928,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Partition">Partition<a class="anchor-link" href="#Partition">&#182;</a></h2><h3 id="Entr&#233;e:">Entr&#233;e:<a class="anchor-link" href="#Entr&#233;e:">&#182;</a></h3><p>Le sous tableau <code>T[premier:dernier]</code> dont le dernier élément sert de pivot</p>
-<h3 id="Sortie:">Sortie:<a class="anchor-link" href="#Sortie:">&#182;</a></h3><p>L'indice <code>i</code> du pivot dans le tableau partitionné tel que</p>
+<h2 id="Partition">Partition<a class="anchor-link" href="#Partition">&#182;</a></h2><h4 id="Entr&#233;e:">Entr&#233;e:<a class="anchor-link" href="#Entr&#233;e:">&#182;</a></h4><p>Le sous tableau <code>T[premier:dernier]</code> dont le dernier élément sert de pivot</p>
+<h4 id="Sortie:">Sortie:<a class="anchor-link" href="#Sortie:">&#182;</a></h4><p>L'indice <code>i</code> du pivot dans le tableau partitionné tel que</p>
 <ul>
 <li><code>T[premier:i]</code> contient les éléments <code>&lt;= pivot</code></li>
 <li><code>T[i]</code> contient le pivot</li>
@@ -11943,8 +11943,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Algorithme:">Algorithme:<a class="anchor-link" href="#Algorithme:">&#182;</a></h3><p>deux parcours simultanés de tableau</p>
-<ul>
+<h4 id="Algorithme:-deux-parcours-simultan&#233;s-de-tableau">Algorithme: deux parcours simultan&#233;s de tableau<a class="anchor-link" href="#Algorithme:-deux-parcours-simultan&#233;s-de-tableau">&#182;</a></h4><ul>
 <li>croissant (<code>i</code>), s'arrête quand <code>T[i] &gt;= pivot</code></li>
 <li>décroissant (<code>j</code>), s'arrête quand <code>T[j] &lt;= pivot</code></li>
 </ul>
@@ -12915,7 +12914,7 @@ a.anchor-link {
 <p>$C_n$ vont donc en moyenne</p>
 <p>$C_n = (n+1) + \sum_{k=0}^{n-1} \frac{1}{n}( C_k + C_{n-1-k} )$</p>
 <p>et en notant que $\sum_{k=0}^{n-1} C_{n-1-k} = \sum_{u=0}^{n-1} C_{u}$ pour $u = n-1-k$, on obtient</p>
-<p>$C_n = (n+1) + 2 \cdot \sum_{k=0}^{n-1} ( \frac{1}{n} \cdot C_k )$</p>
+<p>$C_n = (n+1) + \frac{2}{n} \cdot \sum_{k=0}^{n-1} C_k$</p>
 
 </div>
 </div>
@@ -12953,7 +12952,7 @@ a.anchor-link {
 <p>$C_n \approx 2 \cdot (n+1) \cdot \ln n$</p>
 <p>en logarithme népérien, ce qui donne</p>
 <p>$C_n \approx 1.39 \cdot n \cdot \log n$</p>
-<p>en logorithe binaire.</p>
+<p>en logarithme binaire.</p>
 
 </div>
 </div>
