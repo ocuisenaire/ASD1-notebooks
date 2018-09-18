@@ -12350,8 +12350,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> 
-                       <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_aleatoire</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_aleatoire</span><span class="p">,</span> 
                        <span class="s2">&quot;tri par insertion, tableau aléatoire&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12381,21 +12380,25 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notons que</p>
 <ul>
-<li>le nombre de comparaisons et d'écritures est quasiment égal. La seule différence provient des rares fois ou la boucle <code>while</code> s'arrête sur le test <code>i&gt;0</code> et ne teste pas <code>comparer(tmp,T[i-1])</code> par court-circuit</li>
-<li>leur complexité est d'ordre quadratique en $\Theta(n^2)$ pour trier $n$ éléments. </li>
-<li>mais le nombre exact de comparaisons varie, sans doute en fonction du contenu du tableau</li>
+<li><p>le nombre de comparaisons et d'écritures est quasiment égal (*).</p>
+</li>
+<li><p>leur complexité est d'ordre <strong>quadratique en $\Theta(n^2)$</strong> pour trier $n$ éléments.</p>
+</li>
+<li><p>le nombre exact de comparaisons varie, sans doute en fonction du contenu du tableau</p>
+</li>
 </ul>
+<p>(*) <em>La seule différence provient des rares fois ou la boucle <code>while</code> s'arrête sur le test <code>i&gt;0</code> et ne teste pas <code>comparer(tmp,T[i-1])</code> par court-circuit</em></p>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12410,8 +12413,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> 
-                       <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie</span><span class="p">,</span> 
                        <span class="s2">&quot;tri par insertion, tableau trié&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12465,8 +12467,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> 
-                       <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie_inverse</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> <span class="n">asd1</span><span class="o">.</span><span class="n">tableau_trie_inverse</span><span class="p">,</span> 
                        <span class="s2">&quot;tri par insertion, tableau trié inverse&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12570,8 +12571,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> 
-                       <span class="n">tableau_presque_trie</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asd1</span><span class="o">.</span><span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_par_insertion</span><span class="p">,</span> <span class="n">tableau_presque_trie</span><span class="p">,</span> 
                        <span class="s2">&quot;tri par insertion&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12606,7 +12606,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La complexité est ici approximativement linéaire en $\Theta(n)$. C'est logique puisque la fonction de génération de tableau presque trié utilisée ci-dessus garanti qu'aucun élément n'est à plus de 5 places de sa position finale.</p>
+<p>La complexité est ici approximativement linéaire en $\Theta(n)$. En effet, la fonction de génération de tableau presque trié utilisée ci-dessus garantit qu'aucun élément n'est à plus de 5 places de sa position finale.</p>
 <p>Le tri par insertion est donc remarquablement efficace pour trier un tableau <em>presque</em> trié. A quel point il est efficace en pratique dépend évidemment de ce que l'on entend par <em>presque</em></p>
 
 </div>
