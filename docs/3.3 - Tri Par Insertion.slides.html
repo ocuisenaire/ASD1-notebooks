@@ -12403,7 +12403,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Vérifions cette dernière hypothèse en triant un tableau déjà trié</p>
+<p>Vérifions cette dernière hypothèse en triant un <strong>tableau déjà trié</strong></p>
 
 </div>
 </div>
@@ -12448,7 +12448,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Dans ce cas, la complexité est linéaire en $\Theta(n)$. C'est logique, le test <code>comparer(tmp,T[i-1])</code> de la boucle interne renvoyant systématiquement <code>False</code>. Un tableau d'entrées triées est donc le meilleur cas pour le tri par insertion.</p>
+<p>Dans ce cas, la complexité est <strong>linéaire</strong> en $\Theta(n)$.</p>
+<p>En effet, le test <code>comparer(tmp,T[i-1])</code> de la boucle interne renvoye toujours <code>False</code>. Un tableau d'entrées triées est donc <strong>le meilleur cas</strong> pour le tri par insertion.</p>
 
 </div>
 </div>
@@ -12502,7 +12503,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La complexité est ici quadratique en $\Theta(n^2)$. C'est le pire cas.</p>
+<p>La complexité est ici <strong>quadratique</strong> en $\Theta(n^2)$. C'est <strong>le pire cas</strong>.</p>
 
 </div>
 </div>
@@ -12511,7 +12512,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Regardons enfin un cas d'importance pratique, celui d'un tableau <em>presque trié</em>. Ecrivons d'abord une fonction générant un tel tableau.</p>
+<p>Regardons enfin un cas d'importance pratique, celui d'un tableau <strong>presque trié</strong>. Ecrivons d'abord une fonction générant un tel tableau.</p>
 
 </div>
 </div>
@@ -12674,7 +12675,7 @@ Le tri est stable
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notons que le test strict <code>tmp &lt; T[i-1]</code> est essentiel à la stabilité du tri. Si l'on le remplace par erreur par le test <code>tmp &lt;= T[i-1]</code>, ou  <code>not( T[i-1] &lt; tmp )</code>, le tri devient instable</p>
+<p>Notons que le test strict <code>tmp &lt; T[i-1]</code> est essentiel à la stabilité. Remplacer le test <code>tmp &lt;= T[i-1]</code>, ou  <code>not( T[i-1] &lt; tmp )</code> rend le tri instable</p>
 
 </div>
 </div>
@@ -12688,7 +12689,6 @@ Le tri est stable
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
         <span class="n">tmp</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        
         <span class="n">i</span> <span class="o">=</span> <span class="n">k</span>
         <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">plus_petit</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">tmp</span><span class="p">):</span>
             <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
