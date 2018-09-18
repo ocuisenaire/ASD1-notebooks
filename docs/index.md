@@ -19,6 +19,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 * [Tri par insertion](3.3 - Tri Par Insertion.slides.html)
 * [Tri de Shell](3.4 - Tri de Shell.slides.html)
 * [Tri par fusion](3.5 - Tri par Fusion.slides.html)
+* [Tri rapide](3.6 - Tri Rapide.slides.html)
 
 ## Stuctures linéaires
 
