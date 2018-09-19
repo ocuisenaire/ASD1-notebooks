@@ -12,6 +12,6 @@
 
 Vous devriez aussi essayer 
 
-* [xkcd: Ineffective Sorts](https://xkcd.com/1185/)
+* [xkcd: Ineffective Sorts](https://xkcd.com/1185/), expliqué [ici](https://www.explainxkcd.com/wiki/index.php/1185:_Ineffective_Sorts)
 * [stacksort](https://gkoberger.github.io/stacksort/)
 
