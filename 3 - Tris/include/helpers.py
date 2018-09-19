@@ -176,7 +176,7 @@ def affiche_complexite(X,C1,C2,titre):
     plt.loglog(X,X,label='linéaire',linestyle='dotted')
     plt.legend()
     
-    text = "{:>5} |{:>10} |{:>10}\n".format("N","Comp.","Ecr.")
+    text = "{:>6} |{:>10} |{:>10}\n".format("N","Comp.","Ecr.")
     text += "-------------------------------\n"
     for i,(x,c1,c2) in enumerate(zip(X,C1,C2)):
         if i % int(len(X)/7) == 0:
@@ -209,7 +209,22 @@ def evalue_complexite(algorithme, genere_tab, nom, logmax = 3):
         C2.append(echange_cnt)
     
     affiche_complexite(X,C1,C2,nom)
-    
+
+def evalue_complexite_selection(algorithme, genere_tab,nom, nombre_de_tests = 10, logmax=4):
+    global compare_cnt, echange_cnt, verbose
+
+    C1 = []; C2 = []; 
+    X = [ int(x) for x in np.logspace(1,logmax,50) ]
+
+    for n in X:
+        compare_cnt = echange_cnt = 0
+        for t in range(nombre_de_tests):
+            T = genere_tab(n)
+            algorithme(T,n//2)    
+        C1.append(compare_cnt // nombre_de_tests)
+        C2.append(echange_cnt // nombre_de_tests)
+    affiche_complexite(X,C1,C2,nom)
+
 def tableau_aleatoire(n):
     return np.random.uniform(0,1,n)
 
