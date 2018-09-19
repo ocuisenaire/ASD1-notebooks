@@ -10,3 +10,8 @@
 * Selection rapide
 * Tri par tas
 
+Vous devriez aussi essayer 
+
+* [xkcd: Ineffective Sorts](https://xkcd.com/1185/)
+* [stacksort](https://gkoberger.github.io/stacksort/)
+
