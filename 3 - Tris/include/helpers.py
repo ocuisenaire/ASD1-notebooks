@@ -20,6 +20,11 @@ def assigner(a):
     echange_cnt += 1
     return a
  
+def copier_tableau(T):
+    global echange_cnt
+    echange_cnt += len(T)
+    return T.copy()
+    
 def plus_petit(a,b):
     global compare_cnt
     compare_cnt += 1
@@ -296,11 +301,11 @@ def tab(N):
 
 def affiche_entree_fusion(T,premier, limite, dernier):
     N = dernier - premier
-    print(T,tab(N),"M({0},{1},{2}) ".format(premier, limite, dernier))
+    print(T,tab(N),"F({0},{1},{2}) ".format(premier, limite, dernier))
     
 def affiche_sortie_fusion(T1,T2,T):
     print("  {0} + {1} => {2}".format(T1,T2,T))
     
 def affiche_entree_tri_fusion(T,premier, dernier):
     N = dernier - premier
-    print(T,tab(N),"S({0},{1})".format(premier,dernier))
+    print(T,tab(N),"R({0},{1})".format(premier,dernier))
