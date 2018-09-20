@@ -297,15 +297,34 @@ def test_stabilite(algorithme):
     plt.show()
     
 def tab(N):
-    return "".rjust(4-2*int(np.log2(N))) 
+    return "".rjust(5-2*int(np.log2(N))) 
 
-def affiche_entree_fusion(T,premier, limite, dernier):
+def affiche_sous_tableau(T,premier,dernier):
     N = dernier - premier
-    print(T,tab(N),"F({0},{1},{2}) ".format(premier, limite, dernier))
-    
-def affiche_sortie_fusion(T1,T2,T):
-    print("  {0} + {1} => {2}".format(T1,T2,T))
+    for i in range(premier*3):
+        print(end = '.')
+    print(T[premier:dernier],end='')
+    for i in range((len(T)-dernier)*3):
+        print(end = '.')
+        
+def affiche_sous_tableaux(T,premier,limite,dernier):
+    N = dernier - premier
+    for i in range(premier*3):
+        print(end = '.')
+    print(T[premier:limite],end='')
+    print(T[limite:dernier],end='')
+    for i in range((len(T)-dernier)*3):
+        print(end = '.')
+        
+def affiche_entree_fusion(T,premier, limite, dernier):
+    affiche_sous_tableaux(T,premier,limite,dernier)
+    print(tab(dernier-premier),"F({0},{1},{2})".format(premier,limite,dernier))
+
+def affiche_sortie_fusion(T,premier, limite, dernier):
+    affiche_sous_tableau(T,premier,dernier) 
+    print()
     
 def affiche_entree_tri_fusion(T,premier, dernier):
-    N = dernier - premier
-    print(T,tab(N),"R({0},{1})".format(premier,dernier))
+    affiche_sous_tableau(T,premier,dernier)
+    print(tab(dernier-premier),"R({0},{1})".format(premier,dernier))
+    
