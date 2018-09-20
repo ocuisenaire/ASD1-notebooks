@@ -21,6 +21,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 * [Tri par fusion](3.5 - Tri par Fusion.slides.html)
 * [Tri rapide](3.6 - Tri Rapide.slides.html)
 * [Sélection rapide](3.7 - Sélection rapide.slides.html)
+* [Tris en C et C++](3.8 - Tris en C et C++.slides.html)
 
 ## Stuctures linéaires
 
