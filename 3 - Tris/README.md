@@ -3,7 +3,7 @@
 
 Dans ce chapitre nous passons en revue divers algorithmes de tri. Ils permettent d'ordonner le contenu d'un tableau (*) du plus petit au plus grand selon un critère donné. 
 
-Comme le veut la tradition, nous commençons par présenter trois tris simples mais peu efficaces: le [tri à bulles](./1a - Tri à Bulles.ipynb), le [tri par sélection](2 - Tri Par Sélection.ipynb) et le [tri par insertion](3 - Tri Par Insertion.ipynb).
+Comme le veut la tradition, nous commençons par présenter trois tris simples mais peu efficaces: le [tri à bulles](1a%20-%20Tri%20à%20Bulles.ipynb), le [tri par sélection](2 - Tri Par Sélection.ipynb) et le [tri par insertion](3 - Tri Par Insertion.ipynb).
 
 Nous profitons du tri à bulles pour présenter deux propriétés importantes des tris, leur [stabilité](1b - Stabilité.ipynb) et leur [complexité](1c - Complexité.ipynb). Ces propriétés sont ensuite analysées en détail dans le notebook de chaque tri. 
 
