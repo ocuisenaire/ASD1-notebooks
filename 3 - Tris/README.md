@@ -15,7 +15,7 @@ Enfin, nous concluons en discutant des fonctions de tri disponibles en [en C et 
 
 Comme il n'est pas possible ici d'être exhaustif dans le cadre de ce cours, nous vous encourageons à feuilleter [Wikipedia](https://en.wikipedia.org/wiki/Sorting_algorithm) pour avoir une idée de la diversité des approches possibles. Lors des laboratoires, vous aurez l'occasion d'en explorer d'autres comme le [tri comptage](https://fr.wikipedia.org/wiki/Tri_comptage). Notez aussi l'algorithme de tri utilisé par python: [Timsort](https://fr.wikipedia.org/wiki/Timsort). 
 
-Notons que nous n'en aurons pas complètement fini avec les tris, au chapitre 4, nous nous intéresserons au tri de contenu stocké dans une liste chainée plutôt que dans un tableau. Nous introduirons aussi la notion de tas, qui nous permettra d'effectuer le [tri par tas](https://fr.wikipedia.org/wiki/Tri_par_tas) d'un tableau. 
+Notons que nous n'en aurons pas complètement fini avec les tris. Au chapitre 4, nous nous intéresserons au tri de contenu stocké dans une liste chainée plutôt que dans un tableau. Nous introduirons aussi la notion de tas, qui nous permettra d'effectuer le [tri par tas](https://fr.wikipedia.org/wiki/Tri_par_tas) d'un tableau. 
 
 Enfin, pour le plaisir, vous devriez aussi essayer 
 
