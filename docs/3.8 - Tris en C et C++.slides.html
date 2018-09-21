@@ -11923,30 +11923,42 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Langage-C">Langage C<a class="anchor-link" href="#Langage-C">&#182;</a></h2><p>En C, la librairie <code>"stdlib.h"</code> fournit la fonction <code>qsort</code>, dont le prototype est</p>
-<p><code>void qsort (void* base, 
-             size_t num, 
-             size_t size, 
-             int (*compare)(const void*,const void*));</code></p>
+<h2 id="Langage-C">Langage C<a class="anchor-link" href="#Langage-C">&#182;</a></h2><p>En C, la librairie <code>"stdlib.h"</code> fournit la fonction <a href="http://www.cplusplus.com/reference/cstdlib/qsort/"><code>qsort</code></a>, dont le prototype est</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">void</span> <span class="nf">qsort</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">base</span><span class="p">,</span> 
+             <span class="kt">size_t</span> <span class="n">num</span><span class="p">,</span> 
+             <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> 
+             <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">));</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>void *base</code>: adresse du premier élément du tableau à trier. </li>
+<li><code>void *base</code> : adresse du premier élément du tableau à trier. </li>
 </ul>
 <ul>
-<li><code>size_t num</code>: nombre d'éléments à trier </li>
+<li><code>size_t num</code> : nombre d'éléments à trier </li>
 </ul>
 <ul>
-<li><code>size_t size</code> taille d'un élément du tableau </li>
+<li><code>size_t size</code> : taille d'un élément du tableau </li>
 </ul>
 <ul>
-<li><code>int (*compare) (void const *a, void const *b</code>: adresse de la fonction de comparaison, fournie par l'utilisateur.</li>
+<li><code>int (*compare) (void const *a, void const *b</code> : adresse de la fonction de comparaison, fournie par l'utilisateur.</li>
 </ul>
 
 </div>
@@ -11956,8 +11968,28 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ecrivons un fonction comparant deux entiers, de prototype</p>
-<p><code>int compare (const void * a, const void * b);</code></p>
+<p>Ecrivons une fonction comparant deux entiers, de prototype</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">int</span> <span class="nf">plus_petit</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Elle doit</p>
 <ul>
 <li><p>caster les pointeurs <code>void*</code> en pointeurs <code>int*</code></p>
@@ -11975,13 +12007,13 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="kt">int</span> <span class="nf">compare</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">int</span> <span class="nf">plus_petit</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">a</span> <span class="o">-</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">b</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -12000,10 +12032,10 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="kt">int</span> <span class="n">values</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span> <span class="p">};</span>
@@ -12014,7 +12046,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12023,14 +12055,14 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;stdlib.h&quot;</span><span class="cp"></span>
-<span class="n">qsort</span> <span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="n">compare</span><span class="p">);</span>
+<span class="n">qsort</span> <span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="n">plus_petit</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -12046,10 +12078,10 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="n">values</span>
@@ -12065,7 +12097,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -12105,30 +12137,62 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tri-rapide-en-C++">Tri rapide en C++<a class="anchor-link" href="#Tri-rapide-en-C++">&#182;</a></h2><p>En C++, la librairie <code>&lt;algorithm&gt;</code> fournit la fonction <code>std::sort</code>, dont les prototypes sont</p>
-<p><code>template &lt;class RandomAccessIterator&gt;
- void sort (RandomAccessIterator first, RandomAccessIterator last);</code></p>
-<p>et</p>
-<p>`template &lt;class RandomAccessIterator, class Compare&gt;
-void sort (RandomAccessIterator first, 
-           RandomAccessIterator last, 
-           Compare comp)``</p>
+<h2 id="Tri-rapide-en-C++">Tri rapide en C++<a class="anchor-link" href="#Tri-rapide-en-C++">&#182;</a></h2><p>En C++, la librairie <code>&lt;algorithm&gt;</code> fournit la fonction <a href="http://www.cplusplus.com/reference/algorithm/sort/"><code>std::sort</code></a>, dont les prototypes sont</p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+           <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>first</code>: itérateur vers le premier élément à trier</li>
+<li><code>first</code> : itérateur vers le premier élément à trier</li>
 </ul>
 <ul>
-<li><code>last</code>: itérateur vers l'élément qui suit le dernier à trier. Ensemble, ils définissent une séquence <code>[first,last[</code>. </li>
+<li><code>last</code> : itérateur vers l'élément qui suit le dernier à trier. Ensemble, ils définissent une séquence <code>[first,last[</code>. </li>
 </ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+           <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span> 
+           <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>comp</code>: fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. Si elle n'est pas spécifiée, le tri utilise l'opérateur <code>&lt;</code> du type trié</li>
+<li><code>comp</code> : fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. Si elle n'est pas spécifiée, le tri utilise l'opérateur <code>&lt;</code> du type trié</li>
 </ul>
 
 </div>
@@ -12142,10 +12206,10 @@ void sort (RandomAccessIterator first,
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -12156,7 +12220,7 @@ void sort (RandomAccessIterator first,
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12165,36 +12229,15 @@ void sort (RandomAccessIterator first,
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
 <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span>  <span class="o">+</span> <span class="mi">4</span> <span class="p">);</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ce qui donne</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">v</span>
+<span class="n">v</span>
 </pre></div>
 
 </div>
@@ -12207,7 +12250,7 @@ void sort (RandomAccessIterator first,
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -12230,10 +12273,10 @@ void sort (RandomAccessIterator first,
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">);</span>
@@ -12250,7 +12293,7 @@ void sort (RandomAccessIterator first,
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -12269,133 +12312,30 @@ void sort (RandomAccessIterator first,
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La version avec comparaison générique peut prendre en paramètre une fonction</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="kt">bool</span> <span class="nf">comp_fn</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="p">);</span> <span class="p">}</span>
-</pre></div>
+<p>La version avec comparaison générique peut prendre en paramètre une fonction,</p>
 
 </div>
 </div>
 </div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">comp_fn</span><span class="p">);</span>
-<span class="n">v</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{ 80, 71, 53, 45, 33, 32, 26, 12 }</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>un foncteur</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">struct</span> <span class="n">comp_functor</span> <span class="p">{</span>
-    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">%</span><span class="mi">2</span> <span class="p">);}</span>
-<span class="p">};</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">comp_functor</span> <span class="n">my_functor</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">my_functor</span> <span class="p">);</span>
-<span class="n">v</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">bool</span> <span class="nf">plus_grand</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="p">);</span> <span class="p">}</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{ 80, 32, 26, 12, 71, 53, 45, 33 }</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ou une fonction lambda</p>
-
-</div>
-</div>
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-          <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="o">%</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">%</span><span class="mi">10</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">plus_grand</span><span class="p">);</span>
 <span class="n">v</span>
 </pre></div>
 
@@ -12415,7 +12355,7 @@ void sort (RandomAccessIterator first,
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{ 80, 71, 32, 12, 53, 33, 45, 26 }</pre>
+<pre>{ 80, 71, 53, 45, 33, 32, 26, 12 }</pre>
 </div>
 
 </div>
@@ -12424,6 +12364,146 @@ void sort (RandomAccessIterator first,
 </div>
 
 </div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>un objet fonction, ou <a href="https://en.wikipedia.org/wiki/Function_object">foncteur</a>, c'est à dire une structure ou une classe qui définit l'opérateur <code>operator()</code>,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">struct</span> <span class="n">plus_petit_modulo</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">base</span><span class="p">;</span> 
+    <span class="kt">bool</span> <span class="nf">operator</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="n">base</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">%</span><span class="n">base</span> <span class="p">);}</span>
+<span class="p">};</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">compare_dernier_chiffre_decimal</span> <span class="o">=</span> <span class="n">plus_petit_modulo</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">compare_dernier_chiffre_decimal</span> <span class="p">);</span>
+<span class="n">v</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 80, 71, 32, 12, 53, 33, 45, 26 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">compare_parite</span> <span class="o">=</span> <span class="n">plus_petit_modulo</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">compare_parite</span> <span class="p">);</span>
+<span class="n">v</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 80, 32, 12, 26, 71, 53, 33, 45 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ou une <a href="https://en.wikipedia.org/wiki/Anonymous_function">expression lambda</a> (C++11), i.e. un objet fonction anonyme capable de capturer des variables dans la portée.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">int</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+          <span class="p">[</span><span class="o">&amp;</span><span class="n">B</span><span class="p">](</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="o">%</span><span class="n">B</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">%</span><span class="n">B</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
+<span class="n">v</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 80, 32, 12, 26, 71, 53, 33, 45 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12439,10 +12519,589 @@ void sort (RandomAccessIterator first,
 <li><p>on ne peut exclure une complexité quadratique dans le pire des cas</p>
 </li>
 </ul>
+<p>Le tri rapide étant un tri par échange, il est important que la fonction <code>swap(T,T)</code> soit efficace pour le type <code>T</code> à trier.</p>
 
 </div>
 </div>
 </div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tri-stable-en-C++">Tri stable en C++<a class="anchor-link" href="#Tri-stable-en-C++">&#182;</a></h2><p>La librairie <code>&lt;algorithm&gt;</code> fournit également la fonction <a href="http://www.cplusplus.com/reference/algorithm/stable_sort/"><code>std::stable_sort</code></a>, dont les prototypes sont</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">stable_sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+                  <span class="n">RandomAccessIterator</span> <span class="n">last</span> <span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>first</code> : itérateur vers le premier élément à trier</li>
+</ul>
+<ul>
+<li><code>last</code> : itérateur vers l'élément qui suit le dernier à trier. Ensemble, ils définissent une séquence <code>[first,last[</code>. </li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">stable_sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+                  <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+                  <span class="n">Compare</span> <span class="n">comp</span> <span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>comp</code> : fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. </li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Trions par exemple en ne tenant compte que des parties entières avec la fonction</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">bool</span> <span class="nf">partie_entiere_plus_petite</span> <span class="p">(</span><span class="kt">double</span> <span class="n">i</span><span class="p">,</span><span class="kt">double</span> <span class="n">j</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">int</span><span class="p">(</span><span class="n">j</span><span class="p">));</span> <span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="p">{</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">,</span> <span class="mf">2.72</span><span class="p">,</span> <span class="mf">4.67</span><span class="p">,</span> <span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.32</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">2.58</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">stable_sort</span><span class="p">(</span><span class="n">v2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">partie_entiere_plus_petite</span><span class="p">);</span>
+<span class="n">v2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 1.41, 1.73, 1.32, 1.62, 2.72, 2.58, 3.14, 4.67 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On voit que pour une partie entiére donnée, l'ordre des éléments originaux est conservé.</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mais attention, il est indispensable que la fonction de tri mette en oeuvre une inégalité stricte. Sinon la stabilité n'est pas garantie.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">bool</span> <span class="nf">partie_entiere_plus_petite_ou_egale</span> <span class="p">(</span><span class="kt">double</span> <span class="n">i</span><span class="p">,</span><span class="kt">double</span> <span class="n">j</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="kt">int</span><span class="p">(</span><span class="n">j</span><span class="p">));</span> <span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v3</span> <span class="p">{</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">,</span> <span class="mf">2.72</span><span class="p">,</span> <span class="mf">4.67</span><span class="p">,</span> <span class="mf">1.73</span><span class="p">,</span> <span class="mf">1.32</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">2.58</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">stable_sort</span><span class="p">(</span><span class="n">v3</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v3</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">partie_entiere_plus_petite_ou_egale</span><span class="p">);</span>
+<span class="n">v3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 1.62, 1.32, 1.73, 1.41, 2.58, 2.72, 3.14, 4.67 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Propri&#233;t&#233;s">Propri&#233;t&#233;s<a class="anchor-link" href="#Propri&#233;t&#233;s">&#182;</a></h3><p>La librairie standard garantit</p>
+<ul>
+<li>une complexité temporelle linéarithmique $\Theta(n \log n)$, à condition qu'il y aie assez de mémoire pour dupliquer les données. </li>
+</ul>
+<ul>
+<li>une complexité temporelle $\Theta(n \log^2 n)$ si le tri fusion doit être réalisé en place. </li>
+</ul>
+<p>En pratique, <code>std::stable_sort</code> est toujours une variation de l'algorithme de <strong>tri par fusion</strong>.</p>
+<p>Donc,</p>
+<ul>
+<li>il est pas stable</li>
+</ul>
+<ul>
+<li>il est moins rapide <code>std::sort</code></li>
+</ul>
+<ul>
+<li>les complexités sont également garanties dans le pire des cas</li>
+</ul>
+<p>Le tri par fusion effectant de nombreux déplacements, il est important que la l'affectation <code>T = std::move(T)</code> soit efficace pour le type <code>T</code> à trier.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="$n^{ieme}$-&#233;l&#233;ment-en-C++">$n^{ieme}$ &#233;l&#233;ment en C++<a class="anchor-link" href="#$n^{ieme}$-&#233;l&#233;ment-en-C++">&#182;</a></h2><p>La librairie <code>&lt;algorithm&gt;</code> fournit aussi une fonction de sélection rapide sous le nom de <a href="http://www.cplusplus.com/reference/algorithm/nth_element/"><code>nth_element</code></a>, dont le prototype est</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">nth_element</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+                  <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
+                  <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>où les éléments à traiter sont dans l'intervalle <code>[first,last[</code> et la valeur de <code>n</code> est donnée par <code>n = nth - first</code>.</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La fonction met le $n^{ieme}$ élément à sa place,</p>
+<p>mais a aussi pour effet de partitionner <code>[first,last[</code> autour de sa valeur.</p>
+<ul>
+<li><code>[first,nth[</code> ne contient que des éléments ≤ <code>*nth</code></li>
+<li><code>[nth,last[</code> ne contient que des éléments ≥ <code>*nth</code></li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il existe évidemment aussi une version avec fonction de comparaison générique.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">nth_element</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+                  <span class="n">RandomAccessIterator</span> <span class="n">nth</span><span class="p">,</span>
+                  <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span> 
+                  <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Trouvons le $4^{ieme}$ élément (d'indice 3) du tableau v4 et partitionnons le autour de cette valeur</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v4</span><span class="p">{</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">nth_element</span><span class="p">(</span><span class="n">v4</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v4</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="n">v4</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">v4</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 1, 2, 3, 4, 5, 6, 8, 7 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Propri&#233;t&#233;s">Propri&#233;t&#233;s<a class="anchor-link" href="#Propri&#233;t&#233;s">&#182;</a></h3><p>La STL garantit une complexité <strong>moyenne</strong> linéraire $\Theta(n)$ pour <code>n = last - first</code>.</p>
+<p>Cela correspond à la complexité de l'algorithme de sélection rapide.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tri-partiel-en-C++">Tri partiel en C++<a class="anchor-link" href="#Tri-partiel-en-C++">&#182;</a></h2><p>Il est également possible de ne trier qu'une partie d'un tableau avec la fonction <a href="http://www.cplusplus.com/reference/algorithm/partial_sort/"><code>partial_sort</code></a> de la librairie <code>&lt;algorithm&gt;</code>. Le prototype en est</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">partial_sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                   <span class="n">RandomAccessIterator</span> <span class="n">middle</span><span class="p">,</span>
+                   <span class="n">RandomAccessIterator</span> <span class="n">last</span> <span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><code>[first,last[</code> est l'intervalle des valeurs à trier.</p>
+</li>
+<li><p><code>middle</code> doit être dans cet intervalle.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En sortie, l'intervalle <code>[first,middle[</code></p>
+<ul>
+<li>contient les <code>middle-first</code> plus petites valeurs </li>
+<li>est trié </li>
+</ul>
+<p>l'intervalle <code>[middle,last[</code></p>
+<ul>
+<li>ne contient que des valeurs plus grandes</li>
+<li>dans un ordre quelconque. </li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La fonction de tri peut également être générique</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">partial_sort</span> <span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> 
+                   <span class="n">RandomAccessIterator</span> <span class="n">middle</span><span class="p">,</span>
+                   <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+                   <span class="n">Compare</span> <span class="n">comp</span> <span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Trions les 4 plus petits éléments du tableau v5.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v5</span><span class="p">{</span> <span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">partial_sort</span><span class="p">(</span><span class="n">v5</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v5</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span> <span class="n">v5</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">v5</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 1, 2, 3, 4, 7, 6, 8, 5 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Trions les 3 éléments du tableau v6 de plus grande valeur absolue.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="kt">bool</span> <span class="nf">plus_grande_valeur_absolue</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">v6</span><span class="p">{</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">partial_sort</span><span class="p">(</span><span class="n">v6</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v6</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="n">v6</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">plus_grande_valeur_absolue</span><span class="p">);</span>
+<span class="n">v6</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ 8, -7, -6, 2, -3, -1, 4, 5 }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Propri&#233;t&#233;s">Propri&#233;t&#233;s<a class="anchor-link" href="#Propri&#233;t&#233;s">&#182;</a></h3><p>La librairie standard garantit une complexité $\Theta(n\log m)$ avec</p>
+<ul>
+<li><code>n = last - first</code> </li>
+<li><code>m = middle - first</code>. </li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il existe plusieurs possibilités pour mettre en oeuvre ce tri partiel.</p>
+<ul>
+<li>La complexité garantie suggère <ul>
+<li>l'utilisation d'un tas de $m$ éléments </li>
+<li>dans lequel on insère les autres $n-m$ éléments</li>
+<li>en supprimant le maximum entre chaque insertion. </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Une approche alternative consiste à <ul>
+<li>utiliser la sélection rapide pour trouver le $m^{ieme}$ élément</li>
+<li>ce qui paritionne aussi le tableau de sorte que les $m$ plus petits sont à gauche</li>
+<li>utiliser le tri rapide sur ces $m$ plus petits éléments</li>
+</ul>
+</li>
+</ul>
+<p>Cette approche alternative a une complexité $\Theta(n + m \log m)$ en moyenne, ce qui est meilleur en moyenne, mais éventuellement moins bon dans le pire des cas.</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12452,7 +13111,7 @@ void sort (RandomAccessIterator first,
 
 </div>
 </div>
-</div>
+</div></section></section>
 </div>
 </div>
 
