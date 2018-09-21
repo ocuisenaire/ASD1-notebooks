@@ -13746,9 +13746,50 @@ appel(T,5,8)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Complexit&#233;-spatiale">Complexit&#233; spatiale<a class="anchor-link" href="#Complexit&#233;-spatiale">&#182;</a></h2><p>La <strong>partition</strong> s'effectue en place. Elle n'utilise qu'un nombre constant de variables auxilliaires</p>
+<ul>
+<li>les compteurs <code>i</code> et <code>j</code></li>
+<li>une variable temporaire pour les échanges</li>
+</ul>
+<p>La complexité spatiale de la partition est donc $\Theta(1)$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mais ...</p>
+<p>Le tri rapide est un <strong>algorithme récursif</strong>, et chaque appel récursif nécessite de la mémoire pour</p>
+<ul>
+<li>la pile d'appels</li>
+<li>les variables locales</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La complexité spatiale du tri rapide est donc <strong>proportionelle à la profondeur de récursion maximale</strong>.</p>
+<ul>
+<li>$\Theta(\log(n))$ en moyenne et $\Theta(n)$ au pire pour la version doublement récursive</li>
+<li>$\Theta(\log(n))$ au pire pour la version remplaçant une récursion par une boucle</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>Le tri rapide</p>
 <ul>
-<li>a une complexité moyenne en $\Theta(n\log(n))$</li>
+<li>a une complexité temporelle moyenne en $\Theta(n\log(n))$</li>
 </ul>
 
 </div>
@@ -13759,7 +13800,7 @@ appel(T,5,8)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>a une complexité en $\Theta(n^2)$ dans le pire des cas <ul>
+<li>a une complexité temporelle en $\Theta(n^2)$ dans le pire des cas <ul>
 <li>le pire cas est extrêment peu probable avec un bon choix de pivot</li>
 <li>le pire cas est très probable (entrée triée) avec un mauvais choix</li>
 </ul>
@@ -13789,7 +13830,7 @@ appel(T,5,8)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>n'utilise pas de mémoire additionelle</li>
+<li>a une complexité spatialle en $\Theta(\log(n))$ quand il est bien mis en oeuvre</li>
 </ul>
 
 </div>
