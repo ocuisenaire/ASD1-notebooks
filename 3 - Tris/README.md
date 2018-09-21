@@ -1,7 +1,7 @@
 
 # Chapitre 3 - Tris
 
-Dans ce chapitre nous passons en revue divers algorithmes de tri. Ils permettent d'ordonner le contenu d'un tableau (*) du plus petit au plus grand selon un critère donné. 
+Dans ce chapitre nous passons en revue divers algorithmes de tri. Ils permettent d'ordonner le contenu d'un tableau du plus petit au plus grand selon un critère donné. 
 
 Comme le veut la tradition, nous commençons par présenter trois tris simples mais peu efficaces: le [tri à bulles](1a%20-%20Tri%20à%20Bulles.ipynb), le [tri par sélection](2%20-%20Tri%20Par%20Sélection.ipynb) et le [tri par insertion](3%20-%20Tri%20par%20Insertion.ipynb).
 
