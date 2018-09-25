@@ -10,6 +10,9 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 
 ## Récursivité
 
+* [Multiplication russe](2.3 - Russian peasant multiplication.slides.html)
+
+
 ## Tris
 
 * [Tri à bulles](3.1.a - Tri à Bulles.slides.html)
