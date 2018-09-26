@@ -29,6 +29,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 ## Stuctures linéaires
 
 * [Tableau de taille fixe](4.0 - Tableau de taille fixe.slides.html)
+* [Tableau de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
 
 ## Arbres
 
