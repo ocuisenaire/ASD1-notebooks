@@ -11923,7 +11923,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -11935,14 +11935,15 @@ a.anchor-link {
         <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="n">taille</span>
         
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; taille = </span><span class="si">{1}</span><span class="s2"> | data = </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot; taille = </span><span class="si">{}</span><span class="s2"> | data = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">taille</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div><div class="fragment">
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -11979,8 +11980,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Les éléments sont caractérisés par un <strong>indice</strong>, qui permet de savoir où les trouver en mémoire par rapport au début du tableau.</p>
-<p>Il est important de pouvoir spécifier la plage des indices valides. Dans la plupart des langages, elle va de $0$ à $N-1$ pour un tableau de $N$ éléments</p>
+<p>L'<strong>indice</strong> d'un élément permet de savoir où le trouver en mémoire par rapport au début du tableau.</p>
+<p>La plage des <strong>indices valides</strong> est l'intervalle $[0,N[$ pour un tableau de $N$ éléments.</p>
 
 </div>
 </div>
@@ -12039,7 +12040,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notons que python accepte aussi les <strong>indices négatifs</strong>, ce qui n'est pas le cas du C++.</p>
+<p>Python accepte aussi les <strong>indices négatifs</strong>.</p>
 <p>La formule utilisée pour passer d'indices négatifs aux indices positifs est</p>
 
 </div>
@@ -12101,11 +12102,11 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Les méthodes essentielles sont un modificateur</p>
+<p>Les méthodes essentielles sont un <strong>modificateur</strong></p>
 <ul>
 <li><code>modifier_valeur</code>, qui écrit dans un élément via son indice. </li>
 </ul>
-<p>et deux sélecteurs</p>
+<p>et deux <strong>sélecteurs</strong></p>
 <ul>
 <li><code>lire_valeur</code>, qui lit un élément via son indice</li>
 <li><code>taille</code>, qui retourne la taille du tableau</li>
@@ -12277,14 +12278,14 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>
-    
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>    
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">taille</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">taille</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="n">taille</span>
-    
+   
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; taille = </span><span class="si">{1}</span><span class="s2"> | data = </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot; taille = </span><span class="si">{}</span><span class="s2"> | data = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">taille</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
     
     <span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">modifier_valeur</span>
     <span class="fm">__getitem__</span> <span class="o">=</span> <span class="n">lire_valeur</span>
@@ -12388,7 +12389,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;  &quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12405,12 +12406,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-1
-3
-6
-10
-</pre>
+<pre>0  1  3  6  10  </pre>
 </div>
 </div>
 
@@ -12424,7 +12420,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T[</span><span class="si">{}</span><span class="s2">]=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">t</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12441,12 +12437,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 0
-1 1
-2 3
-3 6
-4 10
-</pre>
+<pre>T[0]=0  T[1]=1  T[2]=3  T[3]=6  T[4]=10  </pre>
 </div>
 </div>
 
@@ -12474,7 +12465,10 @@ a.anchor-link {
 </table>
 </div>
 </div>
-</div></section></section>
+</div><style type="text/css">
+.reveal {
+font-size: 200%;
+}</style></section></section>
 </div>
 </div>
 
