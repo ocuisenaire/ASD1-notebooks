@@ -11997,10 +11997,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tableau_aleatoire</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-    
-<span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_a_bulles</span><span class="p">,</span> <span class="n">tableau_aleatoire</span><span class="p">,</span> <span class="s2">&quot;tri à bulles&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tab_aleatoire</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_a_bulles</span><span class="p">,</span> <span class="n">tab_aleatoire</span><span class="p">,</span> <span class="s2">&quot;tri à bulles&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12059,9 +12057,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tableau_trie</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tableau_trie</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> 
 <span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_a_bulles</span><span class="p">,</span> <span class="n">tableau_trie</span><span class="p">,</span> <span class="s2">&quot;tri à bulles&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12096,7 +12092,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On remarque que si le nombre de comparaisons ne dépend pas du contenu du tableau, le nombre d'échanges est maintenant uniformément nul.</p>
+<p>Le nombre de comparaisons ne dépend pas du contenu du tableau.</p>
+<p>Le nombre d'échanges est uniformément nul.</p>
 
 </div>
 </div>
@@ -12105,7 +12102,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Le deuxième cas particulier intéressant est celui d'un tableau original trié à l'envers, i.e. dans l'ordre décroissant.</p>
+<p>Le deuxième test utilise un tableau en ordre décroissant.</p>
 
 </div>
 </div>
@@ -12115,10 +12112,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tableau_trie_inverse</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    
-<span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_a_bulles</span><span class="p">,</span> <span class="n">tableau_trie_inverse</span><span class="p">,</span> <span class="s2">&quot;tri à bulles&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tableau_inverse</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">evalue_complexite</span><span class="p">(</span><span class="n">tri_a_bulles</span><span class="p">,</span> <span class="n">tableau_inverse</span><span class="p">,</span> <span class="s2">&quot;tri à bulles&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12152,7 +12147,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On se trouve maintenant avec un nombre de comparaisons toujours inchangé mais un nombre d'échanges égal au nombre de comparaisons. Tous les tests de comparaisons renvoient <code>True</code> et il y a donc échange à chaque fois.</p>
+<p>Le nombre de comparaisons est inchangé mais le nombre d'échanges est égal au nombre de comparaisons.</p>
+<p>Tous les tests de comparaisons renvoient <code>True</code>, il y a échange à chaque fois.</p>
 
 </div>
 </div>
@@ -12173,27 +12169,57 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Complexit&#233;-spatiale">Complexit&#233; spatiale<a class="anchor-link" href="#Complexit&#233;-spatiale">&#182;</a></h2><p>L'analyse précédente ne s'intéresse qu'à l'utilisation d'une ressource: le <strong>temps de calcul</strong>.</p>
 <p>Dans certains cas, il est aussi pertinent de s'intéresser à une autre ressource importante: la <strong>quantité de mémoire</strong> utilisée.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Pour le <strong>tri à bulles, cette complexité spatiale est constante,</strong> $\Theta(1)$. En effet la mémoire supplémentaire nécessaire pour trier le tableau inclut</p>
 <ul>
 <li>les deux compteurs de boucle</li>
 <li>un élément temporaire utilisé lors des échanges</li>
 </ul>
 <p>la quantité de mémoire est donc indépendante de la taille du tableau à trier.</p>
-<p>Ce sera aussi le cas le tri par sélection, le tri par insertion et le tri de Shell que nous verrons par la suite. Nous renviendrons sur ce problème pour les <strong>tri par fusion et tri rapide</strong>.</p>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://ocuisenaire.github.io/ASD1-notebooks/">ASD1 Notebooks on GitHub.io</a></p>
-<p>© Olivier Cuisenaire, 2018</p>
+<p>Ce sera aussi le cas le tri par sélection, le tri par insertion et le tri de Shell que nous verrons par la suite. Nous renviendrons sur ce problème pour les <strong>tri par fusion et tri rapide</strong>.</p>
 
 </div>
 </div>
-</div></section></section>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table style="width: 100%; border: 0px">
+<tr style="background-color:white; border:0px">
+<td style="width: 120px; border: 0px">
+    <img src="https://heig-vd.ch/ResourcePackages/WhiteFox/assets/images/logo-heig-vd.svg" height=200px align=left >
+    </td>
+    <td style="vertical-align: middle; border: 0px" height=200px>
+    <p style="text-align: left">
+        <a href="https://ocuisenaire.github.io/ASD1-notebooks/">ASD1 Notebooks on GitHub.io</a>
+ </p>        
+<p style="text-align: left">
+© Olivier Cuisenaire, 2018 </p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div><style type="text/css">
+.reveal {
+font-size: 200%;
+}</style></section></section>
 </div>
 </div>
 
