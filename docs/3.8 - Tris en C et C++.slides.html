@@ -11936,7 +11936,7 @@ a.anchor-link {
 <div class=" highlight hl-c++"><pre><span></span><span class="kt">void</span> <span class="nf">qsort</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">base</span><span class="p">,</span> 
              <span class="kt">size_t</span> <span class="n">num</span><span class="p">,</span> 
              <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> 
-             <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">compare</span><span class="p">)(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">));</span>
+             <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">comp</span><span class="p">)(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">));</span>
 </pre></div>
 
 </div>
@@ -11949,7 +11949,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>void *base</code> : adresse du premier élément du tableau à trier. </li>
+<li><code>void *base</code> : adresse du premier élément du tableau </li>
 </ul>
 <ul>
 <li><code>size_t num</code> : nombre d'éléments à trier </li>
@@ -11958,7 +11958,7 @@ a.anchor-link {
 <li><code>size_t size</code> : taille d'un élément du tableau </li>
 </ul>
 <ul>
-<li><code>int (*compare) (void const *a, void const *b</code> : adresse de la fonction de comparaison, fournie par l'utilisateur.</li>
+<li><code>int (*comp) (void const *a, void const *b)</code>: adresse de la fonction de comparaison, fournie par l'utilisateur.</li>
 </ul>
 
 </div>
@@ -11992,12 +11992,9 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Elle doit</p>
 <ul>
-<li><p>caster les pointeurs <code>void*</code> en pointeurs <code>int*</code></p>
-</li>
-<li><p>comparer les deux valeurs entières</p>
-</li>
-<li><p>retourner un entier</p>
-<ul>
+<li>caster les pointeurs <code>void*</code> en pointeurs <code>int*</code></li>
+<li>comparer les deux valeurs entières</li>
+<li>retourner un entier <ul>
 <li><code>&lt;0</code> si <code>*a</code> est plus petit que <code>*b</code></li>
 <li><code>&gt;0</code> si <code>*b</code> est plus petit que <code>*a</code></li>
 <li><code>0</code> s'ils sont égaux selon le critère choisi</li>
@@ -12170,7 +12167,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -12192,17 +12189,23 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>comp</code> : fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. Si elle n'est pas spécifiée, le tri utilise l'opérateur <code>&lt;</code> du type trié</li>
+<li><code>first</code> : itérateur vers le premier élément à trier</li>
+</ul>
+<ul>
+<li><p><code>last</code> : itérateur vers l'élément qui suit le dernier à trier. Ensemble, ils définissent une séquence <code>[first,last[</code>.</p>
+</li>
+<li><p><code>comp</code> : fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. Si elle n'est pas spécifiée, le tri utilise l'opérateur <code>&lt;</code> du type trié</p>
+</li>
 </ul>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Soit le vecteur suivant</p>
+<p>Soit le vecteur v dont on veut trier les 4 premiers éléments</p>
 
 </div>
 </div>
@@ -12221,15 +12224,6 @@ a.anchor-link {
 </div>
 
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>On peut en trier les 4 premiers éléments via</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -12269,7 +12263,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour tout trier, il suffit évidemment d'écrire</p>
+<p>Pour trier tout le vecteur, on écrit</p>
 
 </div>
 </div>
@@ -12394,8 +12388,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">compare_dernier_chiffre_decimal</span> <span class="o">=</span> <span class="n">plus_petit_modulo</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">compare_dernier_chiffre_decimal</span> <span class="p">);</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="k">auto</span> <span class="n">compare_dernier_chiffre</span> <span class="o">=</span> <span class="n">plus_petit_modulo</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">compare_dernier_chiffre</span> <span class="p">);</span>
 <span class="n">v</span>
 </pre></div>
 
@@ -12512,12 +12506,9 @@ a.anchor-link {
 <p>En pratique, <code>std::sort</code> est toujours une variation de l'algorithme de <strong>tri rapide</strong>, éventuellement avec un tri par insertion pour les partitions les plus petites.</p>
 <p>Donc,</p>
 <ul>
-<li><p>il n'est pas stable</p>
-</li>
-<li><p>c'est le plus rapide des tris proposés par la STL</p>
-</li>
-<li><p>on ne peut exclure une complexité quadratique dans le pire des cas</p>
-</li>
+<li>il n'est pas stable</li>
+<li>c'est le plus rapide des tris proposés par la STL</li>
+<li>on ne peut exclure une complexité quadratique dans le pire des cas</li>
 </ul>
 <p>Le tri rapide étant un tri par échange, il est important que la fonction <code>swap(T,T)</code> soit efficace pour le type <code>T</code> à trier.</p>
 
@@ -12561,7 +12552,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
@@ -12583,12 +12574,18 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
+<li><code>first</code> : itérateur vers le premier élément à trier</li>
+</ul>
+<ul>
+<li><code>last</code> : itérateur vers l'élément qui suit le dernier à trier. Ensemble, ils définissent une séquence <code>[first,last[</code>. </li>
+</ul>
+<ul>
 <li><code>comp</code> : fonction de comparaison. Prend deux éléments en paramètres et retourne un <code>bool</code> qui vaut vrai si le premier est plus petit que le second. </li>
 </ul>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12720,23 +12717,25 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Propri&#233;t&#233;s">Propri&#233;t&#233;s<a class="anchor-link" href="#Propri&#233;t&#233;s">&#182;</a></h3><p>La librairie standard garantit</p>
 <ul>
-<li>une complexité temporelle linéarithmique $\Theta(n \log n)$, à condition qu'il y aie assez de mémoire pour dupliquer les données. </li>
-</ul>
-<ul>
+<li>une complexité temporelle linéarithmique $\Theta(n \log n)$, si il y a assez de mémoire. </li>
 <li>une complexité temporelle $\Theta(n \log^2 n)$ si le tri fusion doit être réalisé en place. </li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>En pratique, <code>std::stable_sort</code> est toujours une variation de l'algorithme de <strong>tri par fusion</strong>.</p>
 <p>Donc,</p>
 <ul>
-<li>il est pas stable</li>
-</ul>
-<ul>
+<li>il est stable</li>
 <li>il est moins rapide <code>std::sort</code></li>
-</ul>
-<ul>
 <li>les complexités sont également garanties dans le pire des cas</li>
 </ul>
-<p>Le tri par fusion effectant de nombreux déplacements, il est important que la l'affectation <code>T = std::move(T)</code> soit efficace pour le type <code>T</code> à trier.</p>
+<p>Le tri par fusion effectant de nombreux déplacements, il est important que l'affectation <code>T = std::move(T)</code> soit efficace pour le type <code>T</code> à trier.</p>
 
 </div>
 </div>
@@ -12774,7 +12773,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12788,7 +12787,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12814,7 +12813,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div></section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12829,7 +12828,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v4</span><span class="p">{</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<div class=" highlight hl-c++"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v4</span><span class="p">{</span> <span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">};</span>
 <span class="n">std</span><span class="o">::</span><span class="n">nth_element</span><span class="p">(</span><span class="n">v4</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v4</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="n">v4</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 <span class="n">v4</span>
 </pre></div>
@@ -12850,7 +12849,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{ 1, 2, 3, 4, 5, 6, 8, 7 }</pre>
+<pre>{ 3, 1, 2, 4, 6, 5, 7, 8 }</pre>
 </div>
 
 </div>
@@ -13067,7 +13066,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13084,7 +13083,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13106,12 +13105,26 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://ocuisenaire.github.io/ASD1-notebooks/">ASD1 Notebooks on GitHub.io</a></p>
-<p>© Olivier Cuisenaire, 2018</p>
-
+<table style="width: 100%; border: 0px">
+<tr style="background-color:white; border:0px">
+<td style="width: 120px; border: 0px">
+    <img src="https://heig-vd.ch/ResourcePackages/WhiteFox/assets/images/logo-heig-vd.svg" height=200px align=left >
+    </td>
+    <td style="vertical-align: middle; border: 0px" height=200px>
+    <p style="text-align: left">
+        <a href="https://ocuisenaire.github.io/ASD1-notebooks/">ASD1 Notebooks on GitHub.io</a>
+ </p>        
+<p style="text-align: left">
+© Olivier Cuisenaire, 2018 </p>
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div></section></section>
+</div><style type="text/css">
+.reveal {
+font-size: 200%;
+}</style></section></section>
 </div>
 </div>
 
