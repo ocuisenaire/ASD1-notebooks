@@ -12202,9 +12202,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2-bits-par-&#233;l&#233;ment">2 bits par &#233;l&#233;ment<a class="anchor-link" href="#2-bits-par-&#233;l&#233;ment">&#182;</a></h2><p>Si un octet par élément est excessif, il est possible de n'utiliser que 2 bits par élément en ne stockant pas les hauteurs mais les déséquilibres.</p>
+<h2 id="Complexit&#233;-spatiale-lin&#233;aire">Complexit&#233; spatiale lin&#233;aire<a class="anchor-link" href="#Complexit&#233;-spatiale-lin&#233;aire">&#182;</a></h2><p>Si un octet par élément est excessif, il est possible de n'utiliser que 2 bits par élément en ne stockant pas les hauteurs mais les déséquilibres.</p>
+<p>Il est même possible de n'utiliser qu'un seul bit en délégant le calcul du déséquilibre aux enfants. Le bit indique alors si un noeud est plus petit que son frère.</p>
 <p>Le retour de récursion doit alors indiquer au parent si la hauteur de l'enfant a été modifiée de $\pm 1$ ou pas pour lui permettre de mettre à jour son déséquilibre.</p>
-<p>Le code est un peu plus complexe à écrire.</p>
+<p>Le code est un peu <a href="https://en.wikipedia.org/wiki/AVL_tree">plus complexe à écrire</a>. Il est plus simple d'écrire séparément l'équilibrage après insertion et l'équilibrage après suppression.</p>
 
 </div>
 </div>
