@@ -32,7 +32,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 * [Tableau de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
 * [Buffer circulaire](4.2 - Buffer circulaire.slides.html)
 * [Tableau de capacité variable](4.3 - Tableau de capacité variable.slides.html)
-* [Liste simplement chainée](4.4 - Liste Chainée.slides.html)
+* [Liste simplement chainée](4.4 - Liste chainée.slides.html)
 
 ## Arbres
 
