@@ -11,6 +11,22 @@ def my_layout(node):
     add_face_to_node(F, node, column=0, position="branch-right")
 ts.layout_fn = my_layout
 
+
+def newick8_from_tree(R):
+    s = ""
+    if R:
+        if len(R.enfants):
+            s += "("
+            for i in range(len(R.enfants)-1,-1,-1):
+                s += newick8_from_tree(R.enfants[i])
+                if i != 0:
+                    s += ","
+            s += ")"
+        s += "{0}".format(R.donnee)
+    else:
+        s += "⌀"
+    return s
+
 def newick8_from_binary_tree(R):
     s = ""
     if R:
@@ -43,6 +59,12 @@ def newick8_from_avl_tree(R):
 
 
 
+def afficher_arbre(R):
+    n = newick8_from_tree(R)+";"
+    # print(n)
+    t = Tree(n,format=8)
+    display(t.render("%%inline", tree_style=ts))
+    
 def afficher_arbre_binaire(R):
     n = newick8_from_binary_tree(R)+";"
     # print(n)
