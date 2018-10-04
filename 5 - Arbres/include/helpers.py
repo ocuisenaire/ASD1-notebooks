@@ -36,7 +36,7 @@ def newick8_from_binary_tree(R):
             s += ","
             s += newick8_from_binary_tree(R.gauche)
             s += ")"
-        s += "{0}".format(R.data)
+        s += "{0}".format(R.donnee)
     else:
         s += "⌀"
     return s

@@ -37,5 +37,6 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 ## Arbres
 
 * [Arbres généraux](5.1\ -\ Arbres\ génériques.slides.html)
+* [Arbres binaires](5.2\ -\ Arbres\ Binaires.slides.html)
 
 ## Graphes
