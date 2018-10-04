@@ -12282,7 +12282,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Construire-l'arbre">Construire l'arbre<a class="anchor-link" href="#Construire-l'arbre">&#182;</a></h2><p>Il est évidemment possible d'effectuer l'opération inverse, qui convertit une expression préfixe, postfixe ou infixe en arbre.</p>
+<h2 id="Expression-&#8594;-arbre">Expression &#8594; arbre<a class="anchor-link" href="#Expression-&#8594;-arbre">&#182;</a></h2><p>Il est évidemment possible d'effectuer l'opération inverse, qui convertit une expression préfixe, postfixe ou infixe en arbre.</p>
 <p>On utilise deux paramètres en entrée</p>
 <ul>
 <li>la chaine de caractères contenant l'expression</li>
@@ -12391,34 +12391,37 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section><section>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On utilise le même prototype pour la conversion infixe vers arbre</p>
+<h2 id="Infixe-&#8594;-arbre">Infixe &#8594; arbre<a class="anchor-link" href="#Infixe-&#8594;-arbre">&#182;</a></h2><p>On utilise le même prototype pour la conversion infixe vers arbre</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">lire_char</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span> 
+
+<span class="k">def</span> <span class="nf">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     <span class="k">assert</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># pas d&#39;espace</span>
-    <span class="k">if</span> <span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">]),</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">c</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">lire_char</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">assert</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;(&quot;</span><span class="p">)</span>
-        <span class="n">G</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> 
-        <span class="n">R</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-        <span class="n">D</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">assert</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
-        <span class="n">R</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">G</span>
-        <span class="n">R</span><span class="o">.</span><span class="n">droite</span> <span class="o">=</span> <span class="n">D</span>
-        <span class="k">return</span> <span class="n">R</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;(&quot;</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">gauche</span> <span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> 
+        <span class="n">c</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">lire_char</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">);</span> <span class="k">assert</span><span class="p">(</span><span class="s2">&quot;+-*/&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="n">R</span><span class="o">.</span><span class="n">droite</span> <span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">infixe_vers_arbre</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">lire_char</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">n</span><span class="p">);</span> <span class="k">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">R</span><span class="p">,</span><span class="n">n</span>
 </pre></div>
 
 </div>
@@ -12428,7 +12431,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">infixe</span> <span class="o">=</span> <span class="s2">&quot;( (a*b) + ( (c*d) + (e/f) ) )&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -12443,7 +12446,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">R3</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">infixe_vers_arbre</span><span class="p">(</span><span class="n">infixe</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -12488,12 +12491,12 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section><section>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La conversion de postfixe en arbre ne peut pas utiliser le même principe. Notamment parce qu'il n'y a pas de fin naturelle à une expression post-fixe.</p>
+<h2 id="Postfixe-&#8594;-arbre">Postfixe &#8594; arbre<a class="anchor-link" href="#Postfixe-&#8594;-arbre">&#182;</a></h2><p>Cette conversion ne peut pas utiliser le même principe. Notamment parce qu'il n'y a pas de fin naturelle à une expression post-fixe.</p>
 <p>Par contre, on peut utiliser une simple pile.</p>
 
 </div>
