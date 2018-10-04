@@ -12284,7 +12284,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Expression-&#8594;-arbre">Expression &#8594; arbre<a class="anchor-link" href="#Expression-&#8594;-arbre">&#182;</a></h2><p>Il est évidemment possible d'effectuer l'opération inverse, qui convertit une expression préfixe, postfixe ou infixe en arbre.</p>
 <p>On lit depuis un flux de charactères en entrée et on retourne la racine de l'arbre généré.</p>
-<p>On utilise les fonctions annexes pour simplifier</p>
+<p>On utilise la fonction annexe suivante pour simplifier</p>
 
 </div>
 </div>
@@ -12296,9 +12296,6 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">est_un_operateur</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">&quot;+-*/&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
-    
-<span class="k">def</span> <span class="nf">est_une_parenthese</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s2">&quot;()&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 
 </div>
@@ -12435,7 +12432,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">infixe_vers_arbre_str</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
@@ -12464,7 +12461,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">infixe</span> <span class="o">=</span> <span class="s2">&quot;( (a*b) + ( (c*d) + (e/f) ) )&quot;</span>
@@ -12479,7 +12476,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">R3</span> <span class="o">=</span> <span class="n">infixe_vers_arbre_str</span><span class="p">(</span><span class="n">infixe</span><span class="p">)</span>
@@ -12537,7 +12534,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">postfixe_vers_arbre_str</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
@@ -12564,7 +12561,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">postfixe</span> <span class="o">=</span> <span class="s2">&quot;a b - c d e + * +&quot;</span>
@@ -12579,7 +12576,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">R4</span> <span class="o">=</span> <span class="n">postfixe_vers_arbre_str</span><span class="p">(</span><span class="n">postfixe</span><span class="p">)</span>
