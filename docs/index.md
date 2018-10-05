@@ -39,5 +39,6 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 * [Arbres généraux](5.1 - Arbres génériques.slides.html)
 * [Arbres binaires](5.2 - Arbres Binaires.slides.html)
 * [Expressions arithmétiques](5.3 - Expressions arithmétiques.slides.html)
+* [Arbres binaires de recherche](5.4 - Arbres Binaires de Recherche.slides.html)
 
 ## Graphes
