@@ -16,8 +16,8 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 ## Tris
 
 1. [Tri à bulles](3.1.a - Tri à Bulles.slides.html)
-  1. [Stabilité](3.1.b - Stabilité.slides.html)
-  1. [Complexité](3.1.c - Complexité.slides.html)
+    * [Stabilité](3.1.b - Stabilité.slides.html)
+    * [Complexité](3.1.c - Complexité.slides.html)
 1. [Tri par sélection](3.2 - Tri Par Sélection.slides.html)
 1. [Tri par insertion](3.3 - Tri Par Insertion.slides.html)
 1. [Tri de Shell](3.4 - Tri de Shell.slides.html)
