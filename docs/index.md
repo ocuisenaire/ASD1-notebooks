@@ -40,10 +40,10 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. [Arbres binaires](5.2 - Arbres Binaires.slides.html)
 1. [Expressions arithmétiques](5.3 - Expressions arithmétiques.slides.html)
 1. [Arbres binaires de recherche (ABR)](5.4 - Arbres Binaires de Recherche.slides.html)
-1. [Itérer sur un ABR](5.5 - Itérer sur un ABR.slides.html)
-1. [Accès aléatoire dans un ABR](5.6 - Accès aléatoire dans un ABR.slides.html)
-1. [Complexité des opérations ABR](5.7 - Complexité des opérations ABR.slides.html)
+    * [Itérer sur un ABR](5.5 - Itérer sur un ABR.slides.html)
+    * [Accès aléatoire dans un ABR](5.6 - Accès aléatoire dans un ABR.slides.html)
+    * [Complexité des opérations ABR](5.7 - Complexité des opérations ABR.slides.html)
 1. [Arbres AVL (ASD2)](5.B - Arbres AVL.slides.html)
-1. [Arbres AVL - complexité (ASD2)](5.C - Arbres AVL - complexité.slides.html)
+    * [Arbres AVL - complexité (ASD2)](5.C - Arbres AVL - complexité.slides.html)
 
 ## Graphes
