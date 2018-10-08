@@ -36,42 +36,10 @@ def newick8_from_binary_tree(R):
             s += ","
             s += newick8_from_binary_tree(R.gauche)
             s += ")"
-        s += "{0}".format(R.donnee)
+        s += "{0}".format(R)
     else:
         s += "⌀"
     return s
-
-def newick8_from_ABR(R):
-    s = ""
-    if R:
-        if R.gauche or R.droite:
-            s += "("
-            s += newick8_from_ABR(R.droite)
-            s += ","
-            s += newick8_from_ABR(R.gauche)
-            s += ")"
-        s += "{0}".format(R.clef)
-    else:
-        s += "⌀"
-    return s
-
-def newick8_from_avl_tree(R):
-    s = ""
-    if R:
-        if R.gauche or R.droite:
-            s += "("
-            s += newick8_from_avl_tree(R.droite)
-            s += ","
-            s += newick8_from_avl_tree(R.gauche)
-            s += ")"
-            s += "{} h{} e{}".format(R.data,R.hauteur,equilibre(R))
-        else:
-            s += "{} h{}".format(R.data,R.hauteur)
-    else:
-        s += "⌀"
-    return s
-
-
 
 def afficher_arbre(R):
     n = newick8_from_tree(R)+";"
@@ -85,18 +53,6 @@ def afficher_arbre_binaire(R):
     t = Tree(n,format=8)
     display(t.render("%%inline", tree_style=ts))
 
-def afficher_ABR(R):
-    n = newick8_from_ABR(R)+";"
-    # print(n)
-    t = Tree(n,format=8)
-    display(t.render("%%inline", tree_style=ts))
-    
-    
-def afficher_arbre_AVL(R):
-    n = newick8_from_avl_tree(R)+";"
-    # print(n)
-    t = Tree(n,format=8)
-    display(t.render("%%inline", tree_style=ts))
     
 # Arbres AVL   
 
