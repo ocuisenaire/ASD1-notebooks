@@ -53,10 +53,11 @@ def afficher_arbre_binaire(R):
     t = Tree(n,format=8)
     display(t.render("%%inline", tree_style=ts))
 
-    
+# ABR
+
 # Arbres AVL   
 
-class Node:
+class NodeAVL:
     def __init__(self,val):
         self.data = val
         self.droite = None
@@ -106,7 +107,7 @@ def equilibrage(R):
 
 def inserer(R,val,equilibrer = True):
     if R == None:
-        return Node(val)
+        return NodeAVL(val)
     else:
         if val < R.data:
             R.gauche = inserer(R.gauche,val,equilibrer)
