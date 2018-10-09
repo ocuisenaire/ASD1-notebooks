@@ -22,7 +22,7 @@ def newick8_from_tree(R):
                 if i != 0:
                     s += ","
             s += ")"
-        s += "{0}".format(R.donnee)
+        s += "{0}".format(R)
     else:
         s += "⌀"
     return s
