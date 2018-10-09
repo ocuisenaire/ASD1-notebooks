@@ -43,6 +43,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * [Itérer](5.5 - Itérer sur un ABR.slides.html)
     * [Accès aléatoire](5.6 - Accès aléatoire dans un ABR.slides.html)
     * [Complexité](5.7 - Complexité des opérations ABR.slides.html)
+    * [Linéarisation et équilibrage](5.8 - Linéarisation et équilibrage.slides.html)
 1. [Arbres AVL (ASD2)](5.B - Arbres AVL.slides.html)
     * [Complexité (ASD2)](5.C - Arbres AVL - complexité.slides.html)
 
