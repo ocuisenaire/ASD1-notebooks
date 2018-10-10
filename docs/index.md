@@ -33,6 +33,8 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. [Buffer circulaire](4.2 - Buffer circulaire.slides.html)
 1. [Tableau de capacité variable](4.3 - Tableau de capacité variable.slides.html)
 1. [Liste simplement chainée](4.4 - Liste chainée.slides.html)
+1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
+
 
 ## Arbres
 
