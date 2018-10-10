@@ -8,7 +8,9 @@ Certains notebooks sont utilisés pour générer des présentations pour le cour
 
 ## Jupyter Notebooks sans interaction
 
-Vous pouvez visualiser les notebooks directement sur ce repository github, qui les affiche en utilisant [nbviewer](https://nbviewer.jupyter.org)
+Vous pouvez visualiser les notebooks directement sur ce repository github.
+
+Vous pouvez également les visualiser directement via [nbviewer](http://nbviewer.jupyter.org/github/ocuisenaire/ASD1-notebooks/tree/master/). Il vous permet de switcher entre vues document / slides / code. C'est sans doute aussi par là que vous aurez le meilleurs rendu pour les imprimer si vous aimez tuer des arbres. 
 
 ## Jupyter Notebooks interactifs sans installation locale
 
@@ -18,7 +20,7 @@ Vous pouvez visualiser et exécuter les notebooks sur le cloud avec [Binder](htt
 
 Installer [git](https://git-scm.com/downloads)
 
-Cloner ce repository via la commande `git clone https://github.com/ocuisenaire/ASD1-notebooks` 
+Cloner ce repository via la commande `git clone https://github.com/ocuisenaire/ASD1-notebooks` ou éventuellement en le forkant si vous voulez faire des modifications locales.
 
 Installer [jupyter notebook](http://jupyter.org/install.html)
 
