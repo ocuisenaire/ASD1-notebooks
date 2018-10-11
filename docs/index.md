@@ -29,19 +29,19 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 ## Stuctures linéaires
 
 1. Tableaux
-    1. [de taille fixe](4.0 - Tableau de taille fixe.slides.html)
-    1. [de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
-    1. [circulaire](4.2 - Buffer circulaire.slides.html)
-    1. [de capacité variable](4.3 - Tableau de capacité variable.slides.html)
+    * [de taille fixe](4.0 - Tableau de taille fixe.slides.html)
+    * [de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
+    * [circulaire](4.2 - Buffer circulaire.slides.html)
+    * [de capacité variable](4.3 - Tableau de capacité variable.slides.html)
 1. Listes
-    1. [simplement chainée](4.4 - Liste chainée.slides.html)
-    1. [doublement chainée](4.5 - Liste doublement chainée.slides.html)
-    1. tri de Listes
+    * [simplement chainée](4.4 - Liste chainée.slides.html)
+    * [doublement chainée](4.5 - Liste doublement chainée.slides.html)
+    * tri de Listes
 1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
 1. Types de données abstraits
-    1. pile
-    1. queue
-    1. queue de priorité
+    * pile
+    * queue
+    * queue de priorité
 
 
 ## Arbres
