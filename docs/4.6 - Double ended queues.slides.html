@@ -11951,13 +11951,13 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DeQue</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">chunk_cap</span><span class="p">,</span><span class="n">map_cap</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">map_cap</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">=</span> <span class="n">map_cap</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">=</span> <span class="n">map_cap</span> <span class="k">if</span> <span class="n">map_cap</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">2</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chunk_cap</span> <span class="o">=</span> <span class="n">chunk_cap</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="mi">0</span>
@@ -11988,7 +11988,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
@@ -12018,7 +12018,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">check_capacite</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">taille_demandee</span><span class="p">):</span> <span class="k">pass</span>
@@ -12045,15 +12045,17 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_queue</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
     <span class="n">check_capacite</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">deq</span><span class="o">.</span><span class="n">taille</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">deq</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
+    
     <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> 
         <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span>
+        
     <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
     <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
     
@@ -12076,7 +12078,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">afficher_deque</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
@@ -12104,7 +12106,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">DeQue</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -12114,31 +12116,6 @@ a.anchor-link {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>cc:8 mc:6 cd:0 md:0 t:12 
-[0, 2, 4, 6, 8, 10, 12, 14]
-[16, 18, 20, 22, None, None, None, None]
-None
-None
-None
-None
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12154,21 +12131,24 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_tete</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
     <span class="n">check_capacite</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">deq</span><span class="o">.</span><span class="n">taille</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
     <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> 
         <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span>
+        
     <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
     <span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="n">i_map</span>
     <span class="n">deq</span><span class="o">.</span><span class="n">chunk_debut</span> <span class="o">=</span> <span class="n">i_chunk</span>
     <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
     
-<span class="n">DeQue</span><span class="o">.</span><span class="n">append_left</span> <span class="o">=</span> <span class="n">inserer_en_tete</span>
+<span class="n">DeQue</span><span class="o">.</span><span class="n">appendleft</span> <span class="o">=</span> <span class="n">inserer_en_tete</span>
 </pre></div>
 
 </div>
@@ -12187,11 +12167,99 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">):</span>
-    <span class="n">D</span><span class="o">.</span><span class="n">append_left</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Suppressions">Suppressions<a class="anchor-link" href="#Suppressions">&#182;</a></h2><p>Les méthodes de suppression en queue et en tête suivent le même principe.</p>
+<p>La suppression en queue est plus simple puisqu'il ne faut modifier que l'attribut <code>taille</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_queue</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
+        
+    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">deq</span><span class="o">.</span><span class="n">taille</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
+    
+<span class="n">DeQue</span><span class="o">.</span><span class="n">pop</span> <span class="o">=</span> <span class="n">supprimer_en_queue</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pour la suppression en queue, il faut également modifer les attributs de début de <code>map</code> et de <code>chunk</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
+        
+    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="n">i_map</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">chunk_debut</span> <span class="o">=</span> <span class="n">i_chunk</span>
+    
+    <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
+      
+<span class="n">DeQue</span><span class="o">.</span><span class="n">popleft</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Observons leurs effets sur le contenu de la deque</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">14</span><span class="p">):</span> <span class="n">D</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 
@@ -12209,13 +12277,13 @@ None
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>cc:8 mc:6 cd:2 md:4 t:26 
-[0, 2, 4, 6, 8, 10, 12, 14]
-[16, 18, 20, 22, None, None, None, None]
+<pre>cc:8 mc:6 cd:2 md:4 t:12 
+[None, None, None, None, None, None, None, None]
+[None, None, None, None, None, None, None, None]
 None
 None
 [None, None, -14, -13, -12, -11, -10, -9]
-[-8, -7, -6, -5, -4, -3, -2, -1]
+[-8, -7, -6, -5, -4, -3, None, None]
 
 </pre>
 </div>
@@ -12224,7 +12292,46 @@ None
 </div>
 </div>
 
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> <span class="n">D</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>cc:8 mc:6 cd:6 md:4 t:8 
+[None, None, None, None, None, None, None, None]
+[None, None, None, None, None, None, None, None]
+None
+None
+[None, None, None, None, None, None, -10, -9]
+[-8, -7, -6, -5, -4, -3, None, None]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12236,7 +12343,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_item</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
@@ -12254,7 +12361,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">set_item</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
@@ -12272,7 +12379,7 @@ None
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
@@ -12294,51 +12401,8 @@ None
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>D[0] = -14   D[1] = -13   D[2] = -12   D[3] = -11   
-D[4] = -10   D[5] = -9    D[6] = -8    D[7] = -7    
-D[8] = -6    D[9] = -5    D[10] = -4   D[11] = -3   
-D[12] = -2   D[13] = -1   D[14] = 0    D[15] = 2    
-D[16] = 4    D[17] = 6    D[18] = 8    D[19] = 10   
-D[20] = 12   D[21] = 14   D[22] = 16   D[23] = 18   
-D[24] = 20   D[25] = 22   </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
-    <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="o">-</span><span class="n">v</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D[</span><span class="si">{}</span><span class="s2">] = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>D[0] = 20
-D[1] = 18
-D[2] = 16
-D[3] = 14
-D[4] = 12
-D[5] = 10
+<pre>D[0] = -10   D[1] = -9    D[2] = -8    D[3] = -7    
+D[4] = -6    D[5] = -5    D[6] = -4    D[7] = -3    
 </pre>
 </div>
 </div>
@@ -12347,282 +12411,84 @@ D[5] = 10
 </div>
 
 </div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">check_capacite</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">taille_demandee</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">taille_demandee</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span><span class="p">:</span> 
-        <span class="k">return</span> 
-    <span class="n">nouvelle_map_cap</span> <span class="o">=</span> <span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">nouvelle_map_cap</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span> <span class="o">&lt;</span> <span class="n">taille_demandee</span><span class="p">:</span>
-        <span class="n">nouvelle_map_cap</span> <span class="o">*=</span> <span class="mi">2</span>
-    <span class="n">augmente_map_cap</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">nouvelle_map_cap</span><span class="p">)</span>    
-        
-<span class="k">def</span> <span class="nf">augmente_map_cap</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">nouvelle_map_cap</span><span class="p">):</span>
-    <span class="n">nouvelle_map</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">nouvelle_map_cap</span>
-    <span class="n">nouveau_debut</span> <span class="o">=</span> <span class="n">nouvelle_map_cap</span><span class="o">-</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="o">+</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span>
-    
-    <span class="n">nouvelle_map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">]</span> <span class="o">=</span> <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">]</span>
-    <span class="n">nouvelle_map</span><span class="p">[</span><span class="n">nouveau_debut</span><span class="p">:</span><span class="n">nouvelle_map_cap</span><span class="p">]</span> <span class="o">=</span> <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="p">]</span>
-
-    <span class="n">deq</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">nouvelle_map</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">=</span> <span class="n">nouvelle_map_cap</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="n">nouveau_debut</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Gestion-de-la-capacit&#233;">Gestion de la capacit&#233;<a class="anchor-link" href="#Gestion-de-la-capacit&#233;">&#182;</a></h2><p>Reste à considérer le point laisser en suspens. Que doit faire la fonction <code>check_capacite(deq,taille_demandee)</code> ?</p>
+<ul>
+<li><p>vérifier si la capacité est suffisante.</p>
+<ul>
+<li>début et fin ne doivent pas partage le même chunk</li>
+<li>la capacité réelle est donc <code>(map_cap - 1) * chunk_cap</code></li>
+</ul>
+</li>
+<li><p>calculer la nouvelle capacité à allouer. Typiquement en doublant la capacité actuelle de la map.</p>
+</li>
+<li><p>augmenter la capacité de la map.</p>
+<ul>
+<li>allouer la nouvelle map</li>
+<li>copier les pointeurs vers les chunks en s'assurant de la continuité des chunks courament alloués</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D[</span><span class="si">{}</span><span class="s2">] = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>D[0] = -5
-D[1] = -4
-D[2] = -3
-D[3] = -2
-D[4] = -1
-D[5] = 20
-D[6] = 18
-D[7] = 16
-D[8] = 14
-D[9] = 12
-D[10] = 10
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
-    <span class="n">D</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>cc:4 mc:8 cd:3 md:6 t:16 
-[20, 18, 16, 14]
-[12, 10, 1, 2]
-[3, 4, 5, None]
-None
-None
-None
-[None, None, None, -5]
-[-4, -3, -2, -1]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D[</span><span class="si">{}</span><span class="s2">] = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>D[0] = -5
-D[1] = -4
-D[2] = -3
-D[3] = -2
-D[4] = -1
-D[5] = 20
-D[6] = 18
-D[7] = 16
-D[8] = 14
-D[9] = 12
-D[10] = 10
-D[11] = 1
-D[12] = 2
-D[13] = 3
-D[14] = 4
-D[15] = 5
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_queue</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
-    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">deq</span><span class="o">.</span><span class="n">taille</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">check_capacite</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">taille_demandee</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">taille_demandee</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span><span class="p">:</span> 
+        <span class="k">return</span>
     
-<span class="n">DeQue</span><span class="o">.</span><span class="n">pop</span> <span class="o">=</span> <span class="n">supprimer_en_queue</span>
+    <span class="n">new_map_cap</span> <span class="o">=</span> <span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">*</span> <span class="mi">2</span> 
+    <span class="k">while</span> <span class="p">(</span><span class="n">new_map_cap</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">deq</span><span class="o">.</span><span class="n">chunk_cap</span> <span class="o">&lt;</span> <span class="n">taille_demandee</span><span class="p">:</span>
+        <span class="n">new_map_cap</span> <span class="o">*=</span> <span class="mi">2</span>
+        
+    <span class="n">augmente_map_cap</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">new_map_cap</span><span class="p">)</span>  
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section></section><section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">D</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">augmente_map_cap</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="n">new_map_cap</span><span class="p">):</span>
+    <span class="n">new_map</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">new_map_cap</span>
+    <span class="n">new_debut</span> <span class="o">=</span> <span class="n">new_map_cap</span><span class="o">-</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="o">+</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span>
+    
+    <span class="n">new_map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">]</span> <span class="o">=</span> <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">]</span>
+    <span class="n">new_map</span><span class="p">[</span><span class="n">new_debut</span><span class="p">:</span><span class="n">new_map_cap</span><span class="p">]</span> <span class="o">=</span> \
+        <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span><span class="p">:</span><span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span><span class="p">]</span>
+
+    <span class="n">deq</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">new_map</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">map_cap</span> <span class="o">=</span> <span class="n">new_map_cap</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="n">new_debut</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>cc:4 mc:8 cd:3 md:6 t:16 
-[20, 18, 16, 14]
-[12, 10, 1, 2]
-[3, 4, 5, None]
-None
-None
-None
-[None, None, None, -5]
-[-4, -3, -2, -1]
-
--5 -4 -3 -2 -1 20 18 16 14 12 10 1 2 3 4 5 
-
-cc:4 mc:8 cd:3 md:6 t:13 
-[20, 18, 16, 14]
-[12, 10, 1, 2]
-[None, None, None, None]
-None
-None
-None
-[None, None, None, -5]
-[-4, -3, -2, -1]
-
--5 -4 -3 -2 -1 20 18 16 14 12 10 1 2 
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
-    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="n">i_map</span><span class="p">][</span><span class="n">i_chunk</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">i_chunk</span><span class="p">,</span> <span class="n">i_map</span> <span class="o">=</span> <span class="n">indices_physiques</span><span class="p">(</span><span class="n">deq</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">map_debut</span> <span class="o">=</span> <span class="n">i_map</span>
-    <span class="n">deq</span><span class="o">.</span><span class="n">chunk_debut</span> <span class="o">=</span> <span class="n">i_chunk</span>
-    
-<span class="n">DeQue</span><span class="o">.</span><span class="n">popleft</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">D</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">DeQue</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="n">D</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>  <span class="n">D</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12639,29 +12505,10 @@ None
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>cc:4 mc:8 cd:3 md:6 t:13 
-[20, 18, 16, 14]
-[12, 10, 1, 2]
-[None, None, None, None]
-None
-None
-None
-[None, None, None, -5]
-[-4, -3, -2, -1]
-
--5 -4 -3 -2 -1 20 18 16 14 12 10 1 2 
-
-cc:4 mc:8 cd:2 md:7 t:10 
-[20, 18, 16, 14]
-[12, 10, 1, 2]
-[None, None, None, None]
-None
-None
-None
-[None, None, None, None]
-[None, None, -2, -1]
-
--2 -1 20 18 16 14 12 10 1 2 
+<pre>cc:8 mc:3 cd:2 md:2 t:16 
+[1, 2, 5, 10, 17, 26, 37, 50]
+[65, 82, None, None, None, None, None, None]
+[None, None, -25, -16, -9, -4, -1, 0]
 
 </pre>
 </div>
@@ -12670,21 +12517,124 @@ None
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Complexit&#233;s">Complexit&#233;s<a class="anchor-link" href="#Complexit&#233;s">&#182;</a></h2><p>temporelle et spatiale</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>cc:8 mc:6 cd:1 md:5 t:17 
+[1, 2, 5, 10, 17, 26, 37, 50]
+[65, 82, None, None, None, None, None, None]
+None
+None
+None
+[None, 42, -25, -16, -9, -4, -1, 0]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2>
+<h2 id="Complexit&#233;s">Complexit&#233;s<a class="anchor-link" href="#Complexit&#233;s">&#182;</a></h2><p>Considérons une DeQue avec une capacité de chunk fixée à $C$, dans laquelle on insère $n$ éléments, avec $n &gt;&gt; C$ pour simplifier. Considérons tout d'abord la complexité spatiale.</p>
+<p>La mémoire requise est de l'ordre de de</p>
+<ul>
+<li>$n + C$ éléments pour les chunks</li>
+<li>$n/C$ pointeurs pour la map </li>
+</ul>
+<p>Avec $n &gt;&gt; C$, c'est proche de $n$ éléments en tout. C'est donc</p>
+<ul>
+<li>meilleur qu'un tableau à capacité variable qui utilise une capacité jusqu'à $2 n$</li>
+<li>meilleur qu'une liste doublement chainée qui utilise $n$ éléments et $2 n$ pointeurs</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Quand la capacité n'est pas modifiée, la complexité temporelle des opérations est constante. Le calcul des indices physiques est plus complexe que pour un tableau, mais n'utilise que</p>
+<ul>
+<li>additions</li>
+<li>division entière</li>
+<li>modulo</li>
+</ul>
+<p>en prenant une capacité de chunk exponentielle de 2, divisions et modulo s'effectuent par shift et masquage bit à bit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">b</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b =&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s2">&quot;, 2**b =&quot;</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="s2">&quot;, n =&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n//(2**b) =&quot;</span><span class="p">,</span><span class="n">n</span><span class="o">//</span><span class="n">C</span><span class="p">,</span><span class="s2">&quot;==&quot;</span><span class="p">,</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="p">,</span><span class="s2">&quot;= n&gt;&gt;b&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n % C =&quot;</span><span class="p">,</span><span class="n">n</span> <span class="o">%</span> <span class="n">C</span><span class="p">,</span><span class="s2">&quot;==&quot;</span><span class="p">,</span><span class="n">n</span><span class="o">&amp;</span><span class="p">(</span><span class="n">C</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="s2">&quot;= n&amp;(2**b - 1) &quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>b = 8 , 2**b = 256 , n = 12345
+n//(2**b) = 48 == 48 = n&gt;&gt;b
+n % C = 57 == 57 = n&amp;(2**b - 1) 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Modifier la capacité ne requiert que de réallouer et déplacer la map, pas les chunks. La complexité temporelle est donc en $O(n/C)$, ce qui est $C$ fois mieux que pour un tableau simple.</p>
+<p>Par contre, l'allocation / initialisation des chunks sera vraisemblablement $O(C)$.</p>
+<p>En tout, on a dont une complexité $O( C + n/C )$. Pour $n$ donné, le $C$ optimal est donc de l'ordre de $\sqrt{n}$.</p>
+
 </div>
 </div>
 </div></section></section><section><section>
