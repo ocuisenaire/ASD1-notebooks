@@ -40,9 +40,10 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. Deque (double ended queue)
 1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
 1. Types de données abstraits
-    * pile
+    * pile (stack)
     * queue
-    * queue de priorité
+    * queue de priorité (priority_queue)
+1. Structures linéaires en C++
 
 
 ## Arbres
@@ -59,6 +60,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. Types de données abstraits
     * [Ensemble (set)](5.9.A - TDA Ensemble.slides.html)
     * Carte (map)
+1. Arbres binaires de recherche en C++
 1. [Arbres AVL (ASD2)](5.B - Arbres AVL.slides.html)
     * [Complexité (ASD2)](5.C - Arbres AVL - complexité.slides.html)
 
