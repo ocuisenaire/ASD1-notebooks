@@ -51,7 +51,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. [Arbres généraux](5.1 - Arbres génériques.slides.html)
 1. [Arbres binaires](5.2 - Arbres Binaires.slides.html)
     * [Arbres à partir de 2 parcours](5.2.B - Arbres et parcours.slides.html)
-1. [Expressions arithmétiques](5.3 - Expressions arithmétiques.slides.html)
+    * [Expressions arithmétiques](5.3 - Expressions arithmétiques.slides.html)
 1. [Arbres binaires de recherche (ABR)](5.4 - Arbres Binaires de Recherche.slides.html)
     * [Itérer](5.5 - Itérer sur un ABR.slides.html)
     * [Accès aléatoire](5.6 - Accès aléatoire dans un ABR.slides.html)
