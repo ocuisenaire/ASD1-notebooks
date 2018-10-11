@@ -23,17 +23,25 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. [Tri de Shell](3.4 - Tri de Shell.slides.html)
 1. [Tri par fusion](3.5 - Tri par Fusion.slides.html)
 1. [Tri rapide](3.6 - Tri Rapide.slides.html)
-1. [Sélection rapide](3.7 - Sélection rapide.slides.html)
+    * [Sélection rapide](3.7 - Sélection rapide.slides.html)
 1. [Tris en C et C++](3.8 - Tris en C et C++.slides.html)
 
 ## Stuctures linéaires
 
-1. [Tableau de taille fixe](4.0 - Tableau de taille fixe.slides.html)
-1. [Tableau de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
-1. [Buffer circulaire](4.2 - Buffer circulaire.slides.html)
-1. [Tableau de capacité variable](4.3 - Tableau de capacité variable.slides.html)
-1. [Liste simplement chainée](4.4 - Liste chainée.slides.html)
+1. Tableaux
+    1. [de taille fixe](4.0 - Tableau de taille fixe.slides.html)
+    1. [de capacité fixe](4.1 - Tableau de capacité fixe.slides.html)
+    1. [circulaire](4.2 - Buffer circulaire.slides.html)
+    1. [de capacité variable](4.3 - Tableau de capacité variable.slides.html)
+1. Listes
+    1. [simplement chainée](4.4 - Liste chainée.slides.html)
+    1. [doublement chainée](4.5 - Liste doublement chainée.slides.html)
+    1. tri de Listes
 1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
+1. Types de données abstraits
+    1. pile
+    1. queue
+    1. queue de priorité
 
 
 ## Arbres
