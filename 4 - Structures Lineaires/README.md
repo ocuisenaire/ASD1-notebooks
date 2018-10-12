@@ -32,8 +32,8 @@ Nous finissons la description des *sequence containers* par celle de la **double
 
 Nous étudions ensuite trois types de données abstraits (TDA) qui spécifient plus précisément les positions d'insertion et de suppression autorisées dans le conteneur. Ces TDA peuvent être mis en oeuvre par divers conteneurs concrets vus précédemment.
 
-* le TDA **pile** ou **First in, last out (FILO)** ([std::stack](http://www.cplusplus.com/reference/stack/stack/) en C++) qui insère et supprime du même côté. Nous en voyons une application avec l'algorithme de Dijkstra à deux piles pour évaluer les expressions arithmétiques. 
+* le TDA **pile** ou **First In, Last Out** ([std::stack](http://www.cplusplus.com/reference/stack/stack/) en C++) qui insère et supprime du même côté. Nous en voyons une application avec l'algorithme de Dijkstra à deux piles pour évaluer les expressions arithmétiques. 
 
-* le TDA **queue** ou **First in, first out (FIFO)** ([std::queue](http://www.cplusplus.com/reference/queue/queue/) en C++) qui insère et supprime aux cotés opposés. 
+* le TDA **queue** ou **First In, First Out** ([std::queue](http://www.cplusplus.com/reference/queue/queue/) en C++) qui insère et supprime aux cotés opposés. 
 
 * Le TDA **queue de priorité** ([std::priority_queue](http://www.cplusplus.com/reference/queue/priority_queue/) en C++) qui supprime les éléments par ordre de priorité décroissante. Ce TDA requiert que nous introduisions la **notion de tas** (heap in anglais) qui trie partiellement le contenu d'un tableau de sorte que son maximum soit en permanence à la position de tête. Il nous permet également de présenter un nouvel algorithme de tri: le tri pas tas. 
