@@ -7,6 +7,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 ## Introduction
 
 1. [Introduction à Python](1.0 - Introduction à Python.slides.html)
+    * [Classes et objets](1.0.B - Classes en python.slides.html)
 
 ## Récursivité
 
@@ -26,7 +27,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * [Sélection rapide](3.7 - Sélection rapide.slides.html)
 1. [Tris en C et C++](3.8 - Tris en C et C++.slides.html)
 
-## Stuctures linéaires
+## Structures linéaires
 
 1. Tableaux
     * [de taille fixe](4.0 - Tableau de taille fixe.slides.html)
