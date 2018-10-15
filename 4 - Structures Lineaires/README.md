@@ -32,7 +32,7 @@ Nous finissons la description des *sequence containers* par celle de la **double
 
 Nous étudions ensuite trois types de données abstraits (TDA) qui spécifient plus précisément les positions d'insertion et de suppression autorisées dans le conteneur. Ces TDA peuvent être mis en oeuvre par divers conteneurs concrets vus précédemment.
 
-* le TDA **pile** ou **First In, Last Out** ([std::stack](http://www.cplusplus.com/reference/stack/stack/) en C++) qui insère et supprime du même côté. Nous en voyons une application avec l'algorithme de Dijkstra à deux piles pour évaluer les expressions arithmétiques. 
+* le TDA **pile** ou **Last In, First Out** ([std::stack](http://www.cplusplus.com/reference/stack/stack/) en C++) qui insère et supprime du même côté. Nous en voyons une application avec l'algorithme de Dijkstra à deux piles pour évaluer les expressions arithmétiques. 
 
 * le TDA **queue** ou **First In, First Out** ([std::queue](http://www.cplusplus.com/reference/queue/queue/) en C++) qui insère et supprime aux cotés opposés. 
 
