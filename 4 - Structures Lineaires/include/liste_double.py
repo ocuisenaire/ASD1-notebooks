@@ -20,6 +20,13 @@ def __liste_double_str__(L):
         m = m.suivant
     return s
 
+class Liste:
+    def __init__(self):
+        self.tete = None
+        self.queue = None
+        self.N = 0
+
+
 class MaillonVide:
     def __init__(self):
         self.suivant = self
@@ -32,22 +39,44 @@ class Liste:
         
     __str__ = __liste_double_str__
 
+class list_iterator:
+    def __init__(self,maillon): self.__M = maillon
+        
+    def __str__(self): return self.__M.__str__()
 
-def debut(L):     return L._Liste__tq.suivant
+    def copie(self):   return list_iterator(self.__M)
+    
+    def incr(self):    self.__M = self.__M.suivant
+        
+    def decr(self):    self.__M = self.__M.precedent
+    
+    def suivant(self, N = 1): 
+        s = self.copie()
+        for i in range(N): s.incr()
+        return s
+    
+    def precedent(self, N = 1): 
+        s = self.copie() 
+        for i in range(N): s.decr()
+        return s
+        
+    def get_val(self): return self.__M.donnee
+    
+    def set_val(self,val): self.__M.donnee = val
+        
+    def __eq__(self,other):
+        return isinstance(other,list_iterator) and self.__M == other.__M
 
-def fin(L):       return L._Liste__tq
+def liste_begin(L): return list_iterator(L._Liste__tq.suivant)
 
-def suivant(m):   return m.suivant
+Liste.begin = liste_begin
 
-def precedent(m): return m.precedent
+def liste_end(L):  return list_iterator(L._Liste__tq)
 
-def get_val(m):   return m.donnee
-
-def set_val(m,v): m.donnee = v
-
+Liste.end = liste_end
 
 def est_vide(L):
-    return debut(L) == fin(L)
+    return L.begin() == L.end()
 Liste.empty = est_vide
 
 def taille(L):
@@ -57,8 +86,8 @@ Liste.size = taille
 def inserer_avant(M,val):
     N = Maillon(val,p = M.precedent, s = M)
     
-def inserer_avant_en_liste(L,M,val):
-    inserer_avant(M,val)
+def inserer_avant_en_liste(L,it,val):
+    inserer_avant(it._list_iterator__M,val)
     L._Liste__N += 1
     
 Liste.insert = inserer_avant_en_liste
@@ -68,41 +97,73 @@ def supprimer(M):
     M.precedent.suivant = M.suivant
     M.suivant.precedent = M.precedent
     
-def supprimer_en_liste(L,M):
-    supprimer(M)
+def supprimer_en_liste(L,it):
+    supprimer(it._list_iterator__M)
     L._Liste__N -= 1
 
 Liste.erase = supprimer_en_liste
 
-
 def inserer_en_tete(L,val):
-    L.insert(debut(L),val)  
+    L.insert(L.begin(),val)  
     
-Liste.appendleft = inserer_en_tete
+Liste.push_front = inserer_en_tete
 
 
 def supprimer_en_tete(L):
     if L.empty(): raise IndexError()
-    L.erase(debut(L))
+    L.erase(L.begin())
     
-Liste.popleft = supprimer_en_tete
+Liste.pop_front = supprimer_en_tete
 
 
 def inserer_en_queue(L,val):
-    L.insert(fin(L),val)
+    L.insert(L.end(),val)
     
-Liste.append = inserer_en_queue
+Liste.push_back = inserer_en_queue
+
 
 def supprimer_en_queue(L):
     if L.empty(): raise IndexError()
-    L.erase(precedent(fin(L)))
-Liste.pop = supprimer_en_queue
+    L.erase(L.end().precedent())
+    
+Liste.pop_back = supprimer_en_queue
+
+def afficher_liste(L):
+    it = L.begin()
+    while it != L.end():
+        print(it, end="")
+        if it.suivant() != L.end(): 
+            print(end = " ⇄ ")
+        it.incr()
 
 
-def r_debut(L):     return L._Liste__tq.precedent
+def supprimer_decroissances(L):
+    it = L.begin(); max_val = it.get_val()
+    it = it.suivant()
+    
+    while it != L.end():
+        if it.get_val() < max_val:
+            tmp = it.suivant()
+            L.erase(it); 
+            it = tmp
+        else:
+            max_val = it.get_val()
+            it.incr()
 
-def r_fin(L):       return L._Liste__tq
+def tri_par_insertion(L):
+    if L.size() < 2: return
+    
+    k = L.begin().suivant()
+    while k != L.end():
+        tmp = k.get_val()
+        
+        j = k; i = j.precedent()
+        while j != L.begin() and tmp < i.get_val():
+            j.set_val(i.get_val())
+            j = i.copie() 
+            i.decr()
+            
+        j.set_val(tmp)
+        k.incr()
 
-def r_suivant(m):   return m.precedent
 
-def r_precedent(m): return m.suivant
