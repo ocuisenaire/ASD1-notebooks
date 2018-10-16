@@ -176,7 +176,7 @@
 			focusBodyOnPageVisibilityChange: true,
 
 			// Transition style
-			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			transition: 'none', // none/fade/slide/convex/concave/zoom
 
 			// Transition speed
 			transitionSpeed: 'default', // default/fast/slow
@@ -308,12 +308,12 @@
 		keyboardShortcuts = {
 			'N  ,  SPACE':			'Next slide',
 			'P':					'Previous slide',
-			'&#8592;  ,  H':		'Navigate left',
-			'&#8594;  ,  L':		'Navigate right',
+			'&#8592;  ,  H':		'Next slide',
+			'&#8594;  ,  L':		'Previous slide',
 			'&#8593;  ,  K':		'Navigate up',
 			'&#8595;  ,  J':		'Navigate down',
-			'Home':					'First slide',
-			'End':					'Last slide',
+			'Home':					'Navigate left',
+			'End':					'Navigate right',
 			'B  ,  .':				'Pause',
 			'F':					'Fullscreen',
 			'ESC, O':				'Slide overview'
@@ -4787,21 +4787,21 @@
 
 			switch( event.keyCode ) {
 				// p, page up
-				case 80: case 33: navigatePrev(); break;
+				case 80: case 33: slide( 0 ); break;
 				// n, page down
-				case 78: case 34: navigateNext(); break;
+				case 78: case 34: slide( Number.MAX_VALUE ); break;
 				// h, left
-				case 72: case 37: navigateLeft(); break;
+				case 72: case 37: navigatePrev(); break;
 				// l, right
-				case 76: case 39: navigateRight(); break;
+				case 76: case 39: navigateNext(); break;
 				// k, up
 				case 75: case 38: navigateUp(); break;
 				// j, down
 				case 74: case 40: navigateDown(); break;
 				// home
-				case 36: slide( 0 ); break;
+				case 36: navigateLeft(); break;
 				// end
-				case 35: slide( Number.MAX_VALUE ); break;
+				case 35: navigateRight(); break;
 				// space
 				case 32: isOverview() ? deactivateOverview() : event.shiftKey ? navigatePrev() : navigateNext(); break;
 				// return
