@@ -37,7 +37,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
 1. Listes
     * [simplement chainée](4.4 - Liste chainée.slides.html)
     * [doublement chainée](4.5 - Liste doublement chainée.slides.html)
-    * tri de Listes
+    * [tri de Listes](4.7 - Tri de listes.slides.html)
 1. [Deque (double ended queue)](4.6 - Double ended queues.slides.html)
 1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
 1. Types de données abstraits

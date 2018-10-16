@@ -12467,7 +12467,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">splice_maillons</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">debut2</span><span class="p">,</span><span class="n">fin2</span><span class="p">):</span>
@@ -12503,11 +12503,11 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">splice</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">it1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">begin2</span><span class="p">,</span><span class="n">end2</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">L1</span> <span class="o">!=</span> <span class="n">L2</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">splice</span><span class="p">(</span><span class="n">it1</span><span class="p">,</span><span class="n">begin2</span><span class="p">,</span><span class="n">end2</span><span class="p">,</span> <span class="n">L1</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">L2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">L1</span> <span class="o">!=</span> <span class="n">L2</span> <span class="ow">and</span> <span class="n">L1</span> <span class="ow">and</span> <span class="n">L2</span><span class="p">:</span> 
         <span class="n">n</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">begin2</span><span class="p">,</span><span class="n">end2</span><span class="p">)</span>
         <span class="n">L1</span><span class="o">.</span><span class="n">_Liste__N</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span> <span class="n">L2</span><span class="o">.</span><span class="n">_Liste__N</span> <span class="o">-=</span> <span class="n">n</span>
 
@@ -12523,7 +12523,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">it1</span><span class="p">,</span><span class="n">it2</span><span class="p">):</span>
@@ -12541,7 +12541,7 @@ a.anchor-link {
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
@@ -12574,7 +12574,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
@@ -12607,13 +12607,13 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">i1</span> <span class="o">=</span> <span class="n">L1</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">b2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">e2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">splice</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">i1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+<span class="n">splice</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12623,7 +12623,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s2">&quot;: &quot;</span><span class="p">,</span><span class="n">L1</span><span class="p">)</span>
@@ -12658,15 +12658,93 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tri-fusion">Tri fusion<a class="anchor-link" href="#Tri-fusion">&#182;</a></h2>
+<h2 id="Tri-fusion">Tri fusion<a class="anchor-link" href="#Tri-fusion">&#182;</a></h2><p>La fonction récursive du tri fusion ne pose pas de problème dès lors que toutes les opérations</p>
+<ul>
+<li>tri fusion récursif</li>
+<li>fonction de fusion</li>
+</ul>
+<p>retournent les itérateurs de début et de fin de la sous-liste ainsi triée.</p>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_fusion_rec</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">b1</span><span class="p">,</span><span class="n">e1</span> <span class="o">=</span> <span class="n">tri_fusion_rec</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">b2</span><span class="p">,</span><span class="n">e2</span> <span class="o">=</span> <span class="n">tri_fusion_rec</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span><span class="n">n</span> <span class="o">-</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fusion</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># n == 1</span>
+        <span class="k">return</span> <span class="n">begin</span><span class="p">,</span> <span class="n">begin</span><span class="o">.</span><span class="n">suivant</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">tri_fusion</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">tri_fusion_rec</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">L</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La fonction de fusion peut être mise en oeuvre au moyen de la fonction <code>splice</code>. Elle ne requiert pas de copie d'éléments et a donc une complexité spatiale constante.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fusion</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="n">before_begin</span> <span class="o">=</span> <span class="n">begin</span><span class="o">.</span><span class="n">precedent</span><span class="p">()</span>
+    
+    <span class="n">L1</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">();</span> <span class="n">splice</span><span class="p">(</span><span class="n">L1</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span><span class="n">begin</span><span class="p">,</span><span class="n">mid</span><span class="p">);</span> 
+    <span class="n">L2</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">();</span> <span class="n">splice</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span><span class="n">mid</span><span class="p">,</span><span class="n">end</span><span class="p">);</span>   
+    <span class="n">it1</span> <span class="o">=</span> <span class="n">L1</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+    
+    <span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">L1</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span> <span class="ow">and</span> <span class="n">L2</span><span class="o">.</span><span class="n">empty</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">L2</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">L1</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">while</span> <span class="n">it1</span> <span class="o">!=</span> <span class="n">L1</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="ow">not</span> <span class="n">it2</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">it1</span><span class="o">.</span><span class="n">get_val</span><span class="p">():</span> 
+                <span class="n">it1</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
+        <span class="n">splice</span><span class="p">(</span><span class="n">end</span><span class="p">,</span><span class="n">L1</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">it1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">L1</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">it2</span> <span class="o">!=</span> <span class="n">L2</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="n">it2</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">it1</span><span class="o">.</span><span class="n">get_val</span><span class="p">():</span>     
+                <span class="n">it2</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
+        <span class="n">splice</span><span class="p">(</span><span class="n">end</span><span class="p">,</span><span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">it2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">before_begin</span><span class="o">.</span><span class="n">suivant</span><span class="p">(),</span> <span class="n">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tri-rapide">Tri rapide<a class="anchor-link" href="#Tri-rapide">&#182;</a></h2>
+<h2 id="Tri-rapide">Tri rapide<a class="anchor-link" href="#Tri-rapide">&#182;</a></h2><p>La mise en oeuvre de l'algorithme de partition ne pose pas de problème particulier pour une liste doublement chainée, toutes les opérations étant disponibles.</p>
+<p>Par contre, elle doit retourner non plus un seul indice, mais tous les itérateurs nécessaires aux appels récursifs qui suivent.</p>
+<p>Si ces itérateurs sont bien retournés, la mise en oeuvre de la fonction doublement récursive ne pose pas non plus problème.</p>
+<p>Le choix du pivot est problématique puisqu'il requiert éventuellement un parcours partiel selon l'algorithme de choix sélectionné</p>
+<p>Il est possible de trier une liste simplement chainée, mais cela requiert de modifier l'algorithmne de partition</p>
+<p>En pratique, on utilise plutôt le tri fusion.</p>
+
 </div>
 </div>
 </div></section></section><section><section>
