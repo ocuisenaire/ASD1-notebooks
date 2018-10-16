@@ -13,10 +13,11 @@ class Maillon:
 def __liste_double_str__(L):
     if L.empty(): return "⌀"
     m = L._Liste__tq.suivant
-    s = "⌀ ← "
+    s = ""
+    #    s = "⌀ ← "
     while m != L._Liste__tq:
         s += m.__str__()
-        s += " ⇄ " if m.suivant != L._Liste__tq else " → ⌀"
+        s += " ⇄ " if m.suivant != L._Liste__tq else "" # " → ⌀"
         m = m.suivant
     return s
 

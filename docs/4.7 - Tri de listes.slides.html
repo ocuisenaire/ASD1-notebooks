@@ -12037,11 +12037,25 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">include.liste_double</span> <span class="k">as</span> <span class="nn">ld</span>
-<span class="n">T</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="p">];</span> 
+<span class="k">def</span> <span class="nf">liste_demo</span><span class="p">():</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="p">];</span> 
+    <span class="n">L</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span> 
+        <span class="n">L</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
 
-<span class="n">L</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</div>
+</div>
+</div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">liste_demo</span><span class="p">();</span>     <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> 
 <span class="n">tri_par_selection</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -12059,7 +12073,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>⌀ ← 1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9 → ⌀
+<pre>6 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 1 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9
+1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9
 </pre>
 </div>
 </div>
@@ -12073,13 +12088,55 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Mais il y a une autre manière d'échanger les éléments sans devoir les copier: échanger la place de leurs maillons dans la chaine.</p>
+<p>Considérons la liste suivante dont on veut échanger les maillons 2 et 5</p>
+<p><img src="include/echange_1.png" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il va falloir modifier les liens colorés.</p>
+<p><img src="include/echange_2.png" alt=""></p>
+<p>Les couleurs font correspondre les liens équivalents pour chacun des maillons à échanger</p>
+<ul>
+<li>rose: <code>m.precedent.suivant</code></li>
+<li>noir: <code>m.precedent</code></li>
+<li>vert: <code>m.suivant</code></li>
+<li>bleu: <code>m.suivant.precedent</code></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il suffit d'échanger ces liens correspondant 2 par 2 pour obtenir la liste modifiée.</p>
+<p><img src="include/echange_3.png" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On procède en deux étapes.</p>
+<ul>
+<li>indentifier <code>m1p</code>, <code>m1s</code>, <code>m2p</code>, <code>m2s</code>, les noeuds entourant <code>m1</code> et <code>m2</code></li>
+<li>effectuer les 4 échanges de liens équivalents</li>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">echanger_emplacement_des_maillons</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">m2</span><span class="p">):</span>
@@ -12116,18 +12173,15 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">liste_demo</span><span class="p">()</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">j</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
 
 <span class="n">echanger_iterateurs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -12145,8 +12199,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>6 1 ⌀ ← 6 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 1 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9 → ⌀
-6 1 ⌀ ← 1 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 6 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9 → ⌀
+<pre>6 1 6 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 1 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9
+6 1 1 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 6 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9
 </pre>
 </div>
 </div>
@@ -12166,7 +12220,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_par_selection</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
@@ -12191,13 +12245,10 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">include.liste_double</span> <span class="k">as</span> <span class="nn">ld</span>
-<span class="n">T</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="p">];</span> 
-<span class="n">L</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">liste_demo</span><span class="p">();</span>     <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> 
 <span class="n">tri_par_selection</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -12215,7 +12266,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>⌀ ← 1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9 → ⌀
+<pre>6 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 1 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9
+1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9
 </pre>
 </div>
 </div>
@@ -12235,7 +12287,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_par_insertion</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
@@ -12271,11 +12323,30 @@ a.anchor-link {
 <li>déplacer l'élément de <code>k</code> vers <code>i</code></li>
 </ul>
 <p>Dans un tableau, cela requiert de déplacer tous les éléments entre <code>i</code> et <code>k-1</code> de 1 vers la droite. Mais dans une liste chainée, cela n'a pas de sens. Il suffit de retirer le maillon <code>k</code> et de l'insérer tel quel devant <code>i</code>,</p>
-<p>Ecrivons un telle fonction</p>
 
 </div>
 </div>
 </div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Soit la liste suivante dont nous voulons insérer le maillon 2 devant le maillon 3</p>
+<p><img src="include/insertion_1.png" alt=""></p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il suffit de détruire les liens pointillés et d'écrire à la places les liens doubles bleu, vert et rose.</p>
+<p><img src="include/insertion_2.png" alt=""></p>
+
+</div>
+</div>
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -12283,13 +12354,16 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">deplacer_maillon</span><span class="p">(</span><span class="n">FROM</span><span class="p">,</span><span class="n">TO</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">FROM</span> <span class="o">==</span> <span class="n">TO</span><span class="p">:</span> <span class="k">return</span>
-    
-    <span class="n">FROM</span><span class="o">.</span><span class="n">precedent</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">FROM</span><span class="o">.</span><span class="n">suivant</span>
+
+    <span class="c1"># rose </span>
+    <span class="n">FROM</span><span class="o">.</span><span class="n">precedent</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">FROM</span><span class="o">.</span><span class="n">suivant</span>    
     <span class="n">FROM</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">FROM</span><span class="o">.</span><span class="n">precedent</span>
     
+    <span class="c1"># vert</span>
     <span class="n">TO</span><span class="o">.</span><span class="n">precedent</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">FROM</span>
     <span class="n">FROM</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">TO</span><span class="o">.</span><span class="n">precedent</span>
     
+    <span class="c1"># bleu</span>
     <span class="n">TO</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">FROM</span>
     <span class="n">FROM</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">TO</span> 
     
@@ -12317,7 +12391,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_par_insertion_sans_copie</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tri_par_insertion</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">L</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span>
     
     <span class="n">k</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">()</span>
@@ -12341,12 +12415,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="p">]</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="n">tri_par_insertion_sans_copie</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">liste_demo</span><span class="p">();</span>     <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">tri_par_insertion</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12363,7 +12433,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>⌀ ← 1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9 → ⌀
+<pre>6 ⇄ 3 ⇄ 5 ⇄ 4 ⇄ 1 ⇄ 2 ⇄ 8 ⇄ 7 ⇄ 9
+1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6 ⇄ 7 ⇄ 8 ⇄ 9
 </pre>
 </div>
 </div>
@@ -12372,6 +12443,242 @@ a.anchor-link {
 </div>
 
 </div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Episser-(to-splice)">Episser (to splice)<a class="anchor-link" href="#Episser-(to-splice)">&#182;</a></h2><p>On peut généraliser l'opération de déplacement de maillons en déplaçant toute une sous-liste à un autre emplacement, voire à un emplacement d'un autre liste.</p>
+<p>Cette opération s'appelle l'épissure, <code>splice</code> en anglais. C'est un mot du vocabulaire marin, provenant etymologiquement du néerlandais <em>splitsen</em>: assembler deux cordes ou deux câbles mis bout à bout par l’entrelacement de leurs torons.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Épissure_%28marine%29"><img src="include/epissure.png" alt="épissure"></a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Le code est assez similaire à celui du déplacement d'un noeud. Il faut modifier 3 liens doubles, soit 6 liens.</p>
+<p>Pour insérer la sous-liste <code>[debut2,fin2[</code> devant le maillon <code>m1</code>, il faut supprimer les doubles liens pointillés et les remplacer par les doubles liens rose, vert, et bleu</p>
+<p><img src="include/splice.png" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">splice_maillons</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span><span class="n">debut2</span><span class="p">,</span><span class="n">fin2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">debut2</span> <span class="o">==</span> <span class="n">fin2</span><span class="p">:</span> <span class="k">return</span>    <span class="c1"># rien à épisser</span>
+    
+    <span class="n">m1p</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">precedent</span> 
+    <span class="n">d2p</span> <span class="o">=</span> <span class="n">debut2</span><span class="o">.</span><span class="n">precedent</span>
+    <span class="n">f2p</span> <span class="o">=</span> <span class="n">fin2</span><span class="o">.</span><span class="n">precedent</span> 
+        
+    <span class="c1"># rose </span>
+    <span class="n">d2p</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">fin2</span><span class="p">;</span> <span class="n">fin2</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">d2p</span>
+
+    <span class="c1"># vert</span>
+    <span class="n">m1p</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">debut2</span><span class="p">;</span> <span class="n">debut2</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">m1p</span>
+
+    <span class="c1"># bleu</span>
+    <span class="n">f2p</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">m1</span><span class="p">;</span> <span class="n">m1</span><span class="o">.</span><span class="n">precedent</span> <span class="o">=</span> <span class="n">f2p</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Si l'on permet de transférer des maillons d'une liste à l'autre, on ne peut pas se contenter d'une API basée sur les itérateurs. L'épissure modifie le nombre d'éléments des deux listes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">splice</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">it1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">begin2</span><span class="p">,</span><span class="n">end2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">L1</span> <span class="o">!=</span> <span class="n">L2</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">begin2</span><span class="p">,</span><span class="n">end2</span><span class="p">)</span>
+        <span class="n">L1</span><span class="o">.</span><span class="n">_Liste__N</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span> <span class="n">L2</span><span class="o">.</span><span class="n">_Liste__N</span> <span class="o">-=</span> <span class="n">n</span>
+
+    <span class="n">splice_maillons</span><span class="p">(</span><span class="n">it1</span><span class="o">.</span><span class="n">_list_iterator__M</span><span class="p">,</span>
+                   <span class="n">begin2</span><span class="o">.</span><span class="n">_list_iterator__M</span><span class="p">,</span>
+                   <span class="n">end2</span><span class="o">.</span><span class="n">_list_iterator__M</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">it1</span><span class="p">,</span><span class="n">it2</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">it1</span><span class="o">.</span><span class="n">copie</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">it2</span><span class="p">:</span>
+        <span class="n">it</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="n">L1</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-1 ⇄ -2 ⇄ -3 ⇄ -4 ⇄ -5 ⇄ -6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">Liste</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span> <span class="n">L2</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 ⇄ 1 ⇄ 2 ⇄ 3 ⇄ 4 ⇄ 5 ⇄ 6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i1</span> <span class="o">=</span> <span class="n">L1</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span><span class="o">.</span><span class="n">suivant</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">splice</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">i1</span><span class="p">,</span><span class="n">L2</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s2">&quot;: &quot;</span><span class="p">,</span><span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span><span class="s2">&quot;: &quot;</span><span class="p">,</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>9 :  -1 ⇄ -2 ⇄ 1 ⇄ 2 ⇄ 3 ⇄ -3 ⇄ -4 ⇄ -5 ⇄ -6
+4 :  0 ⇄ 4 ⇄ 5 ⇄ 6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tri-fusion">Tri fusion<a class="anchor-link" href="#Tri-fusion">&#182;</a></h2>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tri-rapide">Tri rapide<a class="anchor-link" href="#Tri-rapide">&#182;</a></h2>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tri-par-tas,-tri-de-Shell">Tri par tas, tri de Shell<a class="anchor-link" href="#Tri-par-tas,-tri-de-Shell">&#182;</a></h2><p>ces tris ont intrinsèquement besoin d'un accés aléatoire aux données. Ils ne peuvent être mis en oeuvre efficacement sur des listes chainées.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
