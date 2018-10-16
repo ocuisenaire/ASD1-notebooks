@@ -11950,12 +11950,11 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indices">Indices<a class="anchor-link" href="#Indices">&#182;</a></h2><p>Chaque emplacement en mémoire a alors 2 indices distincts</p>
+<h2 id="Indices">Indices<a class="anchor-link" href="#Indices">&#182;</a></h2><p>Chaque emplacement en mémoire a 2 indices distincts</p>
 <ul>
-<li><p>un indice <strong>physique</strong> qui donne sa position depuis le début de la mémoire allouée</p>
-</li>
-<li><p>un indice <strong>logique</strong> qui donne sa position depuis <code>self.debut</code>.</p>
-</li>
+<li>un indice <strong>physique</strong> qui donne sa position em mémoire</li>
+<li>un indice <strong>logique</strong> qui donne sa position depuis <code>self.debut</code>.
+<img src="include/circulaire_1.png" alt="buffer circulaire"></li>
 </ul>
 
 </div>
@@ -11966,11 +11965,9 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logique</span><span class="p">):</span> <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logique</span>
 
-<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> 
+<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_physique</span><span class="p">):</span> <span class="k">return</span> <span class="n">i_physique</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> 
 </pre></div>
 
 </div>
@@ -11983,27 +11980,28 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Mieux, on utilise la mémoire allouée de manière cyclique, en calculant les indices physiques modulo la capacité.</p>
+<p><img src="include/circulaire_2.png" alt="buffer circulaire"></p>
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logique</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logique</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
 
-<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span> <span class="o">+</span> <span class="n">i</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
+<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_physique</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span> <span class="o">+</span> <span class="n">i_physique</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div><div class="fragment">
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12016,7 +12014,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
