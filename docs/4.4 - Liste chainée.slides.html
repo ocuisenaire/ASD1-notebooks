@@ -11981,11 +11981,12 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cette structure suffit à constuire une liste manuellement</p>
+<p>Cette structure suffit à constuire une liste manuellement. Construisons</p>
+<p><img src="include/folist_1.png" alt=""></p>
 
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -12000,7 +12001,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12190,10 +12191,11 @@ a.anchor-link {
 <li>créer un nouveau maillon qui deviendra la tête</li>
 <li>faire de l'ancienne tête le maillon suivant la nouvelle tête</li>
 </ul>
+<p><img src="include/folist_2.png" alt=""></p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -12249,10 +12251,11 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Supprimer en tête est encore plus simple. Il suffit de remplacer la tête par l'élément suivant</p>
+<p><img src="include/folist_3.png" alt=""></p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -12322,10 +12325,11 @@ a.anchor-link {
 <li>créer un nouveau maillon</li>
 <li>insérer ce maillon entre <code>M</code> et <code>M.suivant</code></li>
 </ul>
+<p><img src="include/folist_4.png" alt=""></p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -12382,6 +12386,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Pour supprimer l'élément suivant le maillon M, il suivit de faire pointer <code>M.suivant</code> vers l'élément suivant celui à supprimer</p>
+<p><img src="include/folist_5.png" alt=""></p>
 
 </div>
 </div>
@@ -13042,25 +13047,21 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Pour itérer, on introduit une nouvelle fonction <code>avant_debut</code> et on redéfinit <code>debut</code>. Les autres sont inchangées</p>
+<p><img src="include/folist_6.png" alt=""></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span> <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">_forward_list__av</span>
-
 <span class="k">def</span> <span class="nf">debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>       <span class="k">return</span> <span class="n">suivant</span><span class="p">(</span><span class="n">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
-
 <span class="k">def</span> <span class="nf">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>         <span class="k">return</span> <span class="kc">None</span>
-
 <span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>     <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">suivant</span>
-
 <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>     <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span>
-
 <span class="k">def</span> <span class="nf">set_val</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>   <span class="n">m</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">v</span>
 </pre></div>
 
