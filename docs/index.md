@@ -45,7 +45,9 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * queue
     * queue de priorité (priority_queue)
 1. Structures linéaires en C++
-
+    * [sequence containers](4.A - Structures linéaires en C++.slides.html)
+    * container adaptors
+    * heaps 
 
 ## Arbres
 
