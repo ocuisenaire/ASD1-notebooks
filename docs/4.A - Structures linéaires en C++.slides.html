@@ -12448,7 +12448,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> 
-<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span> 
+<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span> 
 <span class="p">{</span>
   <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span>
   <span class="p">{</span>
@@ -12469,7 +12469,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">auto</span> <span class="n">prec</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">before_begin</span><span class="p">();</span>
   <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">next</span><span class="p">(</span><span class="n">prec</span><span class="p">);</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span>
@@ -12497,11 +12497,11 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">V</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">V</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">auto</span> <span class="n">i_write</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
   <span class="k">for</span><span class="p">(</span> <span class="k">auto</span> <span class="n">i_read</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i_read</span> <span class="o">!=</span> <span class="n">V</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">i_read</span> <span class="p">)</span>
