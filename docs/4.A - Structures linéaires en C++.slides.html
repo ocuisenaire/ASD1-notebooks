@@ -11953,7 +11953,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="std::array&lt;T,N&gt;"><code>std::array&lt;T,N&gt;</code><a class="anchor-link" href="#std::array&lt;T,N&gt;">&#182;</a></h2><p>Disponible depuis C++11, elle fournit un interface semblable aux autres conteneurs pour des tableaux pour lesquels on aurait précédemment utilisé des tableau de type C.</p>
+<h2 id="std::array&lt;T,N&gt;"><code>std::array&lt;T,N&gt;</code><a class="anchor-link" href="#std::array&lt;T,N&gt;">&#182;</a></h2><p>Disponible depuis C++11, elle fournit un interface semblable aux autres conteneurs pour des tableaux pour lesquels on aurait précédemment utilisé des tableaux de type C.</p>
 <table>
 <thead><tr>
 <th style="text-align:left">Méthode</th>
@@ -11970,12 +11970,20 @@ a.anchor-link {
 <td style="text-align:left">retourne <code>N == 0</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>operator[i]</code> <br> <code>at(i)</code></td>
-<td style="text-align:left"> <strong>référence</strong> à l'élément d'indice <code>i</code>. <br> <code>at(i)</code> vérifie aussi si <code>i</code> est une indice valable et lève une exception sinon.</td>
+<td style="text-align:left"><code>operator[i]</code></td>
+<td style="text-align:left"> <strong>référence</strong> à l'élément d'indice <code>i</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>front()</code> <br> <code>back()</code></td>
-<td style="text-align:left"><strong>référence</strong> à l'élément en tête :<code>at(0)</code> <br> ou en queue: <code>at(N-1)</code></td>
+<td style="text-align:left"><code>at(i)</code></td>
+<td style="text-align:left">idem, mais lève une exception si <code>i</code> n'est pas un indice valable</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>front()</code></td>
+<td style="text-align:left"><strong>référence</strong> à l'élément en tête :<code>[0]</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>back()</code></td>
+<td style="text-align:left"><strong>référence</strong> à l'élément en queue: <code>[N-1]</code></td>
 </tr>
 </tbody>
 </table>
@@ -12121,7 +12129,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="std::vector&lt;T&gt;"><code>std::vector&lt;T&gt;</code><a class="anchor-link" href="#std::vector&lt;T&gt;">&#182;</a></h2><p>Tableau de taille et capacité variables, il offrent tout ce que <code>std::array&lt;T,N&gt;</code> est capable d'offrir, mais y ajoute les méthodes d'insertion et de suppression d'éléments</p>
+<h2 id="std::vector&lt;T&gt;"><code>std::vector&lt;T&gt;</code><a class="anchor-link" href="#std::vector&lt;T&gt;">&#182;</a></h2><p>Tableau de taille et capacité variables, il offre tout ce que <code>std::array&lt;T,N&gt;</code> est capable d'offrir, mais y ajoute les méthodes d'insertion et de suppression d'éléments</p>
 <table>
 <thead><tr>
 <th style="text-align:left">Méthode</th>
@@ -12359,7 +12367,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="std::forward_list&lt;T&gt;"><code>std::forward_list&lt;T&gt;</code><a class="anchor-link" href="#std::forward_list&lt;T&gt;">&#182;</a></h2><p>met en oeuvre une liste simplement chainée. Par rapport à <code>std::list&lt;T&gt;</code>, on perd</p>
+<h2 id="std::forward_list&lt;T&gt;"><code>std::forward_list&lt;T&gt;</code><a class="anchor-link" href="#std::forward_list&lt;T&gt;">&#182;</a></h2><p>disponible depuis C++11, elle met en oeuvre une liste simplement chainée. Par rapport à <code>std::list&lt;T&gt;</code>, on perd</p>
 <table>
 <thead><tr>
 <th style="text-align:left">Expression</th>
@@ -12439,7 +12447,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span> 
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> 
+<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">L</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span> 
 <span class="p">{</span>
   <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span>
   <span class="p">{</span>
@@ -12469,6 +12478,40 @@ a.anchor-link {
     <span class="k">else</span> <span class="o">++</span><span class="n">prec</span><span class="p">;</span>
     <span class="n">it</span> <span class="o">=</span> <span class="n">next</span><span class="p">(</span><span class="n">prec</span><span class="p">);</span>
   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notons que la même fonction s'écrit ainsi pour les <code>std::vector&lt;T&gt;</code>. Elle est efficace si <code>T::operator=(T&amp;&amp;)</code> est efficace.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">supprimer</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">V</span><span class="p">,</span> <span class="n">T</span> <span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">i_write</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="k">for</span><span class="p">(</span> <span class="k">auto</span> <span class="n">i_read</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i_read</span> <span class="o">!=</span> <span class="n">V</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">i_read</span> <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">i_read</span> <span class="o">!=</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+      <span class="o">*</span><span class="n">i_write</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">i_read</span><span class="p">);</span>
+      <span class="o">++</span><span class="n">i_write</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">V</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">i_write</span><span class="p">,</span><span class="n">V</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 
