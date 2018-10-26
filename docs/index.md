@@ -40,10 +40,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * [tri de Listes](4.7 - Tri de listes.slides.html)
 1. [Deque (double ended queue)](4.6 - Double ended queues.slides.html)
 1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
-1. Types de données abstraits
-    * pile (stack)
-    * queue
-    * queue de priorité (priority_queue)
+1. [Types de données abstraits pile, file et file de priorité](4.9 - TDAs Pile - File - File de priorité.slides.html)
 1. Structures linéaires en C++
     * [sequence containers](4.A - Structures linéaires en C++.slides.html)
     * [container adaptors](	4.B - Pile, Queue et Queue de priorité en Cpp.slides.html)
