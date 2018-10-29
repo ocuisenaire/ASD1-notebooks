@@ -11986,7 +11986,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12117,10 +12117,257 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Application-du-TDA-Pile">Application du TDA Pile<a class="anchor-link" href="#Application-du-TDA-Pile">&#182;</a></h2><p>Algorithme à deux piles de Dijkstra</p>
+<h2 id="Application">Application<a class="anchor-link" href="#Application">&#182;</a></h2><p>Une application classique du TDA pile consiste à évaluer une expression mathématique infixe telle que</p>
+<p><code>( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )</code></p>
+<p>Elle est basée sur l'<a href="https://fr.wikipedia.org/wiki/Algorithme_Shunting-yard">algorithme Shunting-yard</a> de <a href="https://fr.wikipedia.org/wiki/Edsger_Dijkstra">Edsger Dijkstra</a> qui convertit les expressions infixes en expressions postfixes (chapitre 5)</p>
+<p>Dans cette variante, nous utilisons 2 piles.</p>
+<ul>
+<li>une pile de valeurs numériques</li>
+<li>une pile d'opérateurs</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Utilisons une classe <code>stack</code> simple pour nos piles</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">stack</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__T</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__T</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__T</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__T</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__T</span><span class="p">:</span> 
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">el</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+        <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Définissons les opérateurs disponibles et leurs mises en oeuvres</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">operateurs</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">appliquer_operateur</span><span class="p">(</span><span class="n">gauche</span><span class="p">,</span><span class="n">operateur</span><span class="p">,</span><span class="n">droite</span><span class="p">):</span>
+    
+    <span class="k">if</span>   <span class="n">operateur</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">gauche</span> <span class="o">+</span> <span class="n">droite</span>
+    
+    <span class="k">elif</span> <span class="n">operateur</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">gauche</span> <span class="o">-</span> <span class="n">droite</span>
+    
+    <span class="k">elif</span> <span class="n">operateur</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gauche</span> <span class="o">*</span> <span class="n">droite</span>
+    
+    <span class="k">elif</span> <span class="n">operateur</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">gauche</span> <span class="o">//</span> <span class="n">droite</span>
+    
+    <span class="k">raise</span> <span class="ne">ArithmeticError</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>L'algorithme d'évaluation distingue les parenthèses, les opérateurs et les valeurs numériques. Les parenthèses droites évaluent les opérations</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluer_expression</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>     
+    <span class="n">pileOp</span> <span class="o">=</span> <span class="n">stack</span><span class="p">();</span> <span class="n">pileVal</span> <span class="o">=</span> <span class="n">stack</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">expression</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>    
+        <span class="k">if</span> <span class="n">el</span> <span class="o">==</span> <span class="s2">&quot;(&quot;</span><span class="p">:</span> <span class="k">pass</span>
+        
+        <span class="k">elif</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">operateurs</span><span class="p">:</span> <span class="n">pileOp</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">el</span> <span class="o">!=</span> <span class="s2">&quot;)&quot;</span><span class="p">:</span>  <span class="n">pileVal</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">))</span>
+        
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># el est une parenthèse droite     </span>
+            <span class="n">droite</span> <span class="o">=</span> <span class="n">pileVal</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">gauche</span> <span class="o">=</span> <span class="n">pileVal</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">op</span> <span class="o">=</span> <span class="n">pileOp</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">resultat</span> <span class="o">=</span> <span class="n">appliquer_operateur</span><span class="p">(</span><span class="n">gauche</span><span class="p">,</span><span class="n">op</span><span class="p">,</span><span class="n">droite</span><span class="p">)</span>
+            <span class="n">pileVal</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">resultat</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">pileVal</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluer_expression</span><span class="p">(</span><span class="s2">&quot;( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>el  | pileOp     | pileVal    
+----|------------|------------
+(   |            |            
+1   |            | 1          
++   | +          | 1          
+(   | +          | 1          
+(   | +          | 1          
+2   | +          | 1 2        
++   | + +        | 1 2        
+3   | + +        | 1 2 3      
+)   | +          | 1 5        
+*   | + *        | 1 5        
+(   | + *        | 1 5        
+4   | + *        | 1 5 4      
+*   | + * *      | 1 5 4      
+5   | + * *      | 1 5 4 5    
+)   | + *        | 1 5 20     
+)   | +          | 1 100      
+)   |            | 101        
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>101</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluer_expression</span><span class="p">(</span><span class="s2">&quot;( ( 2 + 3 ) * ( 4 / ( 3 - 1 ) ) )&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>el  | pileOp     | pileVal    
+----|------------|------------
+(   |            |            
+(   |            |            
+2   |            | 2          
++   | +          | 2          
+3   | +          | 2 3        
+)   |            | 5          
+*   | *          | 5          
+(   | *          | 5          
+4   | *          | 5 4        
+/   | * /        | 5 4        
+(   | * /        | 5 4        
+3   | * /        | 5 4 3      
+-   | * / -      | 5 4 3      
+1   | * / -      | 5 4 3 1    
+)   | * /        | 5 4 2      
+)   | *          | 5 2        
+)   |            | 10         
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
