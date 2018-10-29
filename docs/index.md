@@ -59,7 +59,7 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * [Linéarisation et équilibrage](5.8 - Linéarisation et équilibrage.slides.html)
 1. Types de données abstraits
     * [Ensemble (set)](5.9.A - TDA Ensemble.slides.html)
-    * Carte (map)
+    * [Tableau associatif (map)](5.9.B - TDA tableau associatif.slides.html)
 1. Arbres binaires de recherche en C++
 1. [Arbres AVL (ASD2)](5.B - Arbres AVL.slides.html)
     * [Complexité (ASD2)](5.C - Arbres AVL - complexité.slides.html)
