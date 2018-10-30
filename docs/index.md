@@ -38,13 +38,15 @@ Ces présentations sont basées sur les jupyter notebooks que vous trouverez dan
     * [simplement chainée](4.4 - Liste chainée.slides.html)
     * [doublement chainée](4.5 - Liste doublement chainée.slides.html)
     * [tri de Listes](4.7 - Tri de listes.slides.html)
-1. [Deque (double ended queue)](4.6 - Double ended queues.slides.html)
-1. [Tas (Heap)](4.8 - Notion de tas.slides.html)
-1. [Types de données abstraits pile, file et file de priorité](4.9 - TDAs Pile - File - File de priorité.slides.html)
+1. Tableaux (suite)
+    * [Deque (Double Ended QUEue)](4.6 - Double ended queues.slides.html)
+    * [Tas (Heap)](4.8 - Notion de tas.slides.html)
+1. Types de données abstraits
+    * [pile, file et file de priorité](4.9 - TDAs Pile - File - File de priorité.slides.html)
 1. Structures linéaires en C++
-    * [sequence containers](4.A - Structures linéaires en C++.slides.html)
-    * [container adaptors](	4.B - Pile, Queue et Queue de priorité en Cpp.slides.html)
-    * [heaps](4.C - Tas en Cpp.slides.html)
+    * [Sequence containers: array, vector, forward_list, list, deque](4.A - Structures linéaires en C++.slides.html)
+    * [Container adaptors: stack, queue, priority_queue](	4.B - Pile, Queue et Queue de priorité en Cpp.slides.html)
+    * [Heaps](4.C - Tas en Cpp.slides.html)
 
 ## Arbres
 
