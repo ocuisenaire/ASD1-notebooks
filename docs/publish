@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cat intro.md content.md > index.md
+sed -e 's/.html/.html?print-pdf/g' content.md > print_content.md
+cat print_intro.md print_content.md > print.md
