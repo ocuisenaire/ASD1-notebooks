@@ -205,7 +205,7 @@
 			pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
 
 			// Prints each fragment on a separate slide
-			pdfSeparateFragments: true,
+			pdfSeparateFragments: false,
 
 			// Offset used to reduce the height of content within exported PDF pages.
 			// This exists to account for environment differences based on how you
@@ -307,7 +307,7 @@
 		// Holds information about the keyboard shortcuts
 		keyboardShortcuts = {
 			'N  ,  SPACE':			'Next slide',
-			'P':					'Previous slide',
+			'P':					      'Previous slide',
 			'&#8592;  ,  H':		'Next slide',
 			'&#8594;  ,  L':		'Previous slide',
 			'&#8593;  ,  K':		'Navigate up',
