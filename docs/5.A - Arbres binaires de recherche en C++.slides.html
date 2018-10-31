@@ -11999,6 +11999,15 @@ a.anchor-link {
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/cantor.png" alt="Cantor sets"></p>
+
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12008,32 +12017,33 @@ a.anchor-link {
 <table>
 <thead><tr>
 <th style="text-align:left">Opération</th>
-<th style="text-align:left">Méthode(s)</th>
+<th style="text-align:left">Méthode(s) <code>set::...</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">Insertion</td>
-<td style="text-align:left"><code>set::insert</code><br><code>set::emplace</code><br><code>set::emplace_hint</code></td>
+<td style="text-align:left"><code>insert</code>, <code>emplace</code>, <code>emplace_hint</code></td>
 </tr>
 <tr>
 <td style="text-align:left">Construction</td>
-<td style="text-align:left"><code>set::set</code></td>
+<td style="text-align:left"><code>set</code></td>
 </tr>
 <tr>
 <td style="text-align:left">Suppression</td>
-<td style="text-align:left"><code>set::erase</code></td>
+<td style="text-align:left"><code>erase</code></td>
 </tr>
 <tr>
 <td style="text-align:left">Recherche</td>
-<td style="text-align:left"><code>set::find</code> <br><code>set::lower_bound</code><br><code>set::upper_bound</code></td>
+<td style="text-align:left"><code>find</code>, <code>lower_bound</code>, <code>upper_bound</code></td>
 </tr>
 <tr>
 <td style="text-align:left">Itération ordonnée</td>
-<td style="text-align:left"><code>set::(c)(r)begin</code><br><code>set::(c)(r)end</code></td>
+<td style="text-align:left"><code>(c)(r)begin</code>, <code>(c)(r)end</code></td>
 </tr>
 </tbody>
 </table>
+<p>Il est typiquement mis en oeuvre au moyen d'un arbre rouge-noir (ABR équilibré, voir ASD2)</p>
 
 </div>
 </div>
@@ -12043,19 +12053,68 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>L'<strong>insertion d'un élément</strong> peut se faire selon deux méthodes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">pair</span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">set</span><span class="o">::</span><span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><code>insert (const value_type&amp; val);</code><ul>
 <li>recherche l'élément en $\Theta( \log n)$, </li>
+</ul>
+<ul>
 <li>l'insère s'il est absent, </li>
+</ul>
+<ul>
 <li>retourne <code>pair&lt;iterator,bool&gt;</code> dont le second terme indique s'il y a eu insertion, </li>
+</ul>
+<ul>
 <li>et le premier élément est un itérateur vers l'élément trouvé ou inséré.</li>
 </ul>
-</li>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">pair</span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">set</span><span class="o">::</span><span class="n">insert</span> <span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> 
+                                 <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>utilise l'itérateur <code>position</code> comme indice,</li>
 </ul>
 <ul>
-<li><code>insert (const_iterator position, const value_type&amp; val);</code><ul>
-<li>utilise l'itérateur <code>position</code> comme indice,</li>
-<li>a une complexité moyenne $\Theta(1)$ si l'indice itère sur l'élément précédent <code>val</code>.</li>
+<li>a une complexité moyenne $\Theta(1)$ si l'indice itère sur l'élément <ul>
+<li>qui suivra <code>val</code> dans le <code>set</code> (C++11 et suivants)</li>
+<li>qui précédera <code>val</code> dans le <code>set</code> (C++98)</li>
 </ul>
 </li>
 </ul>
@@ -12159,7 +12218,7 @@ a.anchor-link {
 <li><code>crbegin() → crend()</code></li>
 </ul>
 <p>Parcourir tout l'arbre avec ces itérateurs à une complexité linéaire $\Theta(n)$ pour $n$ éléments.</p>
-<p>La complexité d'un <code>operator++</code> est en moyenne $\Theta(1)$, mais au pire $\Theta(\log n)$.rs</p>
+<p>La complexité d'un <code>operator++</code> est en moyenne $\Theta(1)$, mais au pire $\Theta(\log n)$.</p>
 <p>Ces itérateurs n'offrent pas d'accès aléatoire, la STL ayant choisi de ne pas stocker d'attibut <code>taille</code> en chaque noeud.</p>
 
 </div>
@@ -12643,22 +12702,47 @@ m[f] est absent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Op&#233;rations-sur-les-ensembles">Op&#233;rations sur les ensembles<a class="anchor-link" href="#Op&#233;rations-sur-les-ensembles">&#182;</a></h2><p>Les fonctions</p>
+<h2 id="Op&#233;rations-sur-les-ensembles">Op&#233;rations sur les ensembles<a class="anchor-link" href="#Op&#233;rations-sur-les-ensembles">&#182;</a></h2><p>Les fonctions <code>set_union</code>, <code>set_intersection</code>, <code>set_difference</code>, et <code>set_symmetric_difference</code> de la librairie <code>&lt;algorithm&gt;</code></p>
 <ul>
-<li><code>set_union</code></li>
-<li><code>set_intersection</code></li>
-<li><code>set_difference</code></li>
-<li><code>set_symmetric_difference</code> </li>
+<li>prennent en entrée des <strong>plages d'éléments triés</strong> </li>
+<li>écrivent le résultat trié dans un <strong>itérateur de sortie</strong> </li>
+<li>retournent l'itérateur suivant le dernier élément écrit. </li>
 </ul>
-<p>de la librairie <code>&lt;algorithm&gt;</code> prennent en entrée des <strong>plages d'éléments triés</strong> et écrivent le résultat trié dans un <strong>itérateur de sortie</strong>.</p>
-<p>Voyons les codes équivalents</p>
+<p>Leur prototype commun est</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span>
+          <span class="k">class</span> <span class="nc">OutputIterator</span><span class="o">&gt;</span>
+<span class="n">OutputIterator</span> <span class="n">set_xxx</span> <span class="p">(</span>
+    <span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+    <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span>
+    <span class="n">OutputIterator</span> <span class="n">result</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ces fonctions sont équivalentes aux codes génériques suivants</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIter2</span><span class="p">,</span>
@@ -12688,7 +12772,7 @@ m[f] est absent
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIter2</span><span class="p">,</span>
@@ -12718,7 +12802,7 @@ m[f] est absent
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIter2</span><span class="p">,</span>
@@ -12747,7 +12831,7 @@ m[f] est absent
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-c++"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIter2</span><span class="p">,</span>
@@ -12777,33 +12861,333 @@ m[f] est absent
 </div>
 </div>
 
-</div></section><section>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dans tous les cas, <strong>les deux entrées</strong> doivent être triées et sans doublons. C'est le cas si l'on utilise des <code>std::set</code>, mais on peut aussi utiliser une autre structure que l'on trie et dont on supprime les doublons</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iterator&gt; // pour back_inserter </span><span class="cp"></span>
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;set&gt;</span><span class="cp"></span>
+<span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E1</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span> 
 
-<span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">};</span> 
-<span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">};</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">U</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">SD</span><span class="p">;</span>  
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E1:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
 
-<span class="n">std</span><span class="o">::</span><span class="n">set_union</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-               <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">back_inserter</span><span class="p">(</span><span class="n">U</span><span class="p">));</span>
+</div>
+</div>
+</div>
 
-<span class="n">std</span><span class="o">::</span><span class="n">set_intersection</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-               <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">back_inserter</span><span class="p">(</span><span class="n">I</span><span class="p">));</span>
+<div class="output_wrapper">
+<div class="output">
 
-<span class="n">std</span><span class="o">::</span><span class="n">set_difference</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-               <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">back_inserter</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
-    
-<span class="n">std</span><span class="o">::</span><span class="n">set_symmetric_difference</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-               <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">back_inserter</span><span class="p">(</span><span class="n">SD</span><span class="p">));</span>
 
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E1:  [ 5, 10, 15, 20, 25]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;list&gt;</span><span class="cp"></span>
+<span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span>
+<span class="n">E2</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="n">E2</span><span class="p">.</span><span class="n">unique</span><span class="p">();</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E2:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E2:  [ 10, 20, 30, 40, 50]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;forward_list&gt;</span><span class="cp"></span>
+<span class="n">forward_list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E3</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span> 
+<span class="n">E3</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="n">E3</span><span class="p">.</span><span class="n">unique</span><span class="p">();</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E3:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E3:  [ 5, 10, 15, 20, 25]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">E4</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span>
+<span class="n">sort</span><span class="p">(</span><span class="n">E4</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">E4</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="k">auto</span> <span class="n">last</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">E4</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">E4</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">E4</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">last</span><span class="p">,</span><span class="n">E4</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E4:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E4:  [ 10, 20, 30, 40, 50]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pour la <strong>sortie</strong>, il faut fournir un emplacement où écrire les résultats. Une solution consiste à écrire dans une structure linéaire de taille suffisante, puis à supprimer les emplacements excédentaires</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">U</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">+</span><span class="n">E2</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="k">auto</span> <span class="n">lastU</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">set_union</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                          <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                          <span class="n">U</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+<span class="n">U</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">lastU</span><span class="p">,</span><span class="n">U</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;U:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E1: [ 5, 10, 15, 20, 25]
+E2: [ 10, 20, 30, 40, 50]
+U:  [ 5, 10, 15, 20, 25, 30, 40, 50]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Une autre approche consiste à utiliser une structure linéaire offrant la méthode <code>push_back</code>, en combinaison avec un <a href="http://www.cplusplus.com/reference/iterator/back_inserter/"><code>std::back_inserter</code></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iterator&gt;</span><span class="cp"></span>
+
+<span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">I</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">set_intersection</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                     <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                     <span class="n">back_inserter</span><span class="p">(</span><span class="n">I</span><span class="p">));</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E1: [ 5, 10, 15, 20, 25]
+E2: [ 10, 20, 30, 40, 50]
+I:  [ 10, 20]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Il est même possible d'utiliser un <a href="http://www.cplusplus.com/reference/iterator/front_inserter/"><code>std::front_inserter</code></a> en combinaison avec structure offrant la méthode <code>push_front</code>, mais il faut inverser le résultat</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">forward_list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">D</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">set_difference</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                    <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                    <span class="n">front_inserter</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
+<span class="n">D</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;D:  &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>E1: [ 5, 10, 15, 20, 25]
+E2: [ 10, 20, 30, 40, 50]
+D:  [ 5, 15, 25]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Voire même d'écrire directement dans un <code>std::set</code> en utilisant un <a href="http://www.cplusplus.com/reference/iterator/inserter/"><code>std::inserter</code></a> et en lui demandant d'insérer à la fin, ce qui s'effectue en temps constant depuis C++11.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-c++"><pre><span></span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">SD</span><span class="p">;</span> 
+<span class="n">std</span><span class="o">::</span><span class="n">set_symmetric_difference</span><span class="p">(</span><span class="n">E1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                              <span class="n">E2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+                              <span class="n">inserter</span><span class="p">(</span><span class="n">SD</span><span class="p">,</span><span class="n">SD</span><span class="p">.</span><span class="n">end</span><span class="p">()));</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;E2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;SD: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">(</span><span class="n">SD</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 
@@ -12821,9 +13205,8 @@ m[f] est absent
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>U:  [ 5, 10, 15, 20, 25, 30, 40, 50]
-I:  [ 10, 20]
-D:  [ 5, 15, 25]
+<pre>E1: [ 5, 10, 15, 20, 25]
+E2: [ 10, 20, 30, 40, 50]
 SD: [ 5, 15, 25, 30, 40, 50]
 </pre>
 </div>
