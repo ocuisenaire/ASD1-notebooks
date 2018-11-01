@@ -77,7 +77,7 @@ Le TDA ensemble introduit les algorithmes d'union, d'intersection, de différenc
 
 La présentation de std::set est plus précise. Elle distingue l'insertion normale en O(log n) de l'insertion avec indice en O(1), ainsi que les conséquences de cette distinction sur les complexités des autres opérations. 
 
-La présentation de std::map est plus précise et montrant plus clairement sa parenté avec std::set et en détaillant plus exactement le fonctionnement de map::operator<
+La présentation de std::map est plus précise en montrant plus clairement sa parenté avec std::set et en détaillant plus exactement le fonctionnement de map::operator<
 
 La présentation des fonctions set_union, set_intersection, set_difference et set_symmetric_difference est introduite comme mise en oeuvre du TDA ensemble. Elle permet de terminer la présentation des itérateurs de la STL avec inserter, back_inserter et front_inserter. 
 
