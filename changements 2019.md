@@ -75,7 +75,7 @@ Les TDA ensemble et tableau associatif sont présentés en tant que TDA et plus 
 
 Le TDA ensemble introduit les algorithmes d'union, d'intersection, de différence et d'inclusion. 
 
-La présentation de std::set est plus précise. Elle distingue l'insertion normale et O(log n) de l'insertion avec indice et O(1), ainsi que les conséquences de cette distinction sur les complexités des autres opérations. 
+La présentation de std::set est plus précise. Elle distingue l'insertion normale en O(log n) de l'insertion avec indice et O(1), ainsi que les conséquences de cette distinction sur les complexités des autres opérations. 
 
 La présentation de std::map est plus précise et montrant plus clairement sa parenté avec std::set et en détaillant plus exactement le fonctionnement de map::operator<
 
