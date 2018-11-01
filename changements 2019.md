@@ -43,15 +43,22 @@ La présentation des tris en C et C++ est plus exhaustive, même si certaines fo
 
 ## Chap. 4 - Structures linéaires
 
-La présentation des tableaux est plus systématique, progressive et incrémentale, n'introduisant dans chaque notebook que les méthodes nouvelles n'existant pas dans le notebook précédent. 
+La présentation des tableaux est plus systématique, progressive et incrémentale. Elle est divisée en 
 
-La structure de buffer circulaire est introduite. 
+* tableau de taille fixe
+* tableau de capacité fixe, taille variable
+* tableau de capacité fixe, taille variable et indice de début variable (buffer circulaire)
+* tableau de capacité et taille variables
+
+On introduit dans chaque notebook que les méthodes nouvelles n'existant pas dans le notebook précédent. La structure de buffer circulaire est introduite. 
 
 La présentation des listes simplement chainées est entièrement ré-écrite, introduisant pas à pas la notion d'itérateur sur ces listes.
 
 La présentation des listes doublement chainées est entièrement ré-écrite, en utilisant dès le début des itérateurs pour en écrire les méthodes 
 
-La présentation du tri de listes est entièrement ré-écrite, en utilisant les itérateurs et en introduisant progressivement la méthode splice qui permet de déplacer les maillons de la chaine. 
+Les deux structures de liste utilisent un maillon vide aux extrémités permettant l'insertion et la suppression, ce qui simplifie grandement la mise en oeuvre et est nécessaire pour les itérateurs.  
+
+La présentation du tri de listes est entièrement ré-écrite, en utilisant les itérateurs et en introduisant la méthode splice qui permet de déplacer les maillons de la chaine. 
 
 La structure de deque est présentée en détail plutôt que simplement mentionnée. 
 
@@ -63,17 +70,23 @@ La présentation des structures linéaires de la STL est divisées en 3 parties:
 
 ## Chap. 5 - Arbres
 
-La présentation des arbres génériques et plus rigoureuse, chaque notion étant accompagnée de code la mettant en oeuvre, y compris pour les représentations linéaires indentée et imbriquée. 
+La présentation des arbres génériques est plus rigoureuse, chaque notion étant accompagnée de code la mettant en oeuvre, y compris pour les représentations linéaires indentée et imbriquée. 
 
 Les algorithmes de création d'un arbre binaire à partir de deux de ses parcours sont présentés explicitement
 
-L'utilisation d'arbres pour représenter les expressions arithmétiques est présentée plus en détail. Les algorithmes de création de l'arbre depuis l'expression sont tous fournis. 
+L'utilisation d'arbres pour représenter les expressions arithmétiques est présentée plus en détail. Les algorithmes de création de l'arbre depuis une expression préfixe, infixe ou post-fixe sont tous présentés. 
 
-La présentation des arbres binaires de recherche est divisée en 5 notebooks. 
+La présentation des arbres binaires de recherche est divisée en 5 notebooks
+
+* ABR
+* itérateurs bi-directionnels
+* accès aléatoire
+* complexité des opérations
+* linéarisation et arborisation
 
 Les TDA ensemble et tableau associatif sont présentés en tant que TDA et plus simplement via la STL en C++. 
 
-Le TDA ensemble introduit les algorithmes d'union, d'intersection, de différence et d'inclusion. 
+Le TDA ensemble introduit les algorithmes d'union, d'intersection, de différence et d'inclusion, qui utilisent les itérateurs et l'arborisation
 
 La présentation de std::set est plus précise. Elle distingue l'insertion normale en O(log n) de l'insertion avec indice en O(1), ainsi que les conséquences de cette distinction sur les complexités des autres opérations. 
 
