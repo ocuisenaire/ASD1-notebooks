@@ -17,17 +17,17 @@ def verifier_indice(T,indice):
     if indice < 0 or indice >= T.taille: 
         raise IndexError("")
         
-def verifier_place_disponible(T,besoin = 1):
+def verifier_place(T,besoin = 1):
     if T.taille + besoin > T.capacite:
         raise Exception("capacité insuffisante")
            
-def lire_valeur_indice(T,indice): 
+def lire_valeur(T,indice): 
     indice = calcule_indice(T,indice)
     verifier_indice(T,indice)
     
     return T.data[indice]
     
-def ecrire_valeur_indice(T,indice,value): 
+def ecrire_valeur(T,indice,value): 
     indice = calcule_indice(T,indice)
     verifier_indice(T,indice)
 

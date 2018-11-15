@@ -11909,7 +11909,17 @@ a.anchor-link {
 <h1 id="Tableau-de-capacit&#233;-fixe">Tableau de capacit&#233; fixe<a class="anchor-link" href="#Tableau-de-capacit&#233;-fixe">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/tab2.png" alt="Tableau de capacité fixe"></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11922,7 +11932,9 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
+</aside><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11944,7 +11956,8 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
+</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -11952,43 +11965,42 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>   
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">capacite</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">capacite</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">capacite</span> <span class="o">=</span> <span class="n">capacite</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="mi">0</span>
         
 <span class="c1"># Methodes de tableau de taille fixe</span>
     <span class="fm">__str__</span>     <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">convertir_en_texte</span>
     <span class="fm">__len__</span>     <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">taille</span>
-    <span class="fm">__getitem__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">lire_valeur_indice</span>
-    <span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">ecrire_valeur_indice</span>
+    <span class="fm">__getitem__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">lire_valeur</span>
+    <span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">ecrire_valeur</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="include/capa_fixe.png" alt="tableau"></p>
-
-</div>
-</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La taille variable nous permet d'ajouter quatre nouveaux modificateurs</p>
+<p>La taille variable permet d'ajouter 4 <strong>modificateurs</strong></p>
 <ul>
 <li><code>inserer_en_queue</code> </li>
+</ul>
+<ul>
 <li><code>supprimer_en_queue</code></li>
+</ul>
+<ul>
 <li><code>inserer_en_position</code></li>
+</ul>
+<ul>
 <li><code>supprimer_en_position</code></li>
 </ul>
-<p>qui insèrent et suppriment des éléments.</p>
 
 </div>
 </div>
@@ -11997,7 +12009,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Avant de pouvoir insérer, il faut vérifier si la capacité est suffisante</p>
+<p>Avant d'insérer, il faut vérifier si la capacité est suffisante</p>
 
 </div>
 </div>
@@ -12007,9 +12019,11 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">verifier_place_disponible</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">besoin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">verifier_capacite</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">besoin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">+</span> <span class="n">besoin</span> <span class="o">&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;capacité insuffisante&quot;</span><span class="p">)</span>
+        
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;capacité </span><span class="se">\</span>
+<span class="s2">                        insuffisante&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12021,12 +12035,15 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Insertion-en-queue">Insertion en queue<a class="anchor-link" href="#Insertion-en-queue">&#182;</a></h2><p>Après avoir vérifier si la capacité le permet, il suffit d'</p>
-<ul>
-<li>écrire dans le premier emplacement non utilisé</li>
-<li>incrémenter la taille </li>
+<h2 id="Insertion-en-queue">Insertion en queue<a class="anchor-link" href="#Insertion-en-queue">&#182;</a></h2><ul>
+<li><strong>vérifier</strong> si la capacité est suffisante</li>
 </ul>
-<p>Comme les indices utilisés sont dans l'intervalle <code>[0,taille[</code>, le premier emplacement disponible est donc à l'indice <code>taille</code>, avant incrémentation</p>
+<ul>
+<li><strong>écrire</strong> dans le premier emplacement disponible</li>
+</ul>
+<ul>
+<li><strong>incrémenter</strong> la taille </li>
+</ul>
 
 </div>
 </div>
@@ -12037,8 +12054,10 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span> 
-    <span class="n">verifier_place_disponible</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">verifier_capacite</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    
     <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
+    
     <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -12052,13 +12071,13 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-        
+
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tableau plein&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12077,10 +12096,11 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>T(1/4): [0, None, None, None]
+<pre>T(0/4): [None, None, None, None]
+T(1/4): [0, None, None, None]
 T(2/4): [0, 1, None, None]
-T(3/4): [0, 1, 4, None]
-T(4/4): [0, 1, 4, 9]
+T(3/4): [0, 1, 2, None]
+T(4/4): [0, 1, 2, 3]
 Tableau plein
 </pre>
 </div>
@@ -12094,12 +12114,15 @@ Tableau plein
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Suppression-en-queue">Suppression en queue<a class="anchor-link" href="#Suppression-en-queue">&#182;</a></h2><p>Après avoir vérifié que la queue n'est pas vide, il faut</p>
-<ul>
-<li>retirer l'élément en dernière position</li>
-<li>décrémenter la taille</li>
+<h2 id="Suppression-en-queue">Suppression en queue<a class="anchor-link" href="#Suppression-en-queue">&#182;</a></h2><ul>
+<li><strong>vérifier</strong> que le tableau n'est pas vide</li>
 </ul>
-<p>la dernière position est à l'emplacement <code>taille-1</code>. La signification exacte de <em>retirer un élément</em> dépend du langage et des détails d'implantation.</p>
+<ul>
+<li><strong>retirer</strong> l'élément en dernière position</li>
+</ul>
+<ul>
+<li><strong>décrémenter</strong> la taille</li>
+</ul>
 
 </div>
 </div>
@@ -12109,10 +12132,11 @@ Tableau plein
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">):</span> 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         
     <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
+    
     <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 
@@ -12127,14 +12151,13 @@ Tableau plein
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">supprimer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">supprimer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">);</span> 
         <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tableau vide&quot;</span><span class="p">)</span>
@@ -12172,12 +12195,36 @@ Tableau vide
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Insertion-en-position-quelconque">Insertion en position quelconque<a class="anchor-link" href="#Insertion-en-position-quelconque">&#182;</a></h2><p>Il faut d'abord vérifier</p>
-<ul>
-<li>si la capacité le permet</li>
-<li>si la position d'insertion demandée est valide</li>
+<h2 id="Insertion-en-position-quelconque">Insertion en position quelconque<a class="anchor-link" href="#Insertion-en-position-quelconque">&#182;</a></h2><ul>
+<li><strong>vérifier</strong> si la capacité est suffisante</li>
 </ul>
-<p>Les positions valables sont dans l'intervalle <code>[0,taille]</code>, <code>taille</code> y compris.</p>
+<ul>
+<li><strong>vérifier</strong> si la position est valide</li>
+</ul>
+<ul>
+<li><strong>libérer</strong> l'emplacement demandé</li>
+</ul>
+<ul>
+<li><strong>écrire</strong> dans l'emplacement libéré</li>
+</ul>
+<ul>
+<li><strong>incrémenter</strong> la taille</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On peut insérer</p>
+<ul>
+<li>de devant le premier élément (<code>i == 0</code>)</li>
+</ul>
+<ul>
+<li>à derrière le dernier (<code>i == taille</code>) </li>
+</ul>
 
 </div>
 </div>
@@ -12188,7 +12235,9 @@ Tableau vide
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">verifier_indice_insertion</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">indice</span><span class="p">):</span>
+    
     <span class="k">if</span> <span class="n">indice</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">indice</span> <span class="o">&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">:</span> 
+        
         <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12197,32 +12246,21 @@ Tableau vide
 </div>
 
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Ensuite, il faut</p>
-<ul>
-<li>libérer l'emplacement demandé en déplaçant vers la droite les éléments de la position demandée à la fin</li>
-<li>écrire dans l'emplacement libéré</li>
-<li>incrémenter la taille</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">indice</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-    <span class="n">verifier_place_disponible</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">verifier_capacite</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    
     <span class="n">verifier_indice_insertion</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">indice</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">,</span><span class="n">indice</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
     <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
+    
     <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -12230,20 +12268,21 @@ Tableau vide
 </div>
 </div>
 
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> 
-    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span> 
-    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indice d&#39;insertion erroné&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12261,50 +12300,10 @@ Tableau vide
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>T(1/6): [1, None, None, None, None, None]
-T(2/6): [1, 4, None, None, None, None]
-T(3/6): [-9, 1, 4, None, None, None]
-T(4/6): [-16, -9, 1, 4, None, None]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indice erroné&quot;</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span> 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tableau plein&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Indice erroné
-T(5/6): [-16, -1, -9, 1, 4, None]
-T(6/6): [-16, -2, -1, -9, 1, 4]
-Tableau plein
+T(2/6): [2, 1, None, None, None, None]
+T(3/6): [2, 1, 3, None, None, None]
+T(4/6): [2, 4, 1, 3, None, None]
+Indice d&#39;insertion erroné
 </pre>
 </div>
 </div>
@@ -12317,42 +12316,26 @@ Tableau plein
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Suppression-en-position-quelconque">Suppression en position quelconque<a class="anchor-link" href="#Suppression-en-position-quelconque">&#182;</a></h2><p>On commence par verifier si la position demandée est valide, i.e. dans l'intervalle <code>[0,taille[</code>.</p>
-<p>Il n'est pas nécessaire de vérifier si le tableau est vide. Un tableau vide n'a pas de position valide.</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">verifier_indice</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">indice</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">indice</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">indice</span> <span class="o">&gt;=</span> <span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">:</span> 
-        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Ensuite, il faut</p>
-<ul>
-<li>selon le langage, détruire l'élément à supprimer</li>
-<li>déplacer vers la gauche les éléments de la position suivante à la fin</li>
-<li>selon le langage, libérer le dernier emplacement </li>
-<li>décrémenter la taille</li>
+<h2 id="Suppression-&#224;-l'indice-i">Suppression &#224; l'indice <code>i</code><a class="anchor-link" href="#Suppression-&#224;-l'indice-i">&#182;</a></h2><ul>
+<li><strong>vérifier</strong> si l'indice est valide  </li>
 </ul>
+<ul>
+<li><p><strong>détruire</strong> l'élément à supprimer (?)</p>
+</li>
+<li><p><strong>déplacer</strong> vers la gauche les éléments suivants</p>
+</li>
+</ul>
+<ul>
+<li><strong>libérer</strong> le dernier emplacement (?)</li>
+</ul>
+<ul>
+<li><strong>décrémenter</strong> la taille</li>
+</ul>
+<p><em>(?) selon le language de programmation</em></p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -12361,9 +12344,11 @@ Tableau plein
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">ind</span><span class="p">):</span>
     <span class="n">verifier_indice</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">ind</span><span class="p">)</span>
     
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        
     <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
+    
     <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 
@@ -12371,22 +12356,18 @@ Tableau plein
 </div>
 </div>
 
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
-    <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;supprimer(</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;): &quot;</span><span class="p">)</span>
-        <span class="n">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        
 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indice erroné&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12405,10 +12386,10 @@ Tableau plein
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>T(5/6): [0, 1, 4, 9, 16, None]
-supprimer(0): T(4/6): [1, 4, 9, 16, None, None]
-supprimer(2): T(3/6): [1, 4, 16, None, None, None]
-supprimer(4): Indice erroné
+<pre>T(6/6): [2, 6, 6, 4, 1, 3]
+T(5/6): [6, 6, 4, 1, 3, None]
+T(4/6): [6, 6, 1, 3, None, None]
+Indice erroné
 </pre>
 </div>
 </div>
@@ -12421,9 +12402,7 @@ supprimer(4): Indice erroné
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Op&#233;rations-en-t&#234;te">Op&#233;rations en t&#234;te<a class="anchor-link" href="#Op&#233;rations-en-t&#234;te">&#182;</a></h2><p>Il n'y a pas de raison de mettre en oeuvre les insertions et suppressions en tête séparément.</p>
-<p>Il suffit d'insérer ou supprimer en position 0.</p>
-
+<h2 id="Op&#233;rations-en-t&#234;te">Op&#233;rations en t&#234;te<a class="anchor-link" href="#Op&#233;rations-en-t&#234;te">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12433,6 +12412,7 @@ supprimer(4): Indice erroné
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_tete</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
+    
     <span class="n">inserer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">valeur</span><span class="p">)</span>
 </pre></div>
 
@@ -12447,6 +12427,7 @@ supprimer(4): Indice erroné
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    
     <span class="n">supprimer_en_position</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
@@ -12459,8 +12440,12 @@ supprimer(4): Indice erroné
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Complexit&#233;s">Complexit&#233;s<a class="anchor-link" href="#Complexit&#233;s">&#182;</a></h2><p>Les opérations en queue ont une complexité constante $\Theta(1)$</p>
-<p>Les opérations en position quelconque ont une complexité linéaire $\Theta(m)$ avec $m$ la distance entre la position d'insertion et la taille.</p>
+<h2 id="Complexit&#233;s">Complexit&#233;s<a class="anchor-link" href="#Complexit&#233;s">&#182;</a></h2><ul>
+<li>Opérations en queue: $\Theta(1)$</li>
+</ul>
+<ul>
+<li>Opérations en position quelconque: $\Theta(m)$ avec $m$ la distance entre la position d'insertion et la taille. </li>
+</ul>
 <p>Insérer loin de la queue est donc très inefficace</p>
 
 </div>
@@ -12470,55 +12455,26 @@ supprimer(4): Indice erroné
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="En-python">En python<a class="anchor-link" href="#En-python">&#182;</a></h2><p>Ces opérations s'appelent <code>append</code>, <code>insert</code> et <code>pop</code>. Cette dernière méthode a comme valeur par défaut la queue du tableau</p>
+<h2 id="En-C++">En C++<a class="anchor-link" href="#En-C++">&#182;</a></h2><p>Ces opération s'appèlent <code>push_back</code>, <code>pop_back</code>, <code>insert</code> et <code>erase</code>.</p>
+<h2 id="En-python">En python<a class="anchor-link" href="#En-python">&#182;</a></h2><p>Ces opérations s'appelent <code>append</code>, <code>insert</code> et <code>pop</code>. Cette dernière a pour valeur par défaut la queue du tableau</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Tableau</span><span class="p">:</span>   
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">capacite</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">capacite</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">capacite</span> <span class="o">=</span> <span class="n">capacite</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="mi">0</span>
-        
-<span class="c1"># Methodes de tableau de taille fixe</span>
-    <span class="fm">__str__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">convertir_en_texte</span>
-    <span class="fm">__len__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">taille</span>
-    <span class="fm">__get__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">lire_valeur_indice</span>
-    <span class="fm">__set__</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">ecrire_valeur_indice</span>
-    
-<span class="c1"># Nouvelles méthodes</span>
-    <span class="n">append</span>  <span class="o">=</span> <span class="n">inserer_en_queue</span>
-    <span class="n">insert</span>  <span class="o">=</span> <span class="n">inserer_en_position</span>
-    <span class="n">pop</span>     <span class="o">=</span> <span class="n">supprimer_en_position</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span> <span class="p">];</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
-<span class="n">T</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
-<span class="n">T</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">42</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">T</span><span class="o">.</span><span class="n">pop</span><span class="p">();</span> <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12535,10 +12491,11 @@ supprimer(4): Indice erroné
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>T(0/6): [None, None, None, None, None, None]
-T(5/6): [0, 1, 4, 9, 16, None]
-T(4/6): [0, 1, 9, 16, None, None]
-T(5/6): [0, 1, 9, 42, 16, None]
+<pre>[1, 3, 5, 7, 9]
+[1, 3, 5, 7, 9, 11]
+[1, 3, 7, 9, 11]
+[1, 3, 7, 42, 9, 11]
+[1, 3, 7, 42, 9]
 </pre>
 </div>
 </div>
@@ -12547,138 +12504,6 @@ T(5/6): [0, 1, 9, 42, 16, None]
 </div>
 
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Redimensionner">Redimensionner<a class="anchor-link" href="#Redimensionner">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">redimensionner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">taille_demandee</span><span class="p">,</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span> 
-    
-    <span class="k">if</span> <span class="n">taille_demandee</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">taille_demandee</span><span class="p">,</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">):</span>
-            <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  
-            
-    <span class="k">elif</span> <span class="n">taille_demandee</span> <span class="o">&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">taille_demandee</span> <span class="o">&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;capacité insuffisante&quot;</span><span class="p">)</span>       
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">taille</span><span class="p">,</span><span class="n">taille_demandee</span><span class="p">):</span>
-            <span class="n">T</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
-            
-    <span class="k">else</span><span class="p">:</span> <span class="k">pass</span> <span class="c1"># la taille ne change pas</span>
-    
-    <span class="n">T</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="n">taille_demandee</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Tableau</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>T(5/8): [0, 1, 4, 9, 16, None, None, None]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">redimensionner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>    
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>T(7/8): [0, 1, 4, 9, 16, 10, 10, None]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">redimensionner</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>T(3/8): [0, 1, 4, None, None, None, None, None]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12701,7 +12526,7 @@ T(5/6): [0, 1, 9, 42, 16, None]
 </div>
 </div><style type="text/css">
 .reveal {
-font-size: 200%;
+font-size: 270%;
 }</style>
 </div>
 </div>
@@ -12727,7 +12552,7 @@ require(
             progress: true,
             history: true,
 
-            transition: "none",
+            transition: "slide",
 
             chalkboard: {
               // optionally load pre-recorded chalkboard drawing from file
