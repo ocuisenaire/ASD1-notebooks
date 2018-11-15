@@ -4,7 +4,9 @@ HEIG-VD](http://www.heig-vd.ch).
 
 Ces présentations sont basées sur les jupyter notebooks que vous trouverez dans le repository github associé à ces pages.
 
-Pour imprimer ces slides, utilisez Google Chrome et ouvrez les présentations depuis la [page d'impression](print.html)
+Pour imprimer ces slides, utilisez Google Chrome et ouvrez les présentations depuis la [page d'impression](print.html). Il est probablement plus pertinent d'imprimer les [notebooks correspondant dans nbviewer](http://nbviewer.jupyter.org/github/ocuisenaire/ASD1-notebooks/tree/master/).
+
+Pour certains sujets, vous trouverez des demos sur le site [ASD1-Labs](../ASD1-Labs). 
 ## Introduction
 
 1. [Introduction à Python](1.0 - Introduction à Python.slides.html)
