@@ -1,12 +1,11 @@
 def convertir_en_texte(B):
     r = [ ( i + B.debut ) % B.capacite for i in range(B.taille)]
-    s = "" if B.taille > 0 else "Rien"
+    s = "" 
     for i in r:
         s += "{0} ".format(B.data[i])
-    s = "{:<10} | ".format(s)
-    s += "d: {0} | t/c: ({1}/{2}) | ".format(B.debut,B.taille,B.capacite)
-    s += "{}".format(B.data)
-
+    for i in range(B.capacite - B.taille):
+        s += "  ";
+        
     return s 
 
 class BufferCirculaire:

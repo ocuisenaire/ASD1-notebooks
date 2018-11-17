@@ -1,0 +1,16 @@
+.reveal {
+font-size: 240%;
+}
+div.cell {
+  max-width: 86%;
+  width: 86%;
+  margin: 0 8% 0 8% ;
+}
+div.prompt {
+  visibility: collapse;
+  min-width: 0;
+}
+div.input_prompt {
+  visibility: collapse;
+  min-width: 0:
+}
