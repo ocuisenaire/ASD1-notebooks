@@ -11849,7 +11849,15 @@ div.code_cell {
   background-color: transparent;
 }
 div.prompt {
-  width: 11ex;
+  width: 1ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+.prompt {
+  width: 1ex;
   padding: 0.4em;
   margin: 0px;
   font-family: monospace, sans-serif;
@@ -11909,23 +11917,28 @@ a.anchor-link {
 <h1 id="Buffer-circulaire">Buffer circulaire<a class="anchor-link" href="#Buffer-circulaire">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Principe">Principe<a class="anchor-link" href="#Principe">&#182;</a></h2><p>On étend la notion de tableau de capacité fixe en rendant la position du début variable.</p>
-<p>Quatre attributs sont alors nécessaires à cette structure</p>
-<ul>
-<li>l'addresse <em>constante</em> de début de mémoire allouée</li>
-<li>la capacité <em>constante</em></li>
-<li>la taille <em>variable</em></li>
-<li>la position de début <em>variable</em></li>
-</ul>
+<p><img src="include/circ1.png" alt=""></p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Si l'insertion en queue d'un tableau de capacité fixe est efficace, c'est parce que la position de la fin du tableau est variable. Elle est contrôlée par la variable <code>taille</code>.</p>
+<p>Par contre, le début est fixe en position <code>0</code>, ce qui rend l'insertion en tête coûteuse.</p>
+
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -11933,54 +11946,29 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">BufferCirculaire</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">capacite</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">capacite</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">capacite</span> <span class="o">=</span> <span class="n">capacite</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="mi">0</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="mi">0</span>
-    
-    <span class="fm">__str__</span>     <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">convertir_en_texte</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indices">Indices<a class="anchor-link" href="#Indices">&#182;</a></h2><p>Chaque emplacement en mémoire a 2 indices distincts</p>
-<ul>
-<li>un indice <strong>physique</strong> qui donne sa position em mémoire</li>
-<li>un indice <strong>logique</strong> qui donne sa position depuis <code>self.debut</code>.
-<img src="include/circulaire_1.png" alt="buffer circulaire"></li>
+<h2 id="Deux-indices-par-emplacement">Deux indices par emplacement<a class="anchor-link" href="#Deux-indices-par-emplacement">&#182;</a></h2><ul>
+<li>l'indice <strong>physique</strong> donne sa position en mémoire</li>
+<li>l'indice <strong>logique</strong> donne sa position depuis <code>self.debut</code>.</li>
 </ul>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logique</span><span class="p">):</span> <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logique</span>
-
-<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_physique</span><span class="p">):</span> <span class="k">return</span> <span class="n">i_physique</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Mieux, on utilise la mémoire allouée de manière cyclique, en calculant les indices physiques modulo la capacité.</p>
-<p><img src="include/circulaire_2.png" alt="buffer circulaire"></p>
 
 </div>
 </div>
@@ -11990,11 +11978,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logique</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logique</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
-
-<span class="k">def</span> <span class="nf">indice_logique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_physique</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span> <span class="o">+</span> <span class="n">i_physique</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logique</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logique</span>
 </pre></div>
 
 </div>
@@ -12006,63 +11991,37 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cela permet d'utiliser toute la mémoire allouée.</p>
-<p>Si nécessaire, i.e. quand <code>debut + taille &gt;= capacite</code>,</p>
-<p>Les indices logiques <code>[0,taille[</code> correspondent</p>
-<p>aux indices physiques <code>[debut,capacite[</code>,</p>
-<p>suivis de <code>[0,debut + taille - capacite[</code></p>
+<p>On rend le buffer cyclique en calculant les indices physiques modulo la capacité.</p>
+<p><img src="include/circulaire_2.png" alt="buffer circulaire"></p>
 
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">BufferDemo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;capacité:         &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;taille:           &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;debut:            &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tableau physique: &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tableau logique:  &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)],</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i_logic</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">+</span> <span class="n">i_logic</span><span class="p">)</span> <span class="o">%</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>capacité:          6
-taille:            5
-debut:             4
-tableau physique:  [4, 9, 16, None, 0, 1]
-tableau logique:   0 1 4 9 16 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">BufferDemo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Capacité: &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille:   &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Début:    &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Physique: &quot;</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logique:  &quot;</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12079,7 +12038,11 @@ tableau logique:   0 1 4 9 16 </pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1 4 9 16  | d: 4 | t/c: (5/6) | [4, 9, 16, None, 0, 1]
+<pre>Capacité:  6
+Taille:    5
+Début:     4
+Physique:  [4, 9, 16, None, 0, 1]
+Logique:   0 1 4 9 16   
 </pre>
 </div>
 </div>
@@ -12087,12 +12050,19 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Op&#233;rations">Op&#233;rations<a class="anchor-link" href="#Op&#233;rations">&#182;</a></h2><p>Ces fonctions de traduction entre indices logiques et physiques nous permettent d'écrire aisément les opérations essentielles du buffer circulaire, toutes de complexité $\Theta(1)$</p>
+<h2 id="Op&#233;rations">Op&#233;rations<a class="anchor-link" href="#Op&#233;rations">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Insertion en tête et en queue</li>
 </ul>
@@ -12110,7 +12080,7 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Insertions">Insertions<a class="anchor-link" href="#Insertions">&#182;</a></h3><p>Pour insérer en queue, il suffit d'écrire à l'emplacement d'indice logique <code>B.taille</code> et d'incrémenter la taille</p>
+<h3 id="Insertions">Insertions<a class="anchor-link" href="#Insertions">&#182;</a></h3><p>Pour insérer en queue, il faut écrire à l'indice logique <code>B.taille</code> et incrémenter la taille</p>
 
 </div>
 </div>
@@ -12121,9 +12091,10 @@ tableau logique:   0 1 4 9 16 </pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         
-    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="p">)]</span> <span class="o">=</span> <span class="n">valeur</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="p">)]</span> <span class="o">=</span> <span class="n">valeur</span>
     <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -12131,12 +12102,12 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour insérer en tête, il faut écrire à l'indice logique <code>-1</code> et déplacer le <code>debut</code> en plus d'incrémenter la taille</p>
+<p>Pour insérer en tête, il faut écrire à l'indice logique <code>-1</code>,  déplacer le <code>debut</code> et incrémenter la taille</p>
 
 </div>
 </div>
@@ -12147,9 +12118,10 @@ tableau logique:   0 1 4 9 16 </pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">capacite</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         
-    <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
     <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
@@ -12158,20 +12130,18 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BufferCirculaire</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>:
-        <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>: inserer_en_queue(B,i)
+    <span class="k">else</span><span class="p">:</span>   <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12188,11 +12158,11 @@ tableau logique:   0 1 4 9 16 </pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Rien       | d: 0 | t/c: (0/4) | [None, None, None, None]
-0          | d: 3 | t/c: (1/4) | [None, None, None, 0]
-0 1        | d: 3 | t/c: (2/4) | [1, None, None, 0]
-2 0 1      | d: 2 | t/c: (3/4) | [1, None, 2, 0]
-2 0 1 3    | d: 2 | t/c: (4/4) | [1, 3, 2, 0]
+<pre>         [None, None, None, None]
+0        [None, None, None, 0] 3
+0 1      [1, None, None, 0] 3
+2 0 1    [1, None, 2, 0] 2
+2 0 1 3  [1, 3, 2, 0] 2
 </pre>
 </div>
 </div>
@@ -12205,25 +12175,37 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Suppressions">Suppressions<a class="anchor-link" href="#Suppressions">&#182;</a></h3><p>Les suppressions fonctionnent de manière similaire. Elles</p>
+<h3 id="Suppressions">Suppressions<a class="anchor-link" href="#Suppressions">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>détruisent l'élément en tête ou en queue</li>
-<li>décrémentent la taille</li>
+<li>vérifier si le buffer est non vide</li>
+<li>détruire l'élément en tête ou en queue</li>
+<li>décrémenter la taille</li>
 </ul>
-<p>et la suppression en tête incrémente l'indice physique du <code>debut</code>.</p>
+<p>pour la suppression en tête,</p>
+<ul>
+<li>déplacer l'indice physique du <code>debut</code>.</li>
+</ul>
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         
-    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">taille</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -12231,17 +12213,18 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         
     <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="o">-=</span> <span class="mi">1</span>
 </pre></div>
 
@@ -12249,64 +12232,20 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div></div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BufferCirculaire</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>:
-        <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Rien       | d: 0 | t/c: (0/3) | [None, None, None]
-0          | d: 0 | t/c: (1/3) | [0, None, None]
-0 1        | d: 0 | t/c: (2/3) | [0, 1, None]
-1          | d: 1 | t/c: (1/3) | [None, 1, None]
-1 2        | d: 1 | t/c: (2/3) | [None, 1, 2]
-1 2 3      | d: 1 | t/c: (3/3) | [3, 1, 2]
-2 3        | d: 2 | t/c: (2/3) | [3, None, 2]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BufferCirculaire</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>:
-        <span class="n">supprimer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span>
+    <span class="n">inserer_en_queue</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span>
+    <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">debut</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12323,13 +12262,12 @@ tableau logique:   0 1 4 9 16 </pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Rien       | d: 0 | t/c: (0/3) | [None, None, None]
-0          | d: 2 | t/c: (1/3) | [None, None, 0]
-1 0        | d: 1 | t/c: (2/3) | [None, 1, 0]
-1          | d: 1 | t/c: (1/3) | [None, 1, None]
-2 1        | d: 0 | t/c: (2/3) | [2, 1, None]
-3 2 1      | d: 2 | t/c: (3/3) | [2, 1, 3]
-3 2        | d: 2 | t/c: (2/3) | [2, None, 3]
+<pre>0      [0, None, None] 0
+0 1    [0, 1, None] 0
+1      [None, 1, None] 1
+1 2    [None, 1, 2] 1
+1 2 3  [3, 1, 2] 1
+2 3    [3, None, 2] 2
 </pre>
 </div>
 </div>
@@ -12354,7 +12292,8 @@ tableau logique:   0 1 4 9 16 </pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getitem</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
         <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)]</span>
+        
+    <span class="k">return</span> <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)]</span>
 </pre></div>
 
 </div>
@@ -12370,14 +12309,15 @@ tableau logique:   0 1 4 9 16 </pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">setitem</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">B</span><span class="o">.</span><span class="n">taille</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
         <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">indice_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">valeur</span> 
+        
+    <span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i_physique</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">valeur</span> 
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
@@ -12405,97 +12345,6 @@ tableau logique:   0 1 4 9 16 </pre>
 </div>
 </div>
 
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Classe-python">Classe python<a class="anchor-link" href="#Classe-python">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">BufferCirculaire</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">capacite</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">capacite</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacite</span> <span class="o">=</span> <span class="n">capacite</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">taille</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">debut</span> <span class="o">=</span> <span class="mi">0</span>
-    
-    <span class="fm">__str__</span>     <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">convertir_en_texte</span>
-    <span class="fm">__getitem__</span> <span class="o">=</span> <span class="n">getitem</span>
-    <span class="fm">__setitem__</span> <span class="o">=</span> <span class="n">setitem</span>
-    <span class="n">append</span>      <span class="o">=</span> <span class="n">inserer_en_queue</span>
-    <span class="n">appendleft</span>  <span class="o">=</span> <span class="n">inserer_en_tete</span>
-    
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">taille</span>
-    <span class="k">def</span> <span class="nf">maxlen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacite</span>
-    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">supprimer_en_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span> 
-    <span class="k">def</span> <span class="nf">popleft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Cette classe peut-être utilisée comme une queue FIFO ou comme une queue à deux fins.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">BufferCirculaire</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">popleft</span><span class="p">(),</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">B</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1 2 3 4 10 11 12 13 14 
-15 16 17 18 19 </pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12517,10 +12366,7 @@ tableau logique:   0 1 4 9 16 </pre>
 </table>
 </div>
 </div>
-</div><style type="text/css">
-.reveal {
-font-size: 200%;
-}</style></section></section>
+</div></section></section>
 </div>
 </div>
 
@@ -12545,7 +12391,11 @@ require(
             progress: true,
             history: true,
 
-            transition: "none",
+            transition: "slide",
+            width: '100%',
+            height: '100%',
+
+            transition: 'none',
 
             chalkboard: {
               // optionally load pre-recorded chalkboard drawing from file

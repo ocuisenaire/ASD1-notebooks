@@ -11849,7 +11849,15 @@ div.code_cell {
   background-color: transparent;
 }
 div.prompt {
-  width: 11ex;
+  width: 1ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+.prompt {
+  width: 1ex;
   padding: 0.4em;
   margin: 0px;
   font-family: monospace, sans-serif;
@@ -11909,6 +11917,15 @@ a.anchor-link {
 <h1 id="Liste-Simplement-Chain&#233;e">Liste Simplement Chain&#233;e<a class="anchor-link" href="#Liste-Simplement-Chain&#233;e">&#182;</a></h1>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_1.png" alt=""></p>
+
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11918,25 +11935,14 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="B&#233;n&#233;fice:">B&#233;n&#233;fice:<a class="anchor-link" href="#B&#233;n&#233;fice:">&#182;</a></h4><p>Aucune déplacement d'élément n'est nécessaire pour</p>
+<p><strong>Bénéfice:</strong> Aucun déplacement nécessaire pour insérer ou supprimer</p>
+<p><strong>Coûts:</strong></p>
 <ul>
-<li>l'insertion </li>
-<li>la suppression </li>
-</ul>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#160;Co&#251;ts:">&#160;Co&#251;ts:<a class="anchor-link" href="#&#160;Co&#251;ts:">&#182;</a></h4><ul>
 <li>stocker explicitement l'emplacement de l'élément suivant</li>
 <li>avancer de $k$ positions = passer $k$ fois à l'élément suivant</li>
 <li>utilisation moins efficace de la mémoire cache</li>
@@ -11944,7 +11950,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11965,11 +11971,10 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Maillon</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">valeur</span>       
-        <span class="bp">self</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="kc">None</span> 
         
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnee</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">valeur</span>       
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="kc">None</span> 
 </pre></div>
 
 </div>
@@ -11986,10 +11991,10 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tete</span> <span class="o">=</span> <span class="n">Maillon</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> 
@@ -12001,48 +12006,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nous utilisons une fonction annexe pour afficher cette liste</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">include.liste_simple</span> <span class="k">as</span> <span class="nn">h</span><span class="p">;</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>12 → 99 → 37 → ⌀
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12071,10 +12035,10 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">traverser</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; → &quot;</span><span class="p">)</span>
-        <span class="n">traverser</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
+        <span class="n">afficher</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⌀&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12089,7 +12053,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">traverser</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12119,7 +12083,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>on peut l'écrire itérativement</p>
+<p>Mieux, on peut l'écrire itérativement</p>
 
 </div>
 </div>
@@ -12129,7 +12093,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">traverser</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
     <span class="k">while</span> <span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; → &quot;</span><span class="p">)</span>
         <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
@@ -12146,7 +12110,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">traverser</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12171,7 +12135,8 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12180,7 +12145,8 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12191,19 +12157,30 @@ a.anchor-link {
 <li>créer un nouveau maillon qui deviendra la tête</li>
 <li>faire de l'ancienne tête le maillon suivant la nouvelle tête</li>
 </ul>
-<p><img src="include/folist_2.png" alt=""></p>
 
 </div>
 </div>
 </div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_2.png" alt=""></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_en_tete</span><span class="p">(</span><span class="n">ancienne_tete</span><span class="p">,</span> <span class="n">valeur</span><span class="p">):</span>
+    
     <span class="n">nouvelle_tete</span> <span class="o">=</span> <span class="n">Maillon</span><span class="p">(</span><span class="n">valeur</span><span class="p">)</span>
+    
     <span class="n">nouvelle_tete</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">ancienne_tete</span>
+    
     <span class="k">return</span> <span class="n">nouvelle_tete</span>
 </pre></div>
 
@@ -12211,15 +12188,22 @@ a.anchor-link {
 </div>
 </div>
 
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_2.png" alt=""></p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
-<span class="n">tete</span> <span class="o">=</span> <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">tete</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12237,7 +12221,6 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>12 → 99 → 37 → ⌀
-25 → 12 → 99 → 37 → ⌀
 </pre>
 </div>
 </div>
@@ -12245,41 +12228,14 @@ a.anchor-link {
 </div>
 </div>
 
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Supprimer en tête est encore plus simple. Il suffit de remplacer la tête par l'élément suivant</p>
-<p><img src="include/folist_3.png" alt=""></p>
-
-</div>
-</div>
-</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">ancienne_tete</span><span class="p">):</span>
-    <span class="k">assert</span><span class="p">(</span><span class="n">ancienne_tete</span><span class="p">)</span>
-    <span class="n">nouvelle_tete</span> <span class="o">=</span> <span class="n">ancienne_tete</span><span class="o">.</span><span class="n">suivant</span>
-    <span class="k">return</span> <span class="n">nouvelle_tete</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
-<span class="n">tete</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tete</span> <span class="o">=</span> <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">tete</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12297,7 +12253,6 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>25 → 12 → 99 → 37 → ⌀
-12 → 99 → 37 → ⌀
 </pre>
 </div>
 </div>
@@ -12305,56 +12260,82 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Attention, dans un langage où il faut détruire explicitement les objets alloués dynamiquement - comme le C++ - il ne faut pas oublier de détruire le maillon supprimé</p>
-
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Op&#233;rations-en-position-quelconque">Op&#233;rations en position quelconque<a class="anchor-link" href="#Op&#233;rations-en-position-quelconque">&#182;</a></h2><p>Insérer ou supprimer après un maillon connu est également efficace.</p>
-<p>Pour insérer un élément derrière le maillon <code>M</code>, il faut</p>
-<ul>
-<li>créer un nouveau maillon</li>
-<li>insérer ce maillon entre <code>M</code> et <code>M.suivant</code></li>
-</ul>
-<p><img src="include/folist_4.png" alt=""></p>
-
-</div>
-</div>
 </div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pour <strong>supprimer en tête</strong> il suffit de remplacer la tête par l'élément suivant</p>
+<p><img src="include/folist_3.png" alt=""></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">valeur</span><span class="p">):</span>
-    <span class="k">assert</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="n">nouveau</span> <span class="o">=</span> <span class="n">Maillon</span><span class="p">(</span><span class="n">valeur</span><span class="p">)</span>
-    <span class="n">nouveau</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
-    <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">nouveau</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_en_tete</span><span class="p">(</span><span class="n">ancienne_tete</span><span class="p">):</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">ancienne_tete</span><span class="p">)</span>
+    
+    <span class="n">nouvelle_tete</span> <span class="o">=</span> <span class="n">ancienne_tete</span><span class="o">.</span><span class="n">suivant</span>
+    
+    <span class="k">return</span> <span class="n">nouvelle_tete</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_3.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>25 → 12 → 99 → 37 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
-<span class="n">inserer_apres</span><span class="p">(</span><span class="n">tete</span><span class="o">.</span><span class="n">suivant</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tete</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+<span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12372,7 +12353,6 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>12 → 99 → 37 → ⌀
-12 → 99 → 42 → 37 → ⌀
 </pre>
 </div>
 </div>
@@ -12380,13 +12360,37 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour supprimer l'élément suivant le maillon M, il suivit de faire pointer <code>M.suivant</code> vers l'élément suivant celui à supprimer</p>
-<p><img src="include/folist_5.png" alt=""></p>
+<p>Attention, dans un langage où il faut détruire explicitement les objets alloués dynamiquement - comme le C++ - il ne faut pas oublier de détruire le maillon supprimé</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Op&#233;rations-en-position-quelconque">Op&#233;rations en position quelconque<a class="anchor-link" href="#Op&#233;rations-en-position-quelconque">&#182;</a></h2><p>Insérer ou supprimer après un maillon connu est également efficace.</p>
+<p>Pour insérer un élément derrière le maillon <code>M</code>, il faut</p>
+<ul>
+<li>créer un nouveau maillon</li>
+<li>insérer ce maillon entre <code>M</code> et <code>M.suivant</code></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_4.png" alt=""></p>
 
 </div>
 </div>
@@ -12396,24 +12400,68 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="k">assert</span><span class="p">(</span><span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">suivant</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">valeur</span><span class="p">):</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    
+    <span class="n">nouveau</span> <span class="o">=</span> <span class="n">Maillon</span><span class="p">(</span><span class="n">valeur</span><span class="p">)</span>
+    
+    <span class="n">nouveau</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
+    
+    <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">nouveau</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_4.png" alt=""></p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
-<span class="n">supprimer_apres</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">tete</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12 → 99 → 37 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inserer_apres</span><span class="p">(</span><span class="n">tete</span><span class="o">.</span><span class="n">suivant</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12431,7 +12479,105 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>12 → 99 → 42 → 37 → ⌀
-12 → 42 → 37 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pour supprimer l'élément suivant le maillon M, il suivit de faire pointer <code>M.suivant</code> vers l'élément suivant celui à supprimer</p>
+<p><img src="include/folist_5.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    
+    <span class="k">assert</span><span class="p">(</span><span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">)</span>
+    
+    <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">suivant</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="include/folist_5.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12 → 99 → 42 → 37 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">supprimer_apres</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+<span class="n">afficher</span><span class="p">(</span><span class="n">tete</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12 → 42 → 37 → ⌀
 </pre>
 </div>
 </div>
@@ -12451,10 +12597,28 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">zeros_un_deux</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">oter_repetitions</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">M</span><span class="o">.</span><span class="n">donnee</span> <span class="o">==</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">donnee</span><span class="p">:</span>
+            <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">afficher</span><span class="p">(</span><span class="n">zeros_un_deux</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12479,32 +12643,14 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">oter_repetitions</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="k">while</span> <span class="n">M</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">M</span><span class="o">.</span><span class="n">donnee</span> <span class="o">==</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">donnee</span><span class="p">:</span>
-            <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">oter_repetitions</span><span class="p">(</span><span class="n">zeros_un_deux</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">zeros_un_deux</span><span class="p">))</span>
+<span class="n">afficher</span><span class="p">(</span><span class="n">zeros_un_deux</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12529,54 +12675,72 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Classe-forward_list">Classe <code>forward_list</code><a class="anchor-link" href="#Classe-forward_list">&#182;</a></h2><p>S'il est possible de se contenter de la classe (ou structure) <code>Maillon</code>, il peut être utile de définir une classe <code>forward_list</code> qui</p>
-<ul>
-<li>se souvient de <strong>quel maillon est la tête</strong>. On évite ainsi de devoir écrire <code>tete = inserer_en_tete(tete,25)</code>, qui est source d'erreurs si l'on oublie d'affecter le résultat à <code>tete</code></li>
-</ul>
-<ul>
-<li>stocke éventuellement d'autres informations comme la <strong>taille de la liste</strong>. Sinon, calculer la taille d'une liste de $n$ éléments est un opération de complexité $\Theta(n)$</li>
-</ul>
-<p>Les noms de la classe et des méthodes singent ceux de la classe <code>std::forward_list</code> du C++. Mais attention, celle-ci ne stocke pas la taille et n'a donc pas de méthode <code>size()</code></p>
+<h2 id="Classe-forward_list">Classe <code>forward_list</code><a class="anchor-link" href="#Classe-forward_list">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tete</span> <span class="o">=</span> <span class="n">inserer_en_tete</span><span class="p">(</span><span class="n">tete</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
-</div></section><section>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>pour l'insertion est source d'erreur. Il est trop facile d'oublier <code>tete =</code></p>
+<p>La classe <code>forward_list</code> stocke et gère le <strong>maillon de tête</strong>, plus  éventuellement d'autre information comme le nombre d'éléments.</p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sinon, calculer la taille d'une liste de $n$ éléments est un opération de complexité $\Theta(n)$.</p>
+<p>Les noms de la classe et des méthodes singent ceux de la classe <code>std::forward_list</code> du C++. `</p>
+
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">forward_list</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__t</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># tête</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># taille</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="kc">None</span> 
         
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__t</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__t</span> <span class="o">==</span> <span class="kc">None</span>
-    
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__n</span>
-    
-    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__t</span> <span class="o">=</span> <span class="n">inserer_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__t</span><span class="p">,</span><span class="n">valeur</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">inserer_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">val</span><span class="p">);</span> 
 
     <span class="k">def</span> <span class="nf">pop_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__t</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__t</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">supprimer_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">);</span> 
         
-    <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
-        <span class="n">inserer_apres</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">valeur</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="n">inserer_apres</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">val</span><span class="p">);</span> 
 
     <span class="k">def</span> <span class="nf">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
         <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">-=</span> <span class="mi">1</span>
+        
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">==</span> <span class="kc">None</span>
 </pre></div>
 
 </div>
@@ -12584,23 +12748,14 @@ a.anchor-link {
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Exemples d'utilisation</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">forward_list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">4</span>)
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">3</span>)
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -12618,7 +12773,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
+<pre>2 → 1 → 0 → 2 → 1 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -12629,7 +12784,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span><span class="o">.</span><span class="n">pop_front</span><span class="p">()</span>
@@ -12650,38 +12805,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>9
+<pre>1 → 0 → 2 → 1 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -12695,41 +12819,33 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="It&#233;rer-sur-une-liste">It&#233;rer sur une liste<a class="anchor-link" href="#It&#233;rer-sur-une-liste">&#182;</a></h2><p>Pour rendre cette classe réellement utile, il faut pouvoir <strong>boucler sur ses éléments</strong> indépendamment de sa structure interne.</p>
-<p>Pour cela, nous introduisons les fonctions suivantes qui cachent entièrement les notions de maillon, de tête de chaine, ...</p>
+<p>Pour cela, nous introduisons les fonctions suivantes qui cachent  les notions de maillon, de tête de chaine, ...</p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>     <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">_forward_list__t</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>   <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">t</span>
 
-<span class="k">def</span> <span class="nf">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>       <span class="k">return</span> <span class="kc">None</span>
+<span class="k">def</span> <span class="nf">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>     <span class="k">return</span> <span class="kc">None</span>
 
-<span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>   <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">suivant</span>
+<span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">suivant</span>
 
-<span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>   <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span>
+<span class="k">def</span> <span class="nf">getv</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span>
 
-<span class="k">def</span> <span class="nf">set_val</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">v</span><span class="p">):</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">v</span>
+<span class="k">def</span> <span class="nf">setv</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>  <span class="n">m</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">v</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Note:</em> <code>L._forward_list__t</code> est le nom externe de l'attribut "privé" <code>__t</code> en python</p>
+</div><aside class="notes">
 
-</div>
-</div>
-</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12750,27 +12866,29 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Exemples d'utilisation</p>
+<p>On peut ré-écrire la fonction d'affichage</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">debut</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">getv</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; → &quot;</span><span class="p">)</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⌀&quot;</span><span class="p">)</span>
+    
 <span class="n">afficher</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -12788,23 +12906,33 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 3 2 1 0 3 2 1 0 </pre>
+<pre>1 → 0 → 2 → 1 → 0 → ⌀
+</pre>
 </div>
 </div>
 
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Une fonction qui incrémente tous les éléments</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">incrementer_tout</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">debut</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-        <span class="n">set_val</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">setv</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">getv</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="n">incrementer_tout</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -12824,8 +12952,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-1 → 4 → 3 → 2 → 1 → 4 → 3 → 2 → 1 → ⌀
+<pre>1 → 0 → 2 → 1 → 0 → ⌀
+2 → 1 → 3 → 2 → 1 → ⌀
 </pre>
 </div>
 </div>
@@ -12833,16 +12961,25 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section><section>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Une fonction qui insère un zèro après chaque un.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inserer_zero_apres_un</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">debut</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">getv</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">L</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
@@ -12863,8 +13000,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 4 → 3 → 2 → 1 → 4 → 3 → 2 → 1 → ⌀
-1 → 0 → 4 → 3 → 2 → 1 → 0 → 4 → 3 → 2 → 1 → 0 → ⌀
+<pre>2 → 1 → 3 → 2 → 1 → ⌀
+2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -12872,16 +13009,25 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Une fonction qui supprime tous les éléments de valeur 'val'</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">debut</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="ow">and</span> <span class="n">get_val</span><span class="p">(</span><span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="ow">and</span> <span class="n">getv</span><span class="p">(</span><span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
             <span class="n">L</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span> <span class="n">m</span> <span class="o">=</span> <span class="n">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
             
@@ -12902,8 +13048,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 4 → 3 → 2 → 1 → 0 → 4 → 3 → 2 → 1 → 0 → ⌀
-1 → 4 → 3 → 2 → 1 → 4 → 3 → 2 → 1 → ⌀
+<pre>2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
+2 → 1 → 3 → 2 → 1 → ⌀
 </pre>
 </div>
 </div>
@@ -12911,22 +13057,22 @@ a.anchor-link {
 </div>
 </div>
 
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Mais attention, cette fonction n'est pas correctement écrite. Essayons de supprimer la valeur 1</p>
+<p>Mais attention, cette fonction n'est pas correctement écrite. Essayons de supprimer la valeur 2</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12943,8 +13089,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 4 → 3 → 2 → 1 → 4 → 3 → 2 → 1 → ⌀
-1 → 4 → 3 → 2 → 4 → 3 → 2 → ⌀
+<pre>2 → 1 → 3 → 2 → 1 → ⌀
+2 → 1 → 3 → 1 → ⌀
 </pre>
 </div>
 </div>
@@ -12952,7 +13098,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12961,7 +13107,7 @@ a.anchor-link {
 <p>Il est impossible avec le faire avec <code>erase_after</code>, puisqu'elle est en tête et pas après un autre maillon.</p>
 <p>Comment faire?</p>
 <ul>
-<li>ré-écrire la fonction <code>supprimer_valeurs</code> ?</li>
+<li>ré-écrire <code>supprimer_valeurs</code> ?</li>
 </ul>
 <ul>
 <li>ré-écrire la classe <code>forward_list</code> ! </li>
@@ -12969,14 +13115,24 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="forward_list-am&#233;lior&#233;e"><code>forward_list</code> am&#233;lior&#233;e<a class="anchor-link" href="#forward_list-am&#233;lior&#233;e">&#182;</a></h2><p>Le problème étant que l'on avait pas de maillon avant la tête,</p>
-<p>la solution est simple: plaçons un maillon <strong>avant la tête</strong></p>
-<p>Ce maillon ne stocke pas d'élément, il sert uniquement à stocker le maillon de tête dans son attribut <code>suivant</code>.</p>
+<h2 id="forward_list-am&#233;lior&#233;e"><code>forward_list</code> am&#233;lior&#233;e<a class="anchor-link" href="#forward_list-am&#233;lior&#233;e">&#182;</a></h2><p>Le problème étant que l'on avait pas de maillon avant la tête, la solution est simple: placer un maillon <strong>avant la tête</strong> qui</p>
+<ul>
+<li>ne stocke pas d'élément</li>
+<li>stocke un lien vers le maillon de tête dans son attribut <code>suivant</code>. </li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Le plus proprement possible, il a son propre type</p>
 
 </div>
@@ -12984,11 +13140,12 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MaillonVide</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="kc">None</span> 
 </pre></div>
 
@@ -12996,45 +13153,30 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Réécrire le code de la classe est immédiat, et légèrement simplifié puisque <code>push_front</code> peut maintenant appeler <code>insert_after</code></p>
-
-</div>
-</div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">forward_list</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__av</span> <span class="o">=</span> <span class="n">MaillonVide</span><span class="p">()</span> <span class="c1"># avant tête</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># taille  </span>
-        
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__av</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">==</span> <span class="mi">0</span>
-    
-    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__n</span>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">av</span> <span class="o">=</span> <span class="n">MaillonVide</span><span class="p">()</span> <span class="c1"># avant tête</span>
+                
     <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
         <span class="n">inserer_apres</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">val</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">+=</span> <span class="mi">1</span>
-        
-    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__av</span><span class="p">,</span><span class="n">val</span><span class="p">)</span>
-        
+                
     <span class="k">def</span> <span class="nf">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
         <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">-=</span> <span class="mi">1</span>
-        
+     
+    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="p">,</span><span class="n">val</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">pop_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__av</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="o">.</span><span class="n">suivant</span> <span class="o">==</span> <span class="kc">None</span>
 </pre></div>
 
 </div>
@@ -13051,25 +13193,31 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span> <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">_forward_list__av</span>
-<span class="k">def</span> <span class="nf">debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>       <span class="k">return</span> <span class="n">suivant</span><span class="p">(</span><span class="n">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>         <span class="k">return</span> <span class="kc">None</span>
-<span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>     <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">suivant</span>
-<span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>     <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span>
-<span class="k">def</span> <span class="nf">set_val</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>   <span class="n">m</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">v</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span> <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">av</span>
+
+<span class="k">def</span> <span class="nf">debut</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>   <span class="k">return</span> <span class="n">suivant</span><span class="p">(</span><span class="n">avant_debut</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>     <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">suivant</span>
+
+<span class="k">def</span> <span class="nf">getv</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">donnee</span>
+
+<span class="k">def</span> <span class="nf">setv</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>  <span class="n">m</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">v</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13078,19 +13226,20 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La fonction 'supprimer_valeur' se réécrit en itérant depuis <code>avant_debut(L)</code></p>
+<p>La fonction <code>supprimer_valeur</code> se réécrit en itérant depuis <code>avant_debut(L)</code></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
@@ -13098,7 +13247,7 @@ a.anchor-link {
     <span class="n">precedent</span> <span class="o">=</span> <span class="n">courant</span>
     <span class="k">while</span> <span class="n">courant</span> <span class="o">!=</span> <span class="n">fin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
         <span class="n">courant</span> <span class="o">=</span> <span class="n">suivant</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">courant</span> <span class="ow">and</span> <span class="n">get_val</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">courant</span> <span class="ow">and</span> <span class="n">getv</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
             <span class="n">L</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="n">precedent</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">precedent</span> <span class="o">=</span> <span class="n">courant</span>
@@ -13108,16 +13257,15 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">forward_list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">4</span>)
-<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span> 
+    <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">3</span>)
 <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 
@@ -13135,8 +13283,39 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-1 → 3 → 2 → 1 → 3 → 2 → 1 → ⌀
+<pre>1 → 0 → 2 → 1 → 0 → 2 → 1 → 0 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 → 2 → 0 → 2 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -13149,19 +13328,16 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Classe-fl_iterator">Classe <code>fl_iterator</code><a class="anchor-link" href="#Classe-fl_iterator">&#182;</a></h2><p>Il est souvent plus pratique d'utiliser des objets plutôt que des fonctions pour itérer.</p>
-<p>On définit une nouvelle classe <code>fl_iterator</code> qui</p>
+<h2 id="Classe-fl_iterator">Classe <code>fl_iterator</code><a class="anchor-link" href="#Classe-fl_iterator">&#182;</a></h2><p>Il est plus pratique d'utiliser des objets que des fonctions pour itérer. La classe <code>fl_iterator</code></p>
 <ul>
-<li>conserve un pointeur vers un des maillons de la chaine</li>
-</ul>
-<ul>
-<li>mets en oeuvre les fonctions <code>get_val</code> et <code>set_val</code> vues précédemment</li>
-</ul>
-<ul>
-<li>sépare la fonction <code>suivant</code> en <code>incr</code>, <code>copie</code> et <code>suivant</code></li>
-</ul>
-<ul>
-<li>met aussi en oeuvre l'opérateur d'égalité via <code>__eq__</code> pour nous permettre d'arrêter nos boucles.</li>
+<li><p>gère un pointeur vers un des maillons</p>
+</li>
+<li><p>met en oeuvre <code>getv</code> et <code>setv</code></p>
+</li>
+<li><p>sépare la fonction <code>suivant</code> en <code>incr</code>, <code>copie</code> et <code>suivant</code></p>
+</li>
+<li><p>met en oeuvre l'opérateur d'égalité pour pouvoir arrêter nos boucles.</p>
+</li>
 </ul>
 
 </div>
@@ -13180,37 +13356,27 @@ a.anchor-link {
 </aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">fl_iterator</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">maillon</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__M</span> <span class="o">=</span> <span class="n">maillon</span>
-        
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__M</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">maillon</span>
+    <span class="k">def</span> <span class="nf">getv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">donnee</span>
+    <span class="k">def</span> <span class="nf">setv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">val</span>   
     <span class="k">def</span> <span class="nf">incr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__M</span><span class="o">.</span><span class="n">suivant</span>
-        <span class="k">return</span> <span class="bp">self</span>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">suivant</span>
     <span class="k">def</span> <span class="nf">copie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-        <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__M</span><span class="p">)</span>
-    
+        <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>  
     <span class="k">def</span> <span class="nf">suivant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copie</span><span class="p">();</span> 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="n">s</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
-    
-    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__M</span><span class="o">.</span><span class="n">donnee</span>
-    
-    <span class="k">def</span> <span class="nf">set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__M</span><span class="o">.</span><span class="n">donnee</span> <span class="o">=</span> <span class="n">val</span>
-        
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>  
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span><span class="n">fl_iterator</span><span class="p">)</span> \
-               <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__M</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">__M</span>
+               <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">M</span>
 </pre></div>
 
 </div>
@@ -13218,69 +13384,28 @@ a.anchor-link {
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Les fonctions <code>avant_debut</code>, <code>debut</code> et <code>fin</code> retournent maintenant des objets <code>forward_list_iterator</code> et deviennent des méthodes de la classe <code>forward_list</code></p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">forward_list_before_begin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">_forward_list__av</span><span class="p">)</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">before_begin</span> <span class="o">=</span> <span class="n">forward_list_before_begin</span>
-
-<span class="k">def</span> <span class="nf">forward_list_begin</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">_forward_list__av</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span> <span class="n">forward_list_begin</span>
-
-<span class="k">def</span> <span class="nf">forward_list_end</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">forward_list_end</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>L'interface d'insertion/suppression prend maintenant des itérateurs en paramètres et plus des maillons</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">forward_list_insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">it</span> <span class="p">,</span><span class="n">val</span><span class="p">):</span>
-    <span class="n">inserer_apres</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">_fl_iterator__M</span><span class="p">,</span><span class="n">val</span><span class="p">);</span> 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_forward_list__n</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">insert_after</span> <span class="o">=</span> <span class="n">forward_list_insert_after</span>        
-        
-<span class="k">def</span> <span class="nf">forward_list_push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_begin</span><span class="p">(),</span><span class="n">val</span><span class="p">)</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">push_front</span> <span class="o">=</span> <span class="n">forward_list_push_front</span>
-
-<span class="k">def</span> <span class="nf">forward_list_erase_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">it</span><span class="p">):</span>
-    <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">_fl_iterator__M</span><span class="p">);</span> 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_forward_list__n</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">erase_after</span> <span class="o">=</span> <span class="n">forward_list_erase_after</span>
-
-<span class="k">def</span> <span class="nf">forward_list_pop_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_begin</span><span class="p">())</span>
-<span class="n">forward_list</span><span class="o">.</span><span class="n">pop_front</span> <span class="o">=</span> <span class="n">forward_list_pop_front</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">forward_list</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">av</span> <span class="o">=</span> <span class="n">MaillonVide</span><span class="p">()</span> 
+    <span class="k">def</span> <span class="nf">before_begin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">begin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">av</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fl_iterator</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">inserer_apres</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">);</span>         
+    <span class="k">def</span> <span class="nf">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">it</span><span class="p">):</span>
+        <span class="n">supprimer_apres</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">M</span><span class="p">);</span> 
+    <span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_begin</span><span class="p">(),</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">pop_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_begin</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -13299,14 +13424,14 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
     <span class="n">prec</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">before_begin</span><span class="p">()</span>
     <span class="n">it</span> <span class="o">=</span> <span class="n">prec</span><span class="o">.</span><span class="n">suivant</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="o">.</span><span class="n">end</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">getv</span><span class="p">()</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span> 
             <span class="n">L</span><span class="o">.</span><span class="n">erase_after</span><span class="p">(</span><span class="n">prec</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span> 
             <span class="n">prec</span> <span class="o">=</span> <span class="n">it</span>
@@ -13317,15 +13442,16 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">forward_list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">4</span>)
-<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">3</span>)
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13342,8 +13468,39 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-1 → 3 → 2 → 1 → 3 → 2 → 1 → ⌀
+<pre>1 → 0 → 2 → 1 → 0 → 2 → 1 → 0 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">supprimer_valeurs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 → 2 → 0 → 2 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -13363,14 +13520,14 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">copie_liste_naive</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">forward_list</span><span class="p">()</span>
     <span class="n">it</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
     <span class="k">while</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="o">.</span><span class="n">end</span><span class="p">():</span>
-        <span class="n">C</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">C</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">getv</span><span class="p">())</span>
         <span class="n">it</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">C</span>
 </pre></div>
@@ -13379,15 +13536,16 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="n">forward_list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="n">L1</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">4</span>)
-<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">copie_liste_naive</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span> 
+    <span class="n">L1</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">3</span>)
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13404,8 +13562,39 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-0 → 1 → 2 → 3 → 0 → 1 → 2 → 3 → 0 → 1 → ⌀
+<pre>1 → 0 → 2 → 1 → 0 → 2 → 1 → 0 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="n">copie_liste_naive</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 → 1 → 2 → 0 → 1 → 2 → 0 → 1 → ⌀
 </pre>
 </div>
 </div>
@@ -13418,15 +13607,14 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pour copier sans inverser, il faut insérer en queue et pas en tête.</p>
-<p>Cette opération n'est pas directement disponible, mais elle le devient si l'on se souvient du dernier élément de la liste en construction.</p>
+<p>Pour ne pas inverser, il faut insérer en queue - pas en tête - donc se souvenir du dernier élément de la liste en construction.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">copie_liste</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
@@ -13434,7 +13622,7 @@ a.anchor-link {
     <span class="n">it</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
     <span class="n">last_of_C</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">before_begin</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">L</span><span class="o">.</span><span class="n">end</span><span class="p">():</span>
-        <span class="n">C</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">last_of_C</span><span class="p">,</span><span class="n">it</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">C</span><span class="o">.</span><span class="n">insert_after</span><span class="p">(</span><span class="n">last_of_C</span><span class="p">,</span><span class="n">it</span><span class="o">.</span><span class="n">getv</span><span class="p">())</span>
         <span class="n">last_of_C</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
         <span class="n">it</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">C</span>
@@ -13444,13 +13632,13 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">copie_liste</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13467,8 +13655,39 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
-1 → 0 → 3 → 2 → 1 → 0 → 3 → 2 → 1 → 0 → ⌀
+<pre>1 → 0 → 2 → 1 → 0 → 2 → 1 → 0 → ⌀
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="n">copie_liste</span><span class="p">(</span><span class="n">L1</span><span class="p">);</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 → 0 → 2 → 1 → 0 → 2 → 1 → 0 → ⌀
 </pre>
 </div>
 </div>
@@ -13491,6 +13710,14 @@ a.anchor-link {
 <li>insertion et suppression en tête</li>
 <li>insertion et suppression après une position connue</li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Il n'y a ni pas d'accès indexé ou d'opération en queue.</p>
 <p>La mise en oeuvre de l'itération et l'utilisation d'un noeud vide en tête simplifient l'utilisation de la structure.</p>
 
@@ -13517,10 +13744,7 @@ a.anchor-link {
 </table>
 </div>
 </div>
-</div><style type="text/css">
-.reveal {
-font-size: 200%;
-}</style>
+</div></section></section>
 </div>
 </div>
 
@@ -13545,7 +13769,11 @@ require(
             progress: true,
             history: true,
 
-            transition: "none",
+            transition: "slide",
+            width: '100%',
+            height: '100%',
+
+            transition: 'none',
 
             chalkboard: {
               // optionally load pre-recorded chalkboard drawing from file
