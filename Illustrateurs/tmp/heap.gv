@@ -1,0 +1,20 @@
+// Heap
+graph {
+	node [fillcolor=white fixedsize=true heigth=0.6 shape=circle style=filled width=0.6]
+	bgcolor=transparent
+	0 [label=8 fontname=courier fontsize=22]
+	1 [label=5 fontname=courier fontsize=22]
+	2 [label=7 fontname=courier fontsize=22]
+	3 [label=4 fontname=courier fontsize=22]
+	4 [label=1 fontname=courier fontsize=22]
+	5 [label=6 fontname=courier fontsize=22]
+	6 [label=3 fontname=courier fontsize=22]
+	7 [label=2 fontname=courier fontsize=22]
+	0 -- 1
+	0 -- 2
+	1 -- 3
+	1 -- 4
+	2 -- 5
+	2 -- 6
+	3 -- 7
+}
